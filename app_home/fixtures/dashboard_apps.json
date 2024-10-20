@@ -1,0 +1,690 @@
+[
+{
+  "model": "app_home.dashboardapp",
+  "pk": 3,
+  "fields": {
+    "keyname": "sirene",
+    "displayname": "Météo SI",
+    "description": "Notification to users",
+    "url": "/sirene/private/",
+    "icon": "fa-sun-o",
+    "page": "",
+    "order": 40,
+    "state": "enabled",
+    "version": "3.0beta",
+    "permission": 139
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 4,
+  "fields": {
+    "keyname": "home",
+    "displayname": "Home Dashboard",
+    "description": "Home page",
+    "url": "/home/private/",
+    "icon": "fa-home",
+    "page": "",
+    "order": 9999,
+    "state": "hidden",
+    "version": "1.2",
+    "permission": 152
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 5,
+  "fields": {
+    "keyname": "sms",
+    "displayname": "SMS Sarbacane",
+    "description": "Send SMS to users",
+    "url": "/sms/private/",
+    "icon": "fa-mobile",
+    "page": "",
+    "order": 110,
+    "state": "disabled",
+    "version": "0.1",
+    "permission": null
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 6,
+  "fields": {
+    "keyname": "user",
+    "displayname": "People",
+    "description": "Users, Groups and Roles",
+    "url": "/user/private/",
+    "icon": "fa-user-plus",
+    "page": "",
+    "order": 60,
+    "state": "enabled",
+    "version": "0.9",
+    "permission": 151
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 7,
+  "fields": {
+    "keyname": "vault",
+    "displayname": "Vault",
+    "description": "Hidden test app",
+    "url": "/vault/",
+    "icon": "fa-key",
+    "page": "",
+    "order": 100,
+    "state": "hidden",
+    "version": "0.1",
+    "permission": null
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 8,
+  "fields": {
+    "keyname": "hedeas",
+    "displayname": "Hedeas",
+    "description": "HelpDesk Assistant",
+    "url": "/hedeas/private/",
+    "icon": "fa-phone",
+    "page": "",
+    "order": 150,
+    "state": "disabled",
+    "version": "0.1",
+    "permission": null
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 9,
+  "fields": {
+    "keyname": "data",
+    "displayname": "MDM",
+    "description": "Data Management",
+    "url": "/data/private/",
+    "icon": "fa-database",
+    "page": "",
+    "order": 50,
+    "state": "enabled",
+    "version": "0.2",
+    "permission": 155
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 10,
+  "fields": {
+    "keyname": "log",
+    "displayname": "Log Journal",
+    "description": "Log Journal",
+    "url": "/log/private/",
+    "icon": "fa-list",
+    "page": "",
+    "order": 600,
+    "state": "enabled",
+    "version": "0.4",
+    "permission": 156
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 11,
+  "fields": {
+    "keyname": "conf",
+    "displayname": "Configuration",
+    "description": "Sirene configuration",
+    "url": "/conf/private/",
+    "icon": "fa-wrench",
+    "page": "",
+    "order": 700,
+    "state": "enabled",
+    "version": "0.5",
+    "permission": 154
+  }
+},
+{
+  "model": "app_home.dashboardapp",
+  "pk": 12,
+  "fields": {
+    "keyname": "fileshare",
+    "displayname": "File Share",
+    "description": "Quick file sharing",
+    "url": "/fileshare/private/",
+    "icon": "fa-exchange",
+    "page": "",
+    "order": 200,
+    "state": "disabled",
+    "version": "0.0",
+    "permission": null
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 8,
+  "fields": {
+    "keyname": "p_user_pref",
+    "appname": "user",
+    "displayname": "Edit self preferences",
+    "description": "Edit self preferences",
+    "default": true
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 23,
+  "fields": {
+    "keyname": "p_log_view",
+    "appname": "log",
+    "displayname": "View logs",
+    "description": "UI access to logs",
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 24,
+  "fields": {
+    "keyname": "p_log_manage",
+    "appname": "log",
+    "displayname": "Purge logs",
+    "description": "UI access to purge logs",
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 107,
+  "fields": {
+    "keyname": "p_user_export",
+    "appname": "user",
+    "displayname": "User export",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 108,
+  "fields": {
+    "keyname": "p_user_import",
+    "appname": "user",
+    "displayname": "User import",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 114,
+  "fields": {
+    "keyname": "p_group_export",
+    "appname": "user",
+    "displayname": "Group export",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 115,
+  "fields": {
+    "keyname": "p_group_import",
+    "appname": "user",
+    "displayname": "Group import",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 116,
+  "fields": {
+    "keyname": "p_user_map",
+    "appname": "user",
+    "displayname": "map users to groups",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 117,
+  "fields": {
+    "keyname": "p_group_map",
+    "appname": "user",
+    "displayname": "map groups to groups",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 118,
+  "fields": {
+    "keyname": "p_role_ro",
+    "appname": "user",
+    "displayname": "Roles RO",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 119,
+  "fields": {
+    "keyname": "p_role_rw",
+    "appname": "user",
+    "displayname": "Roles RW and perms",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 120,
+  "fields": {
+    "keyname": "p_role_map",
+    "appname": "user",
+    "displayname": "map groups to roles",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 121,
+  "fields": {
+    "keyname": "p_user_rw",
+    "appname": "user",
+    "displayname": "User Read/Write",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 122,
+  "fields": {
+    "keyname": "p_user_ro",
+    "appname": "user",
+    "displayname": "User: read/Only",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 123,
+  "fields": {
+    "keyname": "p_group_rw",
+    "appname": "user",
+    "displayname": "Group Read/Write",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 124,
+  "fields": {
+    "keyname": "p_group_ro",
+    "appname": "user",
+    "displayname": "Group Read/Write",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 125,
+  "fields": {
+    "keyname": "p_user_delete",
+    "appname": "user",
+    "displayname": "User delete",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 126,
+  "fields": {
+    "keyname": "p_group_delete",
+    "appname": "user",
+    "displayname": "Group delete",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 127,
+  "fields": {
+    "keyname": "p_user_debug",
+    "appname": "user",
+    "displayname": "Access Env debug",
+    "description": null,
+    "default": true
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 128,
+  "fields": {
+    "keyname": "p_sirene_public_read",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 129,
+  "fields": {
+    "keyname": "p_sirene_public_cud",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 130,
+  "fields": {
+    "keyname": "p_sirene_public_push",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 131,
+  "fields": {
+    "keyname": "p_sirene_template_cud",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 132,
+  "fields": {
+    "keyname": "p_sirene_template_read",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 133,
+  "fields": {
+    "keyname": "p_sirene_cat_read",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 134,
+  "fields": {
+    "keyname": "p_sirene_cat_cud",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 135,
+  "fields": {
+    "keyname": "p_sirene_import",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 136,
+  "fields": {
+    "keyname": "p_sirene_export",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 137,
+  "fields": {
+    "keyname": "p_sirene_flushall",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 138,
+  "fields": {
+    "keyname": "p_sirene_new",
+    "appname": "sirene",
+    "displayname": "Create a notification",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 139,
+  "fields": {
+    "keyname": "p_sirene_access",
+    "appname": "sirene",
+    "displayname": "Access to app, view private messages",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 140,
+  "fields": {
+    "keyname": "p_sirene_detail",
+    "appname": "sirene",
+    "displayname": null,
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 141,
+  "fields": {
+    "keyname": "p_sirene_access_restricted",
+    "appname": "sirene",
+    "displayname": "Can view private messages of other users",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 142,
+  "fields": {
+    "keyname": "p_sirene_history",
+    "appname": "sirene",
+    "displayname": "View history",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 143,
+  "fields": {
+    "keyname": "p_sirene_update",
+    "appname": "sirene",
+    "displayname": "Update an existing message",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 144,
+  "fields": {
+    "keyname": "p_sirene_conf",
+    "appname": "sirene",
+    "displayname": "Access to admin menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 145,
+  "fields": {
+    "keyname": "p_sirene_app_read",
+    "appname": "sirene",
+    "displayname": "Access to app edit menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 146,
+  "fields": {
+    "keyname": "p_sirene_site_read",
+    "appname": "sirene",
+    "displayname": "Access to site edit menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 147,
+  "fields": {
+    "keyname": "p_sirene_sitegroup_read",
+    "appname": "sirene",
+    "displayname": "Access to sitegroup edit menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 148,
+  "fields": {
+    "keyname": "p_sirene_user_read",
+    "appname": "sirene",
+    "displayname": "Access to user edit menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 149,
+  "fields": {
+    "keyname": "p_sirene_group_read",
+    "appname": "sirene",
+    "displayname": "Access to group edit menu",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 150,
+  "fields": {
+    "keyname": "p_sirene_anonymous",
+    "appname": "sirene",
+    "displayname": "Can access anonymous page (trusted_ip, visitor, ...)",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 151,
+  "fields": {
+    "keyname": "p_user_access",
+    "appname": "user",
+    "displayname": "Access to User App UI",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 152,
+  "fields": {
+    "keyname": "p_home_access",
+    "appname": "home",
+    "displayname": "UI access",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 153,
+  "fields": {
+    "keyname": "p_home_update",
+    "appname": "home",
+    "displayname": "Update dasboard",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 154,
+  "fields": {
+    "keyname": "p_conf_access",
+    "appname": "conf",
+    "displayname": "Access App Conf",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 155,
+  "fields": {
+    "keyname": "p_data_access",
+    "appname": "data",
+    "displayname": "Access UI",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 156,
+  "fields": {
+    "keyname": "p_log_access",
+    "appname": "log",
+    "displayname": "Access UI",
+    "description": null,
+    "default": false
+  }
+}
+]

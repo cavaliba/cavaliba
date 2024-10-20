@@ -1,0 +1,112 @@
+# -----------------------------------
+# DEV - no oauth2proxy & IDP
+# basic NGINX authentication
+# ------------------------------------
+
+version: '3.0'
+
+# networks:
+#     default:
+#       name: sirene
+
+services:
+
+  sirene_nginx:
+    image: nginx:latest
+    container_name: sirene_nginx
+    volumes:
+      - ./conf/nginx_sirene.conf:/etc/nginx/conf.d/default.conf
+      #- ./conf/htpasswd:/etc/nginx/htpasswd
+      - ./log/nginx/:/var/log/nginx/
+      - ./web/logo:/logo
+      - static_volume:/static_collect
+    ports:
+      - 8000:80
+      - 443:443
+    env_file:
+      - ./env
+    depends_on:
+      - sirene_app
+
+
+  sirene_app:
+    build: 
+       context: ./django
+       dockerfile: Dockerfile
+    #image: sirene_app:0.26
+    container_name: sirene_app
+    command: python manage.py runserver 0.0.0.0:8001
+    #command: /docker-entrypoint.sh
+    #command: gunicorn mysite.wsgi:application --bind 0.0.0.0:8001 --log-level debug  --access-logfile '-' --error-logfile '-' 
+    #command: gunicorn mysite.wsgi:application --bind 0.0.0.0:8001 --log-level info --workers=5  --access-logfile '-' --error-logfile '-' 
+    volumes:
+      # dev mode / auto-reload
+      - ./django/:/app
+      - ./sms/:/data/sms
+      - ./mail/:/data/mail
+      - ./import/:/data/import
+      - ./export/:/data/export
+      - ./web/logo:/logo
+      - ./web/templates:/app/templates2
+      - static_volume:/static_collect
+    expose:
+      - 8001
+    env_file:
+      - ./env
+    depends_on:
+      - sirene_db
+
+
+  sirene_celery:
+    build: 
+       context: ./django
+       dockerfile: Dockerfile    
+    #image: sirene_app:0.26
+    container_name: sirene_celery
+    #command: python manage.py runserver 0.0.0.0:8000
+    working_dir: /app
+    command: celery --workdir /app -A core worker --loglevel=info --concurrency 3
+    volumes:
+      - ./django/:/app
+      - ./sms/:/data/sms
+      - ./mail/:/data/mail
+      - ./import/:/data/import
+      - ./export/:/data/export
+      - ./web/logo:/logo
+      - ./web/templates:/app/templates2      
+      - static_volume:/static_collect
+    env_file:
+      - ./env
+    depends_on:
+      - sirene_app
+      - sirene_redis
+      - sirene_db
+
+  sirene_db:
+    image: mariadb:10.10
+    container_name: sirene_db
+    volumes:
+      - ./db:/var/lib/mysql
+    expose:
+      - 3306
+    env_file:
+      - ./env
+
+
+
+
+  sirene_redis:
+    image: redis:7.0.2-alpine3.16
+    container_name: sirene_redis
+    expose:
+      - 6379
+    # ports:
+    #   - "6379:6379"
+    # volumes:
+    #   - cache:/data
+    env_file:
+      - ./env
+
+volumes:
+  static_volume:
+  cache:

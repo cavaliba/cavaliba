@@ -1,0 +1,63 @@
+{% extends "app_sirene/anonymous_base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+<h3><i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i> &nbsp; Messages</h3>
+<hr>
+<br>
+
+{% if  privatepages %}
+ <table class="table table-striped table-hover">
+
+{% for page in privatepages %} <tr>
+
+<td class="py-1 px-1 mx-0">
+<a class="text-decoration-none" href="{% url 'app_sirene:anonymous_detail' page.id %}">
+<i class="fa fa-plus" aria-hidden="true"></i> &nbsp; 
+{{ page.title }}
+</a>
+</td>
+
+<td class="py-1 text-center h6">
+<a class="text-decoration-none" href="{% url 'app_sirene:anonymous_detail' page.id %}">
+<span class="badge text-bg-{{ page.bgcolor }} w-100">
+{% translate page.severity %}
+</span>
+</a>
+</td>
+
+<td class="py-1 px-1 mx-0 text-center">
+<a class="text-decoration-none" href="{% url 'app_sirene:anonymous_detail' page.id %}">
+{{ page.category }}
+</a>
+</td>
+
+
+<td class="py-1 px-1 mx-0">
+<a class="text-decoration-none" href="{% url 'app_sirene:anonymous_detail' page.id %}">
+<i>
+{{ page.created_at|date:'Y-m-d H:i:s (D)' }} - {{ page.created_at|timesince }} 
+</i>
+</a>
+</td>
+
+<td class="py-1 px-1 mx-0">
+{% if  page.updated_at %}
+<a class="text-decoration-none" href="{% url 'app_sirene:anonymous_detail' page.id %}">
+<span class="badge badge-pill badge-dark">+ {{ page.updates.count }} messages</span>
+<span class="badge badge-light">{{ page.updated_at|timesince }} </span>
+</a>
+{% endif %}
+</td>
+
+</tr>{% endfor %}
+
+</table>{% else %}
+<p> Pas de message. </p>
+{% endif %}
+
+{% endblock %}
+

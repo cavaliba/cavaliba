@@ -1,0 +1,105 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_conf/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+{% if appname %}
+<h3>{% translate "Configuration" %}</h3>
+  <p class="text-muted">{{ appname }}</p>
+{% else %}<h3>Configuration</h3>
+<p class="text-muted">{% translate 'Select application to configure' %}</p>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- <hr>
+{% for app in apps %}
+<a class="mx-3" href="{% url 'app_conf:private' app.keyname %}"><i class="fa {{ app.icon }} fa-2x"></i></a>
+{% endfor %}
+<hr>
+ -->
+
+<hr>
+<div class="row row-cols-2 row-cols-sm-6 row-cols-md-6 row-cols-lg-12 g-12">
+{% for app in apps %}
+<div class="col py-2">
+    <div class="card h-100 shadow-lg">  
+      <div class="card-header">
+        <div class="text-center"> <i class="fa {{ app.icon }} fa-2x"></i></div>
+      </div>
+      <div class="card-body">
+        <div class="text-center">
+          <b><a class="stretched-link" href="{% url 'app_conf:private' app.keyname %}">{{ app.displayname }}</a>
+        </b></div> 
+      </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% if appname %}
+<hr>
+<h3>{{ appname}}</h3>
+<hr>
+<form method="post">{% csrf_token %}
+<a class="btn btn-outline-dark" href="{% url 'app_conf:private' %}" role="button">
+    <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate "Back" %} </a>
+
+<input class="btn btn-danger mx-2" type="submit" value="Enregistrer" name="save">
+<hr>
+<table class="table">
+  {{ form.as_table }}
+</table>
+</form>
+{% endif %}
+
+
+
+
+
+
+
+
+
+<!-- 
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+  </li>
+
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#sirene-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Sirene</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">User</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Conf</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>SMS</button>
+  </li>
+
+</ul>
+
+
+
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
+  <div class="tab-pane fade show active" id="sirene-tab-pane" role="tabpanel" aria-labelledby="sirene-tab" tabindex="0"></div>
+  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+
+</div> -->
+
+{% endblock %}

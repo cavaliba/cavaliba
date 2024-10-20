@@ -1,0 +1,134 @@
+[
+{
+  "model": "app_data.dataclass",
+  "pk": 1,
+  "fields": {
+    "keyname": "site",
+    "displayname": "Sites and HQ",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataclass",
+  "pk": 2,
+  "fields": {
+    "keyname": "app",
+    "displayname": "Applications",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataclass",
+  "pk": 3,
+  "fields": {
+    "keyname": "pc",
+    "displayname": "PC Laptop and Desktop",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataclass",
+  "pk": 4,
+  "fields": {
+    "keyname": "network",
+    "displayname": "Network Devices",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataclass",
+  "pk": 5,
+  "fields": {
+    "keyname": "vm",
+    "displayname": "Virtual Machines",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataclass",
+  "pk": 6,
+  "fields": {
+    "keyname": "server",
+    "displayname": "Physical Servers",
+    "is_enabled": true
+  }
+},
+{
+  "model": "app_data.dataschema",
+  "pk": 3,
+  "fields": {
+    "classobj": 1,
+    "keyname": "description",
+    "displayname": "Site Description",
+    "dataformat": "string",
+    "dataformat_ext": null,
+    "order": 100,
+    "cardinal_min": 0,
+    "cardinal_max": 1
+  }
+},
+{
+  "model": "app_data.dataschema",
+  "pk": 4,
+  "fields": {
+    "classobj": 2,
+    "keyname": "description",
+    "displayname": "App Description",
+    "dataformat": "string",
+    "dataformat_ext": null,
+    "order": 100,
+    "cardinal_min": 0,
+    "cardinal_max": 1
+  }
+},
+{
+  "model": "app_data.dataschema",
+  "pk": 5,
+  "fields": {
+    "classobj": 1,
+    "keyname": "address",
+    "displayname": "Site Address",
+    "dataformat": "string",
+    "dataformat_ext": null,
+    "order": 200,
+    "cardinal_min": 0,
+    "cardinal_max": 1
+  }
+},
+{
+  "model": "app_data.dataschema",
+  "pk": 6,
+  "fields": {
+    "classobj": 2,
+    "keyname": "editor",
+    "displayname": "App Editor",
+    "dataformat": "string",
+    "dataformat_ext": null,
+    "order": 200,
+    "cardinal_min": 0,
+    "cardinal_max": 1
+  }
+},
+{
+  "model": "app_data.datainstance",
+  "pk": 1,
+  "fields": {
+    "classobj": 1,
+    "keyname": "ced",
+    "displayname": "Site 31CED",
+    "is_enabled": true,
+    "data_json": "{ \r\n\"description\":\"Test CED\" \r\n}"
+  }
+},
+{
+  "model": "app_data.datainstance",
+  "pk": 2,
+  "fields": {
+    "classobj": 2,
+    "keyname": "app01",
+    "displayname": "Application Test 01",
+    "is_enabled": true,
+    "data_json": "{\r\ndescription: \"Test app 01\"\r\n}"
+  }
+}
+]

@@ -1,0 +1,20 @@
+{% load static %}
+{% load i18n %}
+
+
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'app_user:user_list' %}">
+    <i class="fa fa-lg fa-user" aria-hidden="true"></i>&nbsp; {% translate 'Users' %}</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'app_user:group_list' %}">
+    <i class="fa fa-lg fa-users" aria-hidden="true"></i>&nbsp; {% translate 'Groups' %}</a>
+</li>
+
+
+
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'app_user:role_list' %}">
+    <i class="fa fa-lg fa-user-secret" aria-hidden="true"></i>&nbsp; {% translate 'Roles' %}</a>
+</li>

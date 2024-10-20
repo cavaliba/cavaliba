@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-22 18:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app_conf/configuration_form.py:18
+msgid "Global application name for display"
+msgstr "Nom global de l'application Sirene"
+
+#: app_conf/configuration_form.py:26
+msgid "Default value is ;"
+msgstr "Valeur par défaut ; (point-virgule)"
+
+#: app_conf/configuration_form.py:34
+msgid "Logo size in navbar ; use 0 to display icon."
+msgstr "Taille du logo dans la barre de navigation ; 0 pour un logo"
+
+#: app_conf/configuration_form.py:61
+msgid "Authentication mechanism."
+msgstr "Méchanisme d'authentification"
+
+#: app_conf/configuration_form.py:66
+msgid "Login to use if AUTH_MODE is forced"
+msgstr "Login à utiliser pour le mode AUTH_MODE=forced"
+
+#: app_conf/configuration_form.py:73
+msgid "Token field name for login (default: X-User)"
+msgstr "Champ login dans le Token de fédération (défaut; X-User)"
+
+#: app_conf/configuration_form.py:79
+msgid "Token field name for email (default: X-Email)"
+msgstr "Champ email dans le Token de fédération (défaut; X-Email)"
+
+#: app_conf/configuration_form.py:85
+msgid "Remove domain name from login ; yes/no (default: yes)"
+msgstr "Retirer le nom de domaine dans les logins (défaut: oui)"
+
+#: app_conf/configuration_form.py:100
+msgid ""
+"Allow / Create user dynamically if authenticated exteranlly but not in DB "
+msgstr ""
+"Création automatique des utilisateurs en base si authentifiés extérieurement"
+
+#: app_conf/configuration_form.py:105
+msgid "Allowed IP/CIDR for anonymous access, comma separated"
+msgstr "Plage IP/CIDR autorisées en accès anonyme (séparation par virgule)"
+
+#: app_conf/configuration_form.py:117
+msgid "Display AAA debug information"
+msgstr ""
+
+#: app_conf/configuration_form.py:123
+msgid "Display additional AAA debug information, groups, perms, ...."
+msgstr ""
+
+#: app_conf/configuration_form.py:129
+msgid "Use session cache (performance)"
+msgstr ""
+
+#: app_conf/configuration_form.py:136
+msgid "Login to impersonate if sysadmin"
+msgstr "Login à utiliser (sysadmin seulement)"
+
+#: app_conf/configuration_form.py:150
+msgid "Number of days of logs to keep in database (default: 31)"
+msgstr "Nombre de jours de conservation de logs en base (défaut: 31)"
+
+#: app_conf/configuration_form.py:156
+msgid "Do you want to enable logging for debug level ?"
+msgstr "Activer les logs en niveau DEBUG ?"
+
+#: app_conf/configuration_form.py:169
+msgid "Max size before using partial lists and ajax queries"
+msgstr "Taille maximale pour passer en vue partielle / ajax"
+
+#: app_conf/configuration_form.py:189
+msgid "Max number of public messages to display (default: 5)"
+msgstr "Nombre maximum de message public à afficher (défaut: 5)"
+
+#: app_conf/configuration_form.py:196
+msgid "Duration in minutes for public message display (default: 1440, 24h)"
+msgstr "Durée d'affichage des messags publics en minutes (défaut: 1440, 24h)"
+
+#: app_conf/configuration_form.py:207
+msgid "Display order of public messages"
+msgstr "Ordre d'affichage des messages publics"
+
+#: app_conf/configuration_form.py:218
+msgid ""
+"If trusted IP, don't display Public Page, skip to Anonymous/trusted page "
+"directly"
+msgstr "Pour une IP de confiance, afficher directement la page de confiance"
+
+#: app_conf/configuration_form.py:225
+msgid "Duration in minutes for private message display (default: 1440, 24h)"
+msgstr "Durée d'affichage des messages privés en minute (défaut: 1440, 24h)"
+
+#: app_conf/configuration_form.py:243
+msgid "How to send email"
+msgstr "Mode d'envoi des emails"
+
+#: app_conf/configuration_form.py:250
+msgid "Source email address"
+msgstr "Adresse email source"
+
+#: app_conf/configuration_form.py:257
+msgid "Max number of dest per SMTP connection"
+msgstr "Nombre maximum de destinataires par connexion SMTP"
+
+#: app_conf/configuration_form.py:262
+msgid "Email prefix for new messages (default: [Sirene] )"
+msgstr "Email - Préfixe pour le sujet des nouveaux messages [Sirene]"
+
+#: app_conf/configuration_form.py:268
+msgid "Email prefix for update messages (default: [Sirene Update] )"
+msgstr "Email - Préfixe pour le sujet des mises à jour [Sirene Update]"
+
+#: app_conf/configuration_form.py:275
+msgid "Email subject for test messages"
+msgstr "Email - sujet des emails de test"
+
+#: app_conf/configuration_form.py:281
+msgid "Email content for test messages"
+msgstr "Email - contenu des messages de test"
+
+#: app_conf/configuration_form.py:289
+msgid "Quota of SMS per user, per 24h (default: 100)"
+msgstr "Quota de SMS par utilisateur et par 24h glissantes (défaut: 100)"
+
+#: app_conf/configuration_form.py:301
+msgid "SMS API"
+msgstr "SPS API"
+
+#: app_conf/configuration_form.py:308
+msgid "SMS prefix (default: [Sirene] )"
+msgstr "SMS - Préfixe des messages [Sirene] "
+
+#: app_conf/configuration_form.py:314
+msgid "SMS prefix for updates (default: [Sirene Update] )"
+msgstr "SMS - Préfixe des mises à jour [Sirene Update] "
+
+#: app_conf/configuration_form.py:320
+msgid "SMS test content"
+msgstr "SMS - message de test"
+
+#: app_conf/configuration_form.py:328
+msgid "Data Class name for apps (app)"
+msgstr "Nom de la classe CMDB avec les applications [app]"
+
+#: app_conf/configuration_form.py:334
+msgid "Data Class name for sites (site)"
+msgstr "Nom de la classe CMDB avec les sites [site]"
+
+#: app_conf/configuration_form.py:340
+#, fuzzy
+#| msgid "Data Class name for sites (site)"
+msgid "Data Class name for sitegroups (sitegroup)"
+msgstr "Nom de la classe CMDB avec les sites [site]"
+
+#: app_conf/configuration_form.py:346
+msgid "Data Class name for customers (customer)"
+msgstr "Nom de la classe CMDB avec les customers [customer]"
+
+#: app_conf/models.py:15
+msgid "Sirene App"
+msgstr "Application"
+
+#: app_conf/models.py:16
+msgid "Keyname(*)"
+msgstr "Nom(*)"
+
+#: app_conf/models.py:18
+msgid "Value"
+msgstr "Valeur"
+
+#: app_conf/models.py:20
+msgid "Description"
+msgstr "Description"
+
+#: app_conf/models.py:21
+msgid "Page"
+msgstr "Page"
+
+#: app_conf/models.py:22
+msgid "Order"
+msgstr "Ordre"
+
+#: app_conf/templates/app_conf/private.html:11
+#, fuzzy
+#| msgid "Configuration updated"
+msgid "Configuration"
+msgstr "Configuration mise à jour"
+
+#: app_conf/templates/app_conf/private.html:14
+#, fuzzy
+#| msgid "Select an application to configure"
+msgid "Select application to configure"
+msgstr "Choisir l'application à configurer"
+
+#: app_conf/templates/app_conf/private.html:52
+msgid "Back"
+msgstr "Retour"
+
+#: app_conf/views.py:64
+msgid "Configuration updated"
+msgstr "Configuration mise à jour"
+
+#: app_conf/views.py:68
+msgid "Invalid configuration"
+msgstr "Configuration invalide"
+
+#~ msgid ""
+#~ "Bypass AAA session caching and print AAA structure to stdout. Default = no"
+#~ msgstr "Désactiver le cache de session (yes/no ; défaut: no)"

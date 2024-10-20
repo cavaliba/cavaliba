@@ -1,0 +1,52 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+{% block content %}
+
+<H5>ENV vars (confidentiel, ne pas transmettre)</H5>
+<hr>
+<PRE>
+{{ env }}
+</PRE>
+
+<hr>
+<H5>JWT Access-Token (confidentiel, ne pas transmettre)</H5>
+<hr>
+<p>Header:</p>
+<PRE>
+{{ jwt_header }}
+</PRE>
+<br><br>
+<p>Payload:</p>
+<PRE>
+{{ jwt_payload }}
+</PRE>
+
+
+<hr>
+<H5>JWT OIDC ID Token (confidentiel, ne pas transmettre)</H5>
+<hr>
+<p>Header:</p>
+<PRE>
+{{ tokid_header }}
+</PRE>
+<br><br>
+<p>Payload:</p>
+<PRE>
+{{ tokid_payload }}
+</PRE>
+
+<hr>
+<H5>AAA struct</H5>
+<hr>
+<PRE>
+{{ aaa_nice }}
+</PRE>
+
+
+{% endblock %}

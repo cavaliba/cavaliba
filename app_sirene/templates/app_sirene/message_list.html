@@ -1,0 +1,74 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+
+{% block title %}
+<H2>{% translate 'Messages' %}</H2>
+<hr>{% endblock %}
+
+{% block content %}
+
+
+
+{% if  privatepages %}{% for page in privatepages %}
+
+<div class="d-flex">
+<div class="card flex-fill">
+<div class="card-body py-2 my-0">
+<div class="d-flex align-items-start">
+
+<div class="flex-grow-1">
+
+<h3 class="mb-2">
+<a class="text-decoration-none" href="{% url 'app_sirene:detail' page.id %}">{{ page.title }}</a>
+</h3>
+
+{% if page.is_mypage %}
+<p class="mb-2 h4"><span class="badge text-bg-dark">{% translate 'Message privé' %}</span></p>
+{% endif %}
+
+
+<p><span class="text-muted">
+{{ page.created_at|date:'Y-m-d H:i:s (D)' }} -  {{ page.created_at|timesince }} 
+</span></p>
+{% if  page.updated_at %}
+<span class="badge badge-pill text-bg-secondary">
++ {{ page.updates.count }} messages ({{ page.updated_at|timesince }})
+</span>
+{% endif %}
+
+
+</div>
+
+<div class="d-inline-block ms-3">
+<p class="h4"><span class="badge text-bg-{{ page.bgcolor }}">{{ page.category }} / {% translate page.severity %}</span></p>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<br>
+{% endfor %}{% else %}
+
+<span class="text-muted">{% translate 'No message' %}</span>
+
+{% endif %}
+
+
+
+{% endblock %}
+
+
+
+
+

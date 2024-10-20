@@ -1,0 +1,13 @@
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"><IMG src="/logo/logo.png" width="90"></IMG></a>
+
+  <div class="h1">{{ sirene_appname|default:"Sirene" }}</div>
+
+  <div>
+  <a class="btn btn-outline-dark mr-3" href="{% url 'private' %}" role="button">
+  Connexion</a>
+  </div>
+
+
+</nav>

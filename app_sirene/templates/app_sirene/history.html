@@ -1,0 +1,89 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'History' %}</H2>
+<hr>{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- Switched to datatable
+    
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; première</a>
+            <a href="?page={{ page_obj.previous_page_number }}">précédent</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">suivante</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">dernière &raquo;</a>
+        {% endif %}
+    </span>
+</div> 
+<hr>
+-->
+
+
+<table  id="table_managed_rev"  class="table table-striped table-hover small">
+<thead class="thead-dark"><tr>
+<th>{% translate 'Created' %}</th>
+<th class="text-center">{% translate 'Severity' %}</th>
+<th class="text-center">{% translate 'Category' %}</th>
+<th>{% translate 'Title' %}</th>
+<th class="text-center">{% translate 'Public Page' %}</th>
+<th class="text-center">{% translate 'Private' %}</th>
+</tr>
+</thead>
+
+
+{% for page in page_obj %}
+<tr>
+<td class="py-1 px-1 mx-0">
+  <a class="text-decoration-none" href="{% url 'app_sirene:detail' page.id %}">
+  {{ page.created_at|date:'Y-m-d H:i:s (D)' }}
+</a>
+</td>    
+
+
+
+<td class="py-1 text-center h6">
+  <span class="badge text-bg-{{ page.bgcolor }} w-100">{% translate page.severity %}</span>
+  </td>
+
+<td class="py-1 px-1 text-center">{{ page.category }}</td>
+
+
+<td class="py-1 px-1">{{ page.title }}</td>
+
+
+<td class="py-1 text-center">{{ page.has_publicpage | yesno:"X,," }}</td>
+
+{% if page.has_privatepage %}
+<td class="text-center py-1 px-1 mx-0"></td>
+{% else %}<td class="text-center py-1 px-1 mx-0">X</td>
+{% endif %}
+
+
+
+
+</tr>{% endfor %}
+</table>
+
+
+{% endblock %}
+
+

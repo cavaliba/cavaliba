@@ -1,0 +1,51 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<h1>{{ GLOBAL_APPNAME|default:'SireneDefault'}}</h1>
+<hr>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="row row-cols-2 row-cols-sm-4 row-cols-md-4 row-cols-lg-6 g-12">
+
+{% for app in apps %}
+<div class="col py-2">
+    <div class="card h-100 shadow-lg">
+
+      <p></p>
+
+      <p class="text-center"> <i class="fa {{ app.icon }} fa-3x"></i></p>
+
+      <div class="card-body">
+
+        <h6 class="card-title text-center">{{ app.displayname }}</h6>
+
+        {% if app.state == 'enabled' %}
+        <A href="{{ app.url }}" class="stretched-link"></A>
+        {% else %}
+        <p class="text-center"><i>disabled</i></p>
+        {% endif %}
+<!--         <p class="card-text">{{ app.description }}</p> -->
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Version: {{ app.version|default:'1.0' }}</small>
+      </div>      
+    </div>
+  </div>
+{% endfor %}
+
+</div>
+
+
+
+{% endblock %}

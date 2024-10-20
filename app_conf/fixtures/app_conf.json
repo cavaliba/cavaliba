@@ -1,0 +1,266 @@
+[
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 24,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "APPNAME",
+    "value": "Sirene",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 25,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "PUBLIC_MAX_ITEMS",
+    "value": "6",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 26,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "PUBLIC_MAX_MINUTES",
+    "value": "1440",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 27,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "PUBLIC_SORT_ORDER",
+    "value": "creation",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 28,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "PRIVATE_MAX_MINUTES",
+    "value": "1440",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 29,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "PUBLIC_SKIP_TO_TRUSTED",
+    "value": "no",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 30,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "LOG_DEBUG",
+    "value": "no",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 31,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "LOG_KEEP_DAYS",
+    "value": "31",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 32,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "AUTH_FEDERATED_LOGIN_FIELD",
+    "value": "X-User",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 33,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "AUTH_FEDERATED_EMAIL_FIELD",
+    "value": "X-Email",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 34,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "AUTH_LOGIN_REMOVE_DOMAIN",
+    "value": "yes",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 35,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "AUTH_PROVISIONING",
+    "value": "manual",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 36,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "TRUSTED_ANONYMOUS_IPS",
+    "value": "",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 37,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "EMAIL_PREFIX",
+    "value": "[Sirene] ",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 38,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "EMAIL_UPDATE_PREFIX",
+    "value": "[Sirene Update] ",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 39,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "EMAIL_TEST_SUBJECT",
+    "value": "Sirene - TEST TEST TEST - Please ignore.",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 40,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "EMAIL_TEST_CONTENT",
+    "value": "Test.Ignore.",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 41,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "SMS_PREFIX",
+    "value": "[Sirene] ",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 42,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "SMS_UPDATE_PREFIX",
+    "value": "[Sirene Update] ",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 43,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "SMS_TEST",
+    "value": "Sirene - TEST TEST TEST - Please ignore.",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 44,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "CSV_DELIMITER",
+    "value": ";",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+},
+{
+  "model": "app_conf.sireneconfiguration",
+  "pk": 45,
+  "fields": {
+    "appname": "sirene",
+    "keyname": "SMS_QUOTA_PER_DAY",
+    "value": "100",
+    "description": "",
+    "page": "",
+    "order": 100
+  }
+}
+]

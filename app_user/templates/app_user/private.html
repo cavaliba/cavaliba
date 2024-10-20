@@ -1,0 +1,23 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+
+
+{% block title %}
+<h1>{% translate 'People, Groups and Roles' %}</h1><hr>
+
+{% endblock %}
+
+
+{% block content %}
+<a href="{% url 'app_user:user_list' %}" class="btn btn-primary">Users</a>
+<a href="{% url 'app_user:group_list' %}" class="btn btn-primary">Groups</a>
+<a href="{% url 'app_user:role_list' %}" class="btn btn-primary">Roles</a>
+
+<hr>
+{% endblock %}

@@ -1,0 +1,47 @@
+# (c) Cavaliba 2020-2024 - Sirene
+
+
+# django command / sirene_load.py
+# load data from YAML files in the sirene database
+
+
+
+import os
+
+from pprint import pprint
+
+from django.core.management.base import BaseCommand, CommandError
+
+from app_home.load import load_file
+
+
+
+class Command(BaseCommand):
+    help = 'Load YAML/JSON data file(s) and dir(s) in the Sirene database'
+
+    # https://docs.python.org/3/library/argparse.html#name-or-flags
+    def add_arguments(self, parser):
+        parser.add_argument('filenames', nargs='+', type=str)
+
+    def handle(self, *args, **options):
+
+        # multi-pass (needed for FK between objects)
+        for mypass in range(1,3):
+            print('=' * 30, f" PASS {mypass} ", '=' * 30)
+            for source in options['filenames']:
+
+                if os.path.isfile(source):
+                    load_file(source)
+
+                elif os.path.isdir(source):
+                    ordered = []
+                    for item in os.scandir(source):
+                        if item.is_file(follow_symlinks=False):
+                            ordered.append(item.path)
+                    ordered.sort()
+                    for file in ordered:
+                        load_file(file)
+                else:
+                    print(f"ERR - Unknown target (skipping): {source}")
+
+
