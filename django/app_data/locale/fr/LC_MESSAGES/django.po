@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-03 17:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app_data/data.py:749
+msgid "missing keyname"
+msgstr "Identifiant manquant"
+
+#: app_data/data.py:753
+msgid "keyname empty"
+msgstr "Identifiant manquant"
+
+#: app_data/models.py:119
+msgid "Description"
+msgstr "Description"
+
+#: app_data/models.py:167
+msgid "Last update"
+msgstr "Dernière mise à jour"
+
+#: app_data/templates/app_data/_navbar_app.html:10
+msgid "Classes"
+msgstr "Classes"
+
+#: app_data/templates/app_data/_navbar_app.html:27
+msgid "Manage"
+msgstr "Gérer"
+
+#: app_data/templates/app_data/_navbar_app.html:36
+#: app_data/templates/app_data/instance_list.html:37
+#: app_data/templates/app_data/private.html:20
+msgid "Export"
+msgstr "Exporter"
+
+#: app_data/templates/app_data/_navbar_app.html:44
+#: app_data/templates/app_data/private.html:14
+#: app_data/templates/app_data/private.html:83
+msgid "Import"
+msgstr "Importer"
+
+#: app_data/templates/app_data/instance_detail.html:21
+#: app_data/templates/app_data/instance_new.html:21
+msgid "Back"
+msgstr "Retour"
+
+#: app_data/templates/app_data/instance_detail.html:25
+msgid "Edit"
+msgstr "Editer"
+
+#: app_data/templates/app_data/instance_detail.html:28
+#: app_data/templates/app_data/instance_detail.html:125
+msgid "Delete"
+msgstr "Supprimer"
+
+#: app_data/templates/app_data/instance_detail.html:41
+#: app_data/templates/app_data/instance_edit.html:29
+msgid "Keyname(*)"
+msgstr "Identifiant(*)"
+
+#: app_data/templates/app_data/instance_detail.html:45
+#: app_data/templates/app_data/instance_edit.html:38
+#: app_data/templates/app_data/instance_list.html:124
+msgid "Display Name"
+msgstr "Nom complet"
+
+#: app_data/templates/app_data/instance_detail.html:48
+#: app_data/templates/app_data/instance_edit.html:46
+msgid "Is Enabled"
+msgstr "Actif"
+
+#: app_data/templates/app_data/instance_detail.html:115
+msgid "Confirm delete ?"
+msgstr "Confirmer ?"
+
+#: app_data/templates/app_data/instance_detail.html:126
+#: app_data/templates/app_data/private.html:84
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app_data/templates/app_data/instance_edit.html:22
+#: app_data/templates/app_data/instance_new.html:23
+msgid "Save"
+msgstr "Enregistrer"
+
+#: app_data/templates/app_data/instance_edit.html:117
+#: app_data/templates/app_data/instance_new.html:118
+msgid "Select items"
+msgstr "Choisir les éléments"
+
+#: app_data/templates/app_data/instance_edit.html:161
+#: app_data/templates/app_data/instance_new.html:162
+msgid "Select users"
+msgstr "Choisir les utilisateurs"
+
+#: app_data/templates/app_data/instance_list.html:12
+#: app_data/templates/app_data/private.html:49
+msgid "objects"
+msgstr "objets"
+
+#: app_data/templates/app_data/instance_list.html:21
+#: app_data/templates/app_data/instance_list.html:24
+msgid "Default View"
+msgstr "Vue par défaut"
+
+#: app_data/templates/app_data/instance_list.html:31
+msgid "New"
+msgstr "Nouveau"
+
+#: app_data/templates/app_data/instance_list.html:39
+msgid "Export to CSV"
+msgstr "Exporter en CSV"
+
+#: app_data/templates/app_data/instance_list.html:40
+#: app_data/templates/app_data/private.html:22
+msgid "Export to JSON"
+msgstr "Exporter en JSON"
+
+#: app_data/templates/app_data/instance_list.html:41
+#: app_data/templates/app_data/private.html:23
+msgid "Export to YAML"
+msgstr "Exporter en YAML"
+
+#: app_data/templates/app_data/instance_list.html:90
+msgid "per page"
+msgstr "par page"
+
+#: app_data/templates/app_data/instance_list.html:110
+msgid "Filter"
+msgstr "Filtrer"
+
+#: app_data/templates/app_data/instance_list.html:123
+msgid "Keyname"
+msgstr "Identifiant(*)"
+
+#: app_data/templates/app_data/instance_list.html:125
+msgid "Last Update"
+msgstr "Dernière mise à jour"
+
+#: app_data/templates/app_data/private.html:75
+msgid "Import a DATA file"
+msgstr "Import d'un fichier de données"
+
+#: app_data/views.py:280 app_data/views.py:281
+msgid "Not allowed"
+msgstr "Non autorisé"
+
+#: app_data/views.py:292
+msgid "Export too large for interactive export."
+msgstr "Export trop gros pour réalisation en ligne"
+
+#: app_data/views.py:494
+msgid "Instance updated"
+msgstr "Instance mise à jour"
+
+#: app_data/views.py:499
+msgid "Failed to update"
+msgstr "Echec de mise à jour"
+
+#: app_data/views.py:503 app_data/views.py:564
+msgid "Invalid form"
+msgstr "Formulaire invalide"
+
+#: app_data/views.py:556
+msgid "Instance created"
+msgstr "Instance créée"
+
+#: app_data/views.py:560
+msgid "Failed to create."
+msgstr "Echec de création"
+
+#: app_data/views.py:613
+msgid "Instance deleted"
+msgstr "Instance effacée"
+
+#: app_data/views.py:617
+msgid "Failed to delete"
+msgstr "Echec de suppression"
+
+#: app_data/views.py:620
+msgid "Invalid request"
+msgstr "Requête invalide"
+
+#: app_data/views.py:649 app_data/views.py:650
+msgid "Import failed - file too big"
+msgstr "Import échoué - fichier trop gros"
+
+#: app_data/views.py:667 app_data/views.py:668
+msgid "Import failed - unknown file type"
+msgstr "Import échoué - type de fichier inconnu"
+
+#: app_data/views.py:672 app_data/views.py:673
+msgid "Import successful"
+msgstr "Import réussi"
+
+#: app_data/views.py:678
+msgid "Import failed"
+msgstr "Import échoué"
+
+#: app_data/views.py:679
+msgid "Import failed - not a POST"
+msgstr "Import échoué - requête invalide"

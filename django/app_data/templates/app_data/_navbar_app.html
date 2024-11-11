@@ -1,0 +1,53 @@
+{% load static %}
+{% load i18n %}
+
+<!-- app_data _navbar_app  -->
+
+
+<!-- {% if dataclasses %}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-lg fa-list" aria-hidden="true"></i>&nbsp; {% translate 'Classes' %}
+    </a>
+    <ul class="dropdown-menu">
+      {% for item in dataclasses %}
+      <li><a class="dropdown-item" href="{% url 'app_data:instance_list' item.keyname %}">{{ item.displayname }}</a></li>
+      {% endfor %} 
+    </ul>
+  </li>
+{% endif %}
+ -->
+
+<!-- MANAGE /  SETTINGS  -->
+<!-- {% if 'p_data_admin' in aaa.perms %}
+
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-lg fa-list" aria-hidden="true"></i>&nbsp; {% translate 'Manage' %}
+    </a>
+
+    <ul class="dropdown-menu">
+
+
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:template_list' %}">
+      &nbsp; <i class="fa fa-bullhorn" aria-hidden="true"></i>&nbsp;  &nbsp;
+      {% translate 'Export' %}
+    </a>
+    </li>
+
+   <li><hr class="dropdown-divider"></li>
+
+    <li>
+    &nbsp; <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;  &nbsp;  
+    <button type="button" class="btn btn-outline-danger mr-3" data-bs-toggle="modal" data-bs-target="#ImportModal">{% translate 'Import' %}
+    </li>
+    
+
+
+
+    </ul>
+  </li>
+
+{% endif %} -->

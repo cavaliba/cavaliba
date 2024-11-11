@@ -1,0 +1,129 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+
+{% block title %}
+{% if role.keyname %} <H2>{% translate "Role" %}: {{ role.keyname }}</H2>
+{% else %}<H2>{% translate "New Role" %}</H2>
+{% endif %} 
+<hr>
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+
+<a class="btn btn-outline-dark" href="{% url 'app_user:role_list' %}" role="button">
+<i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate "Back" %} </a>
+
+<input class="btn btn-success" type="submit" value="{% translate 'Save' %}" name="save">
+
+
+
+<hr>
+
+<table class="table ">
+  {{ form.as_table }}
+    <tr>
+    <th><label for="id_users">{% translate 'Users' %}</label></th>
+    <td>
+      <select name="users" id="id_users" multiple>
+        <option value="">----------------------</option>
+        {% for u in users %}
+        {% if u.selected %}<option value="{{ u.key }}" selected>{{u.key}} ({{ u.display }})</option>
+        {% else %}<option value="{{ u.key }}">{{u.key}} ({{ u.display }})</option>{% endif %}
+        {% endfor %}
+      </select>
+    <br>
+    <span class="helptext" id="id_users_helptext">{% translate 'Select users' %}</span>
+    </td>
+    </tr>
+
+</table>
+
+</form>
+
+
+{% if role %}
+<!-- DELETE CONFIRM Modal -->
+<div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Confirm delete ?" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+<div class="modal-body">
+<p>Role: {{ form.keyname.value|default:'n/a' }}</p>
+</div>
+
+<div class="modal-footer">
+<form action="{% url 'app_user:role_delete' role.id %}" method="post">{% csrf_token %}
+<button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+<a role="button" class="btn btn-outline-dark" data-dismiss="modal">{% translate "Cancel" %}</a>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+
+{% endblock %}
+
+
+
+
+{% block script %}
+<script type="text/javascript">
+
+// USERS
+
+//$(document).ready(function() {
+//    $('#id_users').select2({
+//      width: '100%'
+//  });
+//});
+
+$('#id_users').select2({
+  width: '100%',
+  ajax: {
+    url: "{% url 'app_user:ajax_user' %}",
+    dataType: 'json',
+    delay: 250,
+    cache: true,
+    data: function (params) {
+      return {
+        q: params.term
+      };
+    }
+  },
+  placeholder: '{% translate "Select users" %}'
+  //minimumInputLength: 1
+});
+
+$(document).ready(function() {
+    $('#id_subgroups').select2({
+      width: '100%'
+  });
+});
+
+$(document).ready(function() {
+    $('#id_permissions').select2({
+      width: '100%'
+  });
+});
+</script>
+{% endblock %}
+
+
+

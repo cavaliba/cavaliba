@@ -1,0 +1,58 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Categories' %}</H2>
+<hr>{% endblock %}
+
+
+{% block content %}
+
+{% if 'p_sirene_cat_cud' in aaa.perms %}  
+<a class="btn btn-outline-success" href="{% url 'app_sirene:category_edit' %}" role="button">
+	<i class="fa fa-lg fa-plus" aria-hidden="true"></i> &nbsp; {% translate 'New' %}</a>
+
+<hr>
+{% endif %}
+
+
+<table id="table_unmanaged" class="table table-striped table-hover small">
+<thead class="thead-dark"><tr>
+<th>{% translate 'Name' %}</th>
+<th>{% translate 'Display' %}</th>
+<th>{% translate 'Description' %}</th>
+
+</tr>
+</thead>
+{% for item in categories %}
+<tr>
+
+<td class="py-1 px-2 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_sirene:category_edit' item.id %}">
+	{% if item.is_enabled %}{{ item.name }}{% else %}<del>{{ item.name }}</del>{% endif %}
+	</a>
+</td>
+<td class="py-1 px-2 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_sirene:category_edit' item.id %}">
+	{{ item.longname }}
+	</a>
+</td>
+<td class="py-1">{{ item.description|default:'' }}</td>
+
+</tr>{% endfor %}
+</table>
+
+
+{% endblock %}
+
+
+
+
+
+
+

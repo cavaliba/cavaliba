@@ -1,0 +1,168 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<h3><i class="fa fa-user" aria-hidden="true"></i> &nbsp; {{ user.displayname|default:user.login }}</h3>
+<small class="text-muted">{% translate "Details" %}</small>
+<hr>{% endblock %}
+
+{% block content %}
+
+<!-- TOOLS  -->
+<a class="btn btn-outline-dark" href="{% url 'app_user:user_list' %}" role="button">
+<i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate "Back" %} </a>
+
+{% if 'p_user_rw' in aaa.perms %}
+  <a class="btn btn-success" href="{% url 'app_user:user_edit' user.id %}" role="button">
+  {% translate 'Edit' %}</a>
+{% endif %}
+
+{% if 'p_user_rw' in aaa.perms %}
+    <a type="button" class="btn btn-danger float-right" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+    {% else %} <a type="button" class="btn btn-secondary float-right disabled">
+{% endif %}{% translate "Delete" %}</a>
+
+
+
+<hr>
+
+<table class="table table-hover table-bordered table-sm">
+
+  <tr class="table-primary"><td colspan="2"><strong>{% translate 'User' %}</strong></td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Is Enabled' %}</td>
+  <td>{% if user.is_enabled %}<input type="checkbox" checked disabled/>
+      {% else %}<input type="checkbox" disabled/>{% endif %}
+  </td></tr>
+
+
+  <tr><td class="table-light" width="20%">{% translate 'Login(*)' %}</td>
+  <td>{{ user.login }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'External ID' %}</td>
+  <td>{{ user.external_id|default:'' }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Display Name' %}</td>
+  <td>{{ user.displayname }}</td></tr>
+
+
+  <tr><td class="table-light" width="20%">{% translate 'Firstname' %}</td>
+  <td>{{ user.firstname|default:'' }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Lastname' %}</td>
+  <td>{{ user.lastname|default:'' }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Email' %}</td>
+  <td>{{ user.email|default:'' }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Description' %}</td>
+  <td>{{ user.description|default:'' }}</td></tr>
+
+
+  <tr><td class="table-light" width="20%">{% translate 'Last login' %}</td>
+  <td>{{ user.last_login|default:'' }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Last update' %}</td>
+  <td>{{ user.last_update|default:'' }}</td></tr>
+
+
+</table>
+
+<hr>
+
+
+<!-- GROUPS -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-success"><td colspan="4"><strong>{% translate 'Groups' %}</strong></td></tr>
+<tr>
+<td class="table-light">
+    <div class="d-flex flex-wrap"> 
+    {% for z in direct %}
+      {% if not z.is_role %}
+        <a class="btn btn-success btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z.keyname %}" role="button">{{ z.keyname }}</a>
+      {% endif %}
+    {% endfor %}       
+    {% for z in indirect %}
+      {% if not z.is_role %}
+        <a class="btn btn-outline-success btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z.keyname %}" role="button">{{ z.keyname }}</a>
+      {% endif %}
+    {% endfor %}       
+
+    </div>   
+</td></tr>
+</table>
+
+<!-- ROLES -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-danger"><td colspan="4"><strong>{% translate 'Roles' %}</strong></td></tr>
+<tr>
+<td class="table-light">
+    <div class="d-flex flex-wrap"> 
+    {% for z in direct %}
+      {% if z.is_role %}
+        <a class="btn btn-danger btn-sm mx-1 my-1" href="{% url 'app_user:role_detail' z.keyname %}" role="button">{{ z.keyname }}</a>
+      {% endif %}
+    {% endfor %}
+    {% for z in indirect %}
+      {% if z.is_role %}
+        <a class="btn btn-outline-danger btn-sm mx-1 my-1" href="{% url 'app_user:role_detail' z.keyname %}" role="button">{{ z.keyname }}</a>
+      {% endif %}
+    {% endfor %}
+    </div>   
+</td></tr>
+</table>
+
+
+<!-- PERMISSIONS -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-warning"><td colspan="4"><strong>{% translate 'Permissions' %}</strong></td></tr>
+<tr>
+{% for perm in permissions %}
+<td class="table-light" width="20%">{{ perm.keyname }}</td>
+<td>{{ perm.appname|default:'' }}</td>
+<td>{{ perm.displayname|default:'' }}</td>
+<td>{{ perm.description|default:'' }}</td>
+</tr>{%  endfor %}
+</table>
+
+
+
+
+<!-- DELETE CONFIRM Modal -->
+{% if user %}
+
+<div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Confirm delete ?" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+<div class="modal-body">
+<p>User: {{ user.displayname|default:user.login }}</p>
+</div>
+
+<div class="modal-footer">
+<form action="{% url 'app_user:user_delete' user.id %}" method="post">{% csrf_token %}
+<button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+<a role="button" class="btn btn-outline-dark" data-dismiss="modal">{% translate "Cancel" %}</a>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+
+{% endblock %}
+
+
+

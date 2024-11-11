@@ -1,0 +1,41 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+{% if appname %}
+<h3>{{ appname }}</h3><p class="text-muted">{% translate "Configuration" %}</p>
+{% else %}<h3>Configuration</h3>
+<p class="text-muted">{% translate 'Select application to configure' %}</p>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<hr>
+<div class="d-inline-flex flex-nowrap bd-highlight">
+{% for app in apps %}
+<a class="btn btn-outline-dark me-2" href="{% url 'app_home:configuration' app %}">
+{{ app.displayname }}
+</a>
+{% endfor %}  
+</div>
+
+
+{% if appname %}
+<hr>
+
+<form method="post">{% csrf_token %}
+<input class="btn btn-danger me-2" type="submit" value="Enregistrer" name="save">
+<hr>
+<table class="table">
+  {{ form.as_table }}
+</table>
+</form>
+{% endif %}
+
+{% endblock %}

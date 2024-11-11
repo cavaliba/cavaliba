@@ -1,0 +1,66 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Category editor' %}</H2>
+<hr>{% endblock %}
+{% block content %}
+
+
+<form method="post">{% csrf_token %}
+<a class="btn btn-outline-dark" onclick="history.back()" role="button">
+ <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate 'Back' %} </a>
+ 
+{% if 'p_sirene_cat_cud' in aaa.perms %}
+<input class="btn btn-success" type="submit" value="Enregistrer" name="save">
+{% if cid %}
+		<button type="button" class="btn btn-danger float-right" data-bs-toggle="modal" data-bs-target="#confirmModal">
+		{% translate 'Delete' %}</button>
+  {% endif %}
+<hr>    
+{% endif %}
+
+
+
+<table class="table">
+  {{ form.as_table }}
+</table>
+
+</form>
+
+
+
+{% if cid %}<!-- modals / confirm ? -->
+<div class="modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Delete ?" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+<div class="modal-body">
+  <p>{% translate 'Category' %}: {{ form.name.value|default:'n/a' }}</p>
+</div>
+
+<div class="modal-footer">
+  <form action="{% url 'app_sirene:category_delete' cid %}" method="post">{% csrf_token %}
+  <button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+  <a role="button" class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate "Cancel" %}</a>
+  </form>
+</div>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+
+
+{% endblock %}

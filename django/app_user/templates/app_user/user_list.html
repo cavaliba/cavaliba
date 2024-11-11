@@ -1,0 +1,176 @@
+{% extends "app_home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+
+{% block title %}
+<H2>{% translate "Users" %}</H2>
+<small class="text-muted">{{ count }} {% translate "users" %}</small>
+<hr>{% endblock %}
+
+
+{% block content %}
+
+
+<a class="btn btn-outline-dark" onclick="history.back()" role="button">
+<i class="fa fa-backward" aria-hidden="true"></i>&nbsp; {% translate 'Back' %} </a>
+
+{% if 'p_user_rw' in aaa.perms  %}
+<a class="btn btn-outline-success" href="{% url 'app_user:user_edit' %}" role="button">
+	<i class="fa fa-lg fa-plus" aria-hidden="true"></i> &nbsp; {% translate "New" %}</a>
+{% endif %}
+
+{% if 'p_user_import' in aaa.perms  %}
+<button type="button" class="btn btn-outline-danger mr-3 float-right" data-bs-toggle="modal" data-bs-target="#ImportModal">
+{% translate "Import" %}</button> 
+{% endif %}
+
+{% if 'p_user_export' in aaa.perms  %}
+<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+{% translate "Export" %}</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="?o=csv">{% translate "Export to CSV" %}</a>
+    <a class="dropdown-item" href="?o=json">{% translate "Export to JSON" %}</a>
+    <a class="dropdown-item" href="?o=yaml">{% translate "Export to YAML" %}</a>
+</div>
+{% endif %}
+
+
+<hr>
+
+
+<!--  BIG DATA SET - not javascript component for managed table -->
+{% if bigset %} <div class="btn-group"><!-- FILTER/PAGINATOR  -->
+    
+        <div> <!-- SEARCH -->
+        <form class="d-flex" role="search" action="" method="post">{% csrf_token %}
+        <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button> &nbsp;&nbsp;
+        <input class="form-control" type="search" name="query" placeholder="{% translate 'Filter' %}" value="{{ query }}" >
+        </form>
+        </div>
+
+    &nbsp;&nbsp;&nbsp;
+
+    <!--  PAGINATOR -->
+        {% if page_last > 1 %}
+        <div class="my-2"> {% translate 'Page' %}</div>
+
+        <div class="mx-3"> <!-- PAGINATOR :  PREV | FIRST (bool)|| CURRENT or page... || LAST | NEXT -->
+        <ul class="pagination">
+          <!-- PREV -->
+          <li class="page-item"><a class="page-link" href="?page={{ page_prev }}&size={{ size }}">&laquo; </a></li>
+          
+          <!-- FIRST -->
+          {% if page_first %}
+          <li class="page-item"><a class="page-link active" href="?page=1&size={{ size }}">1</a></li>
+          {% else %}
+          <li class="page-item"><a class="page-link" href="?page=1&size={{ size }}">1</a></li>
+          {% endif %}
+
+        &nbsp;&nbsp;&nbsp;  <!-- CURRENT -->
+          {% if page_current %}
+          <li class="page-item"><a class="page-link active" href="?page={{ page }}&size={{ size }}">{{ page }}</a></li>
+          {% else %}
+          <li class="page-item"><a class="page-link disabled">...</a></li>
+          {% endif %}
+        &nbsp;&nbsp;&nbsp;
+
+          <!-- LAST -->
+          {% if page_last_active %}
+          <li class="page-item"><a class="page-link active" href="?page={{ page_last }}&size={{ size }}">{{ page_last }}</a></li>
+          {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_last }}&size={{ size }}">{{ page_last }}</a></li>
+          {% endif %}
+
+          <!-- NEXT -->
+          <li class="page-item"><a class="page-link" href="?page={{ page_next }}&size={{ size }}">&raquo; </a></li>
+
+        </ul> 
+        </div>
+        {% endif %}
+    
+    <!-- SIZE -->
+        <div>
+          <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          {{ size }} {% translate 'per page' %} </a> 
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=10">10</a>
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=50">50</a>
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=100">100</a>
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=500">500</a>
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=1000">1000</a>
+            <a class="dropdown-item" href="{% url 'app_user:user_list' %}?size=5000">5000</a>
+          </div>
+        </div>
+</div>
+{% endif %}
+
+
+<hr>
+
+
+
+<table id="table_unmanaged" class="table table-striped table-hover table-sm small">
+<thead class="thead-dark"><tr>
+<th>{% translate "Login(*)" %}</th>
+<th>{% translate "Display name" %}</th>
+<th>{% translate "External ID" %}</th>
+<th>{% translate "Email" %}</th>
+<th>{% translate "Mobile" %}</th>
+<th>{% translate "Last login" %}</th>
+</tr>
+</thead>
+
+
+{% for u in users %}
+<tr>
+<td><a class="text-decoration-none" href="{% url 'app_user:user_detail' u.login %}">
+        {% if u.is_enabled %}{{ u.login }}{% else %}<del>{{ u.login }}</del>{% endif %}
+</ts>
+
+<td class="py-1 px-1 mx-0">{{ u.displayname|default:''}}</td>
+<td class="py-1 px-1 mx-0">{{ u.external_id|default:''}}</td>
+<td class="py-1 px-1">{{ u.email|default:'' }}</td>
+<td class="py-1 px-1">{{ u.mobile|default:'' }}</td>
+<td class="py-1 px-1">{{ u.last_login|date:'Y-m-d H:i:s'|default:'' }}</td>
+
+</tr>{% endfor %}
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ImportModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Import a Users file" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+<form method="post"  enctype="multipart/form-data" action ="{% url 'app_user:user_import' %}">{% csrf_token %}
+<div class="modal-body">{{ upload_form }}</div>
+
+<div class="modal-footer">
+<button role="button" class="btn btn-outline-danger">{% translate "Import" %}</button>
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate "Cancel" %}</button>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
