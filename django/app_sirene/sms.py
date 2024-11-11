@@ -153,7 +153,7 @@ def sms_mode_folder(num, sms, aaa=None):
     filename += ".json"
 
     sms_folder = get_configuration("sirene", "SMS_FOLDER") 
-    path = os.path.join("/files/",sms_folder,filename)
+    path = "/files/" + sms_folder + "/" + filename 
 
     now = timezone.now()
     data=f"'timestamp': '{now}',\n'msec': {now_msec},\n'sms': '{num}',\n'message': '{sms}'\n"    

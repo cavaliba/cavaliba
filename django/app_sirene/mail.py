@@ -47,6 +47,15 @@ def sirene_send_mail(subject, text_content, sender, dests, html_content=None, aa
 def mail_check_valid_address(email):
 
 
+    if not email:
+        return False 
+
+    if not type(email) is str:
+        return False 
+
+    if not len(email) > 3:
+        return False
+        
     regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     #regex = re.compile(r"([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([-!#-'*+/-9=?A-Z^-~]+(\.[-!#-'*+/-9=?A-Z^-~]+)*|\[[\t -Z^-~]*])")
 
@@ -90,8 +99,9 @@ def mail_mode_folder(subject, text_content, sender, dests, html_content=None, aa
     filename += ".json"
 
     email_folder = get_configuration("sirene", "EMAIL_FOLDER") 
-    path = os.path.join("/files/",email_folder, filename)
-    
+
+    path = "/files/" + email_folder + "/" + filename 
+
     count = 0
     with open(path,"a") as f:
         f.write('[')
