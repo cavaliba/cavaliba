@@ -1,7 +1,7 @@
-# CAVALIBA (c) 2024
+## CAVALIBA (c) 2024
 
 
-## Geting started
+### Getting started
 
     git clone https://github.com/cavaliba/cavaliba.git
     cp docker-compose.yml.template docker-compose.yml
@@ -12,3 +12,10 @@
     docker compose up 
     => point your browser to http://localhost[:port]
 
+### Doc
+
+    see www.cavaliba.com
+
+### LICENSE
+
+    BSD-3 CLAUSE
