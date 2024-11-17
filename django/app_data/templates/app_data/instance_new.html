@@ -58,9 +58,9 @@
   {% if item.dataformat == "string" %}        {% include 'app_data/fields/_string.html' %}
 {% elif item.dataformat == "int" %}           {% include 'app_data/fields/_int.html' %}
 {% elif item.dataformat == "boolean" %}       {% include 'app_data/fields/_boolean.html' %}
-{% elif item.dataformat == "sirene_data" %}   {% include 'app_data/fields/_sirene_data.html' %}
-{% elif item.dataformat == "sirene_user" %}   {% include 'app_data/fields/_sirene_user.html' %}
-{% elif item.dataformat == "sirene_group" %}  {% include 'app_data/fields/_sirene_group.html' %}
+{% elif item.dataformat == "schema" %}        {% include 'app_data/fields/_schema.html' %}
+{% elif item.dataformat == "user" %}          {% include 'app_data/fields/_user.html' %}
+{% elif item.dataformat == "group" %}         {% include 'app_data/fields/_group.html' %}
 {% elif item.dataformat == "ipv4" %}          {% include 'app_data/fields/_ipv4.html' %}
 {% elif item.dataformat == "float" %}         {% include 'app_data/fields/_float.html' %}
 {% elif item.dataformat == "date" %}          {% include 'app_data/fields/_date.html' %}
@@ -96,8 +96,8 @@
 {% block script %}<!-- select2 scripts -->
 {% for page,pageitems in formular.PAGES.items %}{%  for order,orderitems in pageitems.items %}{% for item in orderitems %}
 
-<!-- SIRENE_DATA -->
-{% if item.dataformat == "sirene_data" %} 
+<!-- SCHEMA -->
+{% if item.dataformat == "schema" %} 
     {% if item.bigset %}
     <script type="text/javascript">
     $('#id_{{ item.fieldname }}').select2({
@@ -130,8 +130,8 @@
     </script>
     {% endif %}
 
-<!-- SIRENE_GROUP -->
-{% elif item.dataformat == "sirene_group" %}
+<!-- GROUP -->
+{% elif item.dataformat == "group" %}
     <script> 
       $(document).ready(function() {
         $('#id_{{ item.fieldname }}').select2({
@@ -140,8 +140,8 @@
     });
     </script>
 
-<!-- SIRENE_USER -->
-{% elif item.dataformat == "sirene_user" %}
+<!-- USER -->
+{% elif item.dataformat == "user" %}
 
     {% if item.bigset %}
     <script type="text/javascript">

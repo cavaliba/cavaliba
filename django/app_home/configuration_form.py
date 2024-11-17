@@ -45,6 +45,19 @@ class AppHomeConfigurationForm(forms.Form):
         help_text = _("Logo size in navbar ; use 0 to display icon."),
         )
 
+    LOG_KEEP_DAYS = forms.IntegerField( 
+        required=False,
+        label = "LOG_KEEP_DAYS",
+        help_text = _("Number of days of logs to keep in database (default: 31)"),
+        )
+
+    LOG_DEBUG = forms.ChoiceField(
+        choices = (("yes", "yes"), ("no","no")),
+        label = "LOG_DEBUG",
+        help_text = _("Do you want to enable logging for debug level ?"),
+        )
+
+
     BETA_PREVIEW = forms.ChoiceField(
         choices = CHOICE_YES_NO,
         required=False,
@@ -66,7 +79,6 @@ class AppUserConfigurationForm(forms.Form):
         ("oauth2", "oauth2"),
         ("forced", "forced"),
         ("local", "local"),
-        # sirene
     )
     AUTH_MODE = forms.ChoiceField(
         choices = CHOICE_AUTH_MODE,
@@ -149,25 +161,6 @@ class AppUserConfigurationForm(forms.Form):
 
 
 # -----------------------------------------------------------------
-# LOG
-# -----------------------------------------------------------------
-
-class AppLogConfigurationForm(forms.Form):
-
-    LOG_KEEP_DAYS = forms.IntegerField( 
-        required=False,
-        label = "LOG_KEEP_DAYS",
-        help_text = _("Number of days of logs to keep in database (default: 31)"),
-        )
-
-    LOG_DEBUG = forms.ChoiceField(
-        choices = (("yes", "yes"), ("no","no")),
-        label = "LOG_DEBUG",
-        help_text = _("Do you want to enable logging for debug level ?"),
-        )
-
-
-# -----------------------------------------------------------------
 # DATA
 # -----------------------------------------------------------------
 
@@ -244,11 +237,6 @@ class AppSireneConfigurationForm(forms.Form):
         help_text = _("Duration in minutes for private message display (default: 1440, 24h)"),
         )
 
-
-
-# EMAIL_PREFIX = "[SireneDev] "
-# EMAIL_TEST_SUBJECT = "Sirene - TEST TEST TEST"
-# EMAIL_TEST_CONTENT = "Test.Ignore"
 
     CHOICE_EMAIL_MODE = (
         ("stdout", "stdout"), 

@@ -70,16 +70,16 @@ class DataLoadTest(TestCase):
                     description: A.B.C.D or A.B.C.D/mask
                     order: 410
                     page: Other
-                my_sirene_group:
+                my_group:
                     displayname: MysireneGroup
-                    dataformat: sirene_group
+                    dataformat: group
                     description: select sirene user group object(s)
                     order: 500
                     page: Objects
                     cardinal_max: 0
-                my_sirene_app:      
+                my_app:      
                     displayname: MySireneData(app)
-                    dataformat: sirene_data
+                    dataformat: schema
                     dataformat_ext: app
                     description: select sirene data instace object(s)
                     order: 510

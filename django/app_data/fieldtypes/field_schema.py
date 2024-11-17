@@ -43,9 +43,9 @@ def local_get_instance_by_name(iname=None, classobj=None, classname=None):
     return iobj
 
 # -------------
-# SIRENE DATA
+#  SCHEMA
 # -------------
-class FieldSireneData(Field):
+class FieldSchema(Field):
 
     def __init__(self, fieldname, fieldschema, alljson):
         super().__init__(fieldname, fieldschema, alljson)

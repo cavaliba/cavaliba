@@ -18,11 +18,13 @@
 
     <!-- VIEW SELECTOR -->
     <button class="btn btn-outline-secondary dropdown-toggle px-4 me-2" type="button" data-bs-toggle="dropdown">
-        {% if dataview_name == "default" %}{% translate 'Default View' %}{% else %}{{ dataview_name }}{% endif %}
+        {{ dataview_name }}
     </button>
     <div class="dropdown-menu">
         <a class="dropdown-item" href="?dv=default">{% translate 'Default View' %}</a>
-        {% for dv in dataview_selector %} <a class="dropdown-item" href="?dv={{ dv }}">{{ dv }}</a>{% endfor %}
+        {% for dv in dataview_selector %} 
+            <a class="dropdown-item" href="?dv={{ dv }}">{{ dv }}</a>
+        {% endfor %}
     </div>
     
 
@@ -119,7 +121,7 @@
 
 <table id="table_managed_sort" class="table table-striped table-hover table-sm">
 <thead class="thead-dark">
-    {% for i in dataview_heads %}
+    {% for i in dataview_columns %}
         {% if i == 'keyname' %}<th>{% translate 'Keyname' %}</th>
         {% elif i == 'displayname' %}<th>{% translate 'Display Name' %}</th>
         {% elif i == 'last_update' %}<th>{% translate 'Last Update' %}</th>

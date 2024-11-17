@@ -8,7 +8,7 @@ from celery import shared_task
 from app_home.configuration import get_configuration
 from app_home.configuration import load_configuration_cache
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from .mail import sirene_send_mail
 from .sms import sirene_send_sms

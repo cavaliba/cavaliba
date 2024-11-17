@@ -10,7 +10,6 @@ from .configuration_default import CONFIGURATION_DEFAULT
 
 from .configuration_form import AppHomeConfigurationForm
 from .configuration_form import AppUserConfigurationForm
-from .configuration_form import AppLogConfigurationForm
 from .configuration_form import AppSireneConfigurationForm
 from .configuration_form import AppDataConfigurationForm
 

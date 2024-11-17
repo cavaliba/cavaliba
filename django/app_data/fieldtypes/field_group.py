@@ -6,9 +6,9 @@ from app_user.group import group_all_filtered
 from app_user.group import group_get_by_name
 
 # -------------
-# SIRENE GROUP
+# GROUP
 # -------------
-class FieldSireneGroup(Field):
+class FieldGroup(Field):
 
     def __init__(self, fieldname, fieldschema, alljson):
         super().__init__(fieldname, fieldschema, alljson)

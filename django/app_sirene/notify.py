@@ -10,7 +10,7 @@ from django.utils import timezone
 
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from app_user.models import SireneGroup
 from app_user.group import group_expand_to_users

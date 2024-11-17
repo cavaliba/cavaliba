@@ -18,6 +18,7 @@ ENV PYTHONUNBUFFERED=1
 
 RUN apk add gcc musl-dev mariadb-connector-c-dev gettext
 
+RUN apk --update --no-cache add curl
 
 # install dependencies
 RUN pip install --upgrade pip

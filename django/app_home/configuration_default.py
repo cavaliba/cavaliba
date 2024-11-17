@@ -9,8 +9,9 @@ CONFIGURATION_DEFAULT = {
 		"GLOBAL_APPNAME": "Cavaliba",
 	    "CSV_DELIMITER": '|',
 	    "LOGO_SIZE": 0,
+	    "LOG_DEBUG": "yes", 
+	    "LOG_KEEP_DAYS": 31, 
 	    "BETA_PREVIEW": 'no',
-
 	},
 	"user": {
 
@@ -32,11 +33,6 @@ CONFIGURATION_DEFAULT = {
 		"DATA_BIGSET_SIZE": 500,
 		"EXPORT_INTERACTIVE_MAX_SIZE": 5000,
 	},
-	"log": {
-	    "LOG_DEBUG": "yes", 
-	    "LOG_KEEP_DAYS": 31, 
-	},
-
 	"sirene": {
 	    "PUBLIC_MAX_ITEMS": 6,
 	    "PUBLIC_MAX_MINUTES": 1440,

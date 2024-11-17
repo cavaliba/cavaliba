@@ -21,7 +21,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 from app_user.aaa import start_view
 from app_user.aaa import get_aaa 
 from app_home.configuration import get_configuration
@@ -377,8 +377,8 @@ def instance_list(request, classname=None):
 
 
     # DATAVIEW
-
-    # Transform to a DATAVIEW structure (subset of columns, widgets, ...)
+    # --------
+    # Transform to a DATAVIEW structure (subset/superset of columns, widgets, ...)
     # 1. get available dataviews (default, global, per user)
     # 2. get requested dataview (or default dataview)
     # 3. loop over instances / extract columns / build structure
@@ -391,25 +391,35 @@ def instance_list(request, classname=None):
     #dataview_default_content = { 'columns' : ['keyname', 'displayname','last_update']}
     #context["dataview"] = True    
     
-    # selector 
-    dv_selector = get_dataviews_for_class(classname)
-    context["dataview_selector"] = dv_selector
+    # selector : list of DB qs keyname
+    dataview_selector = get_dataviews_for_class(classname)
 
-    # Per user data views
+    # NEXT - Per user data views
     # dv_selector2 = get_dataviews_for_user(classname,aaa)
     # context["dataview_selector2"] = dv_selector2
 
+    if len(dataview_selector) == 0:
+        # no view defined for this class, use default built-in dataview
+        keyname = "default"
+    else:    
+        # try to use the requested dataview
+        keyname = request.GET.get("dv","")
+        if keyname:
+            m = re.compile(r'[a-zA-Z0-9()_/.-]*$')
+            if not m.match(keyname):
+                keyname = "default"
 
-    req_dataview = request.GET.get("dv",None)
-    if req_dataview:
-        m = re.compile(r'[a-zA-Z0-9()_/.-]*$')
-        if not m.match(req_dataview):
-            req_dataview = None
+    # if only one, and default not requested, use the one
+    if len(dataview_selector) == 1 and keyname != "default":
+        keyname = dataview_selector[0]
 
-    dataview = DataView(dataview_name = req_dataview)
-    dataview_content = dataview.content
-    dataview_name = dataview.dataview_name
+    # NEXT - add a "default" option for data_view to select if none requested
 
+    dataview = DataView(keyname = keyname)
+    if dataview.classname != classname:
+        # wrong class, use a default view
+        dataview=DataView()
+        
     #dataview.print()
 
     # extract columns
@@ -418,9 +428,9 @@ def instance_list(request, classname=None):
         instance = Instance(iobj=iobj, classname=classname, schema=schema)
         iobj.dataview = dataview.filter(instance=instance)
 
-
-    context["dataview_name"] = dataview_name
-    context["dataview_heads"] = dataview.get_heads()
+    context["dataview_selector"] = dataview_selector
+    context["dataview_name"] = dataview.displayname
+    context["dataview_columns"] = dataview.columns
     context["instances"] = instances
     return render(request, 'app_data/instance_list.html', context)
 

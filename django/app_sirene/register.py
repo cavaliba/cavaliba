@@ -235,12 +235,160 @@ _role:role_sirene_user:
 
 
 
+# Sirene
+# ------
+
+_schema:app:
+
+    _displayname: Applications
+    _is_enabled: yes
+    _icon: fa-window-maximize
+    _order: 50
+    _page: MeteoSI
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
+    _role_import: role_data_admin
+    _role_export: role_data_admin
+    description:
+        #_action: create_or_update          
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+    sirene_group:
+        displayname: Sirene User Groups to notify
+        order: 120
+        dataformat: group
+        cardinal_max: 0
 
 
 
+_schema:site:
+    #_action: create_or_update
+    _displayname: Etablissements
+    _is_enabled: yes
+    _order: 60
+    _page: MeteoSI        
+    _icon: fa-hospital-o
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
+    _role_import: role_data_admin
+    _role_export: role_data_admin
+    description:
+        _action: create_or_update          
+        displayname: Cliniques, Sieges, CSP
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+    sirene_group:
+        displayname: Sirene User Groups to notify
+        page: Sirene
+        order: 500
+        dataformat: group
+        cardinal_max: 0
+    sirene_app:      
+        displayname: Sirene App subscriptions
+        page: Sirene
+        order: 510           
+        dataformat: schema
+        dataformat_ext: app
+        cardinal_max: 0
 
 
 
+_schema:sitegroup:
+
+    _displayname: Groups of Sites
+    _is_enabled: yes
+    _icon: fa-university
+    _order: 70
+    _page: MeteoSI        
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
+    _role_import: role_data_admin
+    _role_export: role_data_admin
+    description:
+        #_action: create_or_update          
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+    members:
+        displayname: Sites (members)
+        page: Org
+        order: 120           
+        dataformat: schema
+        dataformat_ext: site
+        cardinal_max: 0
+    subgroups:
+        displayname: Subgroups
+        page: Org
+        order: 130
+        dataformat: schema
+        dataformat_ext: sitegroup
+        cardinal_max: 0
+    sirene_group:
+        displayname: Sirene User Groups to notify
+        page: Sirene
+        order: 500
+        dataformat: group
+        cardinal_max: 0
+
+_schema:customer:
+
+    _displayname: Clients
+    _is_enabled: yes
+    _icon: fa-credit-card
+    _order: 290
+    _page: Data
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
+    _role_import: role_data_admin
+    _role_export: role_data_admin
+    description:
+        #_action: create_or_update          
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+    sirene_group:
+        displayname: Sirene User Groups to notify
+        order: 150
+        dataformat: group
+        cardinal_max: 0
+        
 '''
 
 

@@ -23,9 +23,11 @@ services:
       #- 443:443
     env_file:
       - ./.env
+    # depends_on:
+    #   - cavaliba_app
     depends_on:
-      - cavaliba_app
-
+        cavaliba_app:
+          condition: service_healthy
 
 
   cavaliba_app:
@@ -56,6 +58,11 @@ services:
       DJANGO_SQL_PASSWORD: ${CAVALIBA_DB_PASSWORD}
     env_file:
       - ./.env
+    healthcheck:
+        test: curl http://localhost:8001/status/
+        interval: 5s
+        timeout: 20s
+        retries: 10
     depends_on:
         cavaliba_redis:
           condition: service_healthy

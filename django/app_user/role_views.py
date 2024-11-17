@@ -17,7 +17,7 @@ from django.db.models import Count
 from .aaa import get_aaa
 from .aaa import start_view
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 #log(DEBUG, aaa=aaa, app="log", view="private", action="list", status="OK", data="")
 
 

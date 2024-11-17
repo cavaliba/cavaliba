@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-03 17:26+0100\n"
+"POT-Creation-Date: 2024-11-17 13:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: app_data/data.py:749
+#: app_data/data.py:748
 msgid "missing keyname"
 msgstr "Identifiant manquant"
 
-#: app_data/data.py:753
+#: app_data/data.py:752
 msgid "keyname empty"
 msgstr "Identifiant manquant"
+
+#: app_data/dataview.py:68 app_data/templates/app_data/instance_list.html:21
+#: app_data/templates/app_data/instance_list.html:24
+msgid "Default View"
+msgstr "Vue par défaut"
 
 #: app_data/models.py:119
 msgid "Description"
@@ -70,17 +75,20 @@ msgstr "Supprimer"
 
 #: app_data/templates/app_data/instance_detail.html:41
 #: app_data/templates/app_data/instance_edit.html:29
+#: app_data/templates/app_data/instance_new.html:28
 msgid "Keyname(*)"
 msgstr "Identifiant(*)"
 
 #: app_data/templates/app_data/instance_detail.html:45
 #: app_data/templates/app_data/instance_edit.html:38
 #: app_data/templates/app_data/instance_list.html:124
+#: app_data/templates/app_data/instance_new.html:37
 msgid "Display Name"
 msgstr "Nom complet"
 
 #: app_data/templates/app_data/instance_detail.html:48
 #: app_data/templates/app_data/instance_edit.html:46
+#: app_data/templates/app_data/instance_new.html:45
 msgid "Is Enabled"
 msgstr "Actif"
 
@@ -112,11 +120,6 @@ msgstr "Choisir les utilisateurs"
 #: app_data/templates/app_data/private.html:49
 msgid "objects"
 msgstr "objets"
-
-#: app_data/templates/app_data/instance_list.html:21
-#: app_data/templates/app_data/instance_list.html:24
-msgid "Default View"
-msgstr "Vue par défaut"
 
 #: app_data/templates/app_data/instance_list.html:31
 msgid "New"

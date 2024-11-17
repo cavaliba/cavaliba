@@ -96,19 +96,19 @@ FIELD_FORMAT_CHOICE = (
     ("boolean", "boolean"),
     ("ipv4", "ipv4"),
     ("date", "date"),
-    ("sirene_data","sirene_data"),
-    ("sirene_static", "sirene_static"),
-    ("sirene_group","sirene_group"),
-    ("sirene_user","sirene_user"),
+    ("schema","schema"),
+    ("group","group"),
+    ("user","user"),
     ("datetime", "datetime"),
     ("json", "json"),
     ("text", "text"),
     ("enumerate", "enumerate"),
 
+    # html, yaml, json
     # bin / encrypt ?
+    # password
     # file
-    # sirene_data
-    # sirene_link?
+    # link
 )
 
 class DataSchema(models.Model):

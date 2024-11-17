@@ -16,7 +16,7 @@ import yaml
 from django.http import HttpResponse
 from django.forms.models import model_to_dict
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from .models import Category
 from .models import PublicPage

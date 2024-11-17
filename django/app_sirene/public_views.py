@@ -20,7 +20,7 @@ from .common import sort_by_severity
 
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 from app_user.aaa import start_view
 from app_user.aaa import get_aaa
 

@@ -19,7 +19,7 @@ from django.utils.translation import gettext as _
 
 
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 from app_user.aaa import start_view
 from app_user.aaa import get_aaa 
 from app_home.configuration import get_configuration

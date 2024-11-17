@@ -15,7 +15,7 @@ from django.utils import timezone
 
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from app_user.group import group_all_filtered
 from app_user.group import group_create
@@ -26,13 +26,12 @@ from app_user.role import role_get_by_name
 from .fieldtypes.field_string        import FieldString
 from .fieldtypes.field_int           import FieldInt
 from .fieldtypes.field_boolean       import FieldBoolean
-from .fieldtypes.field_sirene_data   import FieldSireneData
-from .fieldtypes.field_sirene_group  import FieldSireneGroup
+from .fieldtypes.field_schema        import FieldSchema
+from .fieldtypes.field_group         import FieldGroup
 from .fieldtypes.field_ipv4          import FieldIPV4
 from .fieldtypes.field_float         import FieldFloat
 from .fieldtypes.field_date          import FieldDate
-#from .fieldtypes.field_sirene_static import FieldSireneStatic
-from .fieldtypes.field_sirene_user   import FieldSireneUser
+from .fieldtypes.field_user          import FieldUser
 from .fieldtypes.field_text          import FieldText
 from .fieldtypes.field_enumerate     import FieldEnumerate
 
@@ -123,7 +122,9 @@ def get_instances(classname = None, is_enabled=None):
 
 
 
-# fast query to select on field value (select * from instance where field = xxx)
+# fast query to select one field value 
+# select keyname, fieldname from instance where classname = classname
+# select keyname, *         from instance where classname = classname
 def get_instances_raw_json(classname = None, is_enabled=True, fieldname = None):
     
     reply = {}
@@ -134,14 +135,14 @@ def get_instances_raw_json(classname = None, is_enabled=True, fieldname = None):
     else:
         instances = DataInstance.objects.filter(classobj=classobj)
 
-    # filter json content
+    # extract json
     for iobj in instances:
-        jsondata = json.loads(iobj.data_json) 
+        jsondata = json.loads(iobj.data_json)
+        data = jsondata
+        # filter ?
         if fieldname:
             if fieldname in jsondata:
                 data = jsondata[fieldname]
-            else:
-                data = jsondata
         reply[iobj.keyname] = data
     return reply
 
@@ -322,11 +323,11 @@ class Instance:
             elif fieldschema["dataformat"] == "boolean":
                 self.fields[fieldname] = FieldBoolean(fieldname, fieldschema, self.json)
 
-            elif fieldschema["dataformat"] == "sirene_data":
-                self.fields[fieldname] = FieldSireneData(fieldname, fieldschema, self.json)
+            elif fieldschema["dataformat"] == "schema":
+                self.fields[fieldname] = FieldSchema(fieldname, fieldschema, self.json)
 
-            elif fieldschema["dataformat"] == "sirene_group":
-                self.fields[fieldname] = FieldSireneGroup(fieldname, fieldschema, self.json)
+            elif fieldschema["dataformat"] == "group":
+                self.fields[fieldname] = FieldGroup(fieldname, fieldschema, self.json)
 
             elif fieldschema["dataformat"] == "ipv4":
                 self.fields[fieldname] = FieldIPV4(fieldname, fieldschema, self.json)
@@ -340,8 +341,8 @@ class Instance:
             # elif fieldschema["dataformat"] == "sirene_static":
             #     self.fields[fieldname] = FieldSireneStatic(fieldname, fieldschema, self.json)
 
-            elif fieldschema["dataformat"] == "sirene_user":
-                self.fields[fieldname] = FieldSireneUser(fieldname, fieldschema, self.json)
+            elif fieldschema["dataformat"] == "user":
+                self.fields[fieldname] = FieldUser(fieldname, fieldschema, self.json)
 
             elif fieldschema["dataformat"] == "text":
                 self.fields[fieldname] = FieldText(fieldname, fieldschema, self.json)
@@ -1398,7 +1399,7 @@ def data_yaml_response(classes=None):
     data = export_data(classes)
     filedata = yaml.dump(data, allow_unicode=True, Dumper=MyYamlDumper, sort_keys=False)
     response = HttpResponse(filedata, content_type='text/yaml')  
-    response['Content-Disposition'] = 'attachment; filename="sirene_data.yaml"'
+    response['Content-Disposition'] = 'attachment; filename="cavaliba_data.yaml"'
     return response
 
 
@@ -1407,5 +1408,5 @@ def data_json_response(classes=None):
     data = export_data(classes)
     filedata = json.dumps(data, indent=4)
     response = HttpResponse(filedata, content_type='text/json')  
-    response['Content-Disposition'] = 'attachment; filename="sirene_data.json"'
+    response['Content-Disposition'] = 'attachment; filename="cavaliba_data.json"'
     return response    

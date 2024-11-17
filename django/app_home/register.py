@@ -10,9 +10,8 @@ APP_NAME = "home"
 
 BUILTIN_DATA = '''
 
-# permissions
-# -----------
-
+# permission home
+# ---------------
 
 _permission:p_home_access:
     is_builtin: True
@@ -33,8 +32,11 @@ _permission:p_home_import_yaml:
     description: "Built-in HOME import YAML"
     displayname: "p_home_import_yaml"
 
-# roles
-# -----
+
+
+
+# roles home
+# ----------
 
 _role:role_home_admin:
     displayname: Built-in HOME Admin Role
@@ -51,10 +53,10 @@ _role:role_home_user:
       - p_home_access
 
 
+
+
 # Home Dashboard
 # --------------
-
-
 
 _home:home:
     #_action: ...
@@ -196,7 +198,7 @@ _home:log:
     displayname: Logs
     description: Audit trail
     icon: fa-list
-    url: /log/private/
+    url: /home/private/log/
     page: Logs
     order: 300
     permission: p_log_access

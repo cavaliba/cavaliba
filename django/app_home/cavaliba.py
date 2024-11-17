@@ -3,7 +3,7 @@
 
 
 # global framework version
-CAVALIBA_VERSION = "3.10"
+CAVALIBA_VERSION = "3.11-beta"
 
 
 GLOBAL_BUILTIN_DATA = '''
@@ -16,8 +16,8 @@ _user:admin:
     displayname: Built-in Global Admin user
 
 
-# permissions
-# -----------
+# permission conf
+# ---------------
 
 _permission:p_conf_access:
     appname: conf
@@ -30,6 +30,29 @@ _permission:p_conf_admin:
     description: "Built-in conf admin permission"
     displayname: "p_conf_admin"
     is_builtin: True
+
+
+
+# permission log    
+# --------------
+_permission:p_log_access:
+    is_builtin: True
+    appname: log
+    description: "Built-in LOG app Access"
+    displayname: "p_log_access"
+
+_permission:p_log_view:
+    is_builtin: True
+    appname: log
+    description: "Built-in LOG view"
+    displayname: "p_log_view"
+
+
+_permission:p_log_manage:
+    is_builtin: True
+    appname: log
+    description: "Built-in LOG manage"
+    displayname: "p_log_manage"
 
 
 # roles
@@ -52,6 +75,23 @@ _role:role_default:
        - p_sirene_history
        - p_sirene_detail
 
+# roles Log
+# ---------
 
+_role:role_log_view:
+    displayname: Built-in LOG view Role
+    is_builtin: true
+    permissions:
+      - p_log_access
+      - p_log_view
+
+
+_role:role_log_manage:
+    displayname: Built-in LOG manage Role
+    is_builtin: true
+    permissions:
+      - p_log_access
+      - p_log_view
+      - p_log_manage
 '''
 

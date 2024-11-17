@@ -14,7 +14,7 @@ from django.utils import timezone
 
 from app_home.configuration import get_configuration
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from .models import SMSJournal
 
@@ -58,7 +58,7 @@ def add_journal(mobile=None, sms=None, aaa=None):
     entry.quota = quota
     
     # TODO encrypt content
-    key = os.environ.get('SIRENE_KEY')
+    key = os.environ.get('CAVALIBA_CIPHER_KEY')
     if key:
         entry.content = sms_encode(key,sms)
     else:

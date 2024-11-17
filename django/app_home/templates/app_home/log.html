@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block navbar_app %}
-{% include 'app_log/_navbar_app.html' %}
+{% include 'app_home/_navbar_app.html' %}
 {% endblock %}
 
 
@@ -22,11 +22,11 @@
     <a class="btn btn-outline-danger dropdown-toggle me-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Level ({{ level }})</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="{% url 'app_log:private' 'debug' %}">DEBUG</a>
-      <a class="dropdown-item" href="{% url 'app_log:private' 'info' %}">INFO</a>
-      <a class="dropdown-item" href="{% url 'app_log:private' 'warning' %}">WARNING</a>
-      <a class="dropdown-item" href="{% url 'app_log:private' 'error' %}">ERROR</a>
-      <a class="dropdown-item" href="{% url 'app_log:private' 'critical' %}">CRITICAL</a>
+      <a class="dropdown-item" href="{% url 'app_home:log' 'debug' %}">DEBUG</a>
+      <a class="dropdown-item" href="{% url 'app_home:log' 'info' %}">INFO</a>
+      <a class="dropdown-item" href="{% url 'app_home:log' 'warning' %}">WARNING</a>
+      <a class="dropdown-item" href="{% url 'app_home:log' 'error' %}">ERROR</a>
+      <a class="dropdown-item" href="{% url 'app_home:log' 'critical' %}">CRITICAL</a>
     </div>
   </div>
 
@@ -83,16 +83,25 @@
       <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
       {{ size }} {% translate 'per page' %} </a> 
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="{% url 'app_log:private' %}?size=50">50</a>
-        <a class="dropdown-item" href="{% url 'app_log:private' %}?size=100">100</a>
-        <a class="dropdown-item" href="{% url 'app_log:private' %}?size=500">500</a>
-        <a class="dropdown-item" href="{% url 'app_log:private' %}?size=1000">1000</a>
-        <a class="dropdown-item" href="{% url 'app_log:private' %}?size=5000">5000</a>
+        <a class="dropdown-item" href="{% url 'app_home:log' %}?size=50">50</a>
+        <a class="dropdown-item" href="{% url 'app_home:log' %}?size=100">100</a>
+        <a class="dropdown-item" href="{% url 'app_home:log' %}?size=500">500</a>
+        <a class="dropdown-item" href="{% url 'app_home:log' %}?size=1000">1000</a>
+        <a class="dropdown-item" href="{% url 'app_home:log' %}?size=5000">5000</a>
       </div>
     </div>
+
+<!-- PURGE -->
+{% if 'p_log_manage' in aaa.perms %}
+    <div class="">
+    <li class="nav-item">
+    <form method="post">{% csrf_token %}
+    <input class="btn btn-outline-danger ms-4" type="submit" value="Purge Logs" name="purge">
+    </form>
+    </li>
+    </div>{% endif %}
+
 </div>
-
-
 
 
 

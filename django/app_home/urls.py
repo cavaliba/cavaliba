@@ -16,7 +16,7 @@ app_name="app_home"
 
 urlpatterns = [
 
-    # public
+    # home/ >>  home/private/
     path('',  views.private, name='index'),
 
     # api
@@ -31,4 +31,10 @@ urlpatterns = [
     # conf
     path('private/conf/', views.configuration, name='configuration'),
     path('private/conf/<slug:appname>/', views.configuration, name='configuration'),
+
+    # logs
+    path('private/log/', views.logview, name='log'),
+    path('private/log/l/<str:level>/', views.logview, name='log'),
+    path('private/log/purge/', views.logview, name='logpurge'),
+
 ]

@@ -77,15 +77,20 @@ def get_enum_content(enumname):
     #   is_enabled: True
     #   widget: "green_circle"
     #   description: "Use if very good"
+    #   numvalue: 1
+
     # - value: "B - average"
     #   is_enabled: True
     #   widget: "orange_circle"
+
     # - value: "C - bad"
     #   is_enabled: True
     #   widget: "red_circle"
+
     # - value: "n/a"
     #   is_enabled: True
     #   widget: ""
+    
     # - value: "?"
     #   is_enabled: True
     #   widget: "blue_circle"

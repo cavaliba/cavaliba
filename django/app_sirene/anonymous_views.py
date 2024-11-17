@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 
 from .models import PublicPage

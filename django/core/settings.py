@@ -43,7 +43,6 @@ SIRENE_APPS = [
     'app_sirene.apps.AppSireneConfig',
     'app_home.apps.AppHomeConfig',
     'app_user.apps.AppUserConfig',
-    'app_log.apps.AppLogConfig',
     'app_data.apps.AppDataConfig',
 ]
 

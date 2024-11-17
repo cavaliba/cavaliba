@@ -1,5 +1,4 @@
-# (c) Cavaliba 2023 - Sirene
-
+# (c) Cavaliba 2024
 
 # django command / load_model.py
 # load data from YAML files in the sirene database
@@ -11,8 +10,8 @@ import os
 from django.core.management.base import BaseCommand, CommandError
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
-from app_log.log import purge
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import purge
 
 
 class Command(BaseCommand):

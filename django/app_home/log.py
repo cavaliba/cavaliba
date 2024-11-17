@@ -1,4 +1,4 @@
-# app_log - log.py
+# app_home - log.py
 
 import datetime
 from datetime import datetime
@@ -8,14 +8,8 @@ from django.utils.translation import gettext as _
 
 
 from app_home.configuration import get_configuration
-from .models import SireneLog
+from .models import CavalibaLog
 
-
-# DEBUG = _("DEBUG")
-# INFO = _("INFO")
-# WARNING = _("WARNING")
-# ERROR = _("ERROR")
-# CRITICAL = _("CRITICAL")
 
 DEBUG = "DEBUG"
 INFO = "INFO"
@@ -27,12 +21,12 @@ CRITICAL = "CRITICAL"
 def log(level, app="", view="", action="", status="", data="", aaa=None, user_ip=""):
 
     if level=="DEBUG":
-        log_debug = get_configuration(appname="log", keyname="LOG_DEBUG")
+        log_debug = get_configuration(appname="home", keyname="LOG_DEBUG")
         if log_debug != "yes":
             return
 
 
-    log = SireneLog()
+    log = CavalibaLog()
     
     log.created_at = timezone.now()
     log.level = level
@@ -63,12 +57,12 @@ def log(level, app="", view="", action="", status="", data="", aaa=None, user_ip
 def purge(aaa=None, keep_days=None):
 
     if keep_days is None:
-        keep_days = int(get_configuration(appname="log", keyname="LOG_KEEP_DAYS"))
+        keep_days = int(get_configuration(appname="home", keyname="LOG_KEEP_DAYS"))
 
     if keep_days == 0:
-        count = SireneLog.objects.all().delete()[0]
+        count = CavalibaLog.objects.all().delete()[0]
     else:
-        count = SireneLog.objects.filter(created__lte=timezone.now()-timedelta(days=keep_days)).delete()[0]
+        count = CavalibaLog.objects.filter(created__lte=timezone.now()-timedelta(days=keep_days)).delete()[0]
 
     return count
 

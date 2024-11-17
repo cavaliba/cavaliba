@@ -68,19 +68,19 @@
             {% else %}<input type="checkbox" disabled/>{% endif %}
         {% elif item.dataformat == "int" %}  {{ item.value|default:'' }}
         {% elif item.dataformat == "float" %}  {{ item.value|default:'' }}
-        {% elif item.dataformat == "sirene_group" %}  
+        {% elif item.dataformat == "group" %}  
             <div class="d-flex flex-wrap"> 
             {% for z in item.value %}
             <a class="btn btn-outline-primary btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z %}" role="button">
             {{ z }}</a>{% endfor %}   
             </div>   
-        {% elif item.dataformat == "sirene_user" %}
+        {% elif item.dataformat == "user" %}
             <div class="d-flex flex-wrap"> 
             {% for z in item.value %}
             <a class="btn btn-outline-primary btn-sm mx-1 my-1" href="{% url 'app_user:user_detail' z.key %}" role="button">
             {{ z.key }} ({{ z.display }})</a>{% endfor %}     
             </div>  
-        {% elif item.dataformat == "sirene_data" %}  
+        {% elif item.dataformat == "schema" %}  
             <div class="d-flex flex-wrap"> 
             {% for z in item.value %}
             <a class="btn btn-outline-success btn-sm mx-1 my-1" href="{% url 'app_data:instance_detail' item.dataformat_ext z.key %}" role="button">

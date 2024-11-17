@@ -25,7 +25,7 @@ from django.contrib.auth import logout as django_logout
 
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from .models import SireneUser
 from .models import SireneGroup

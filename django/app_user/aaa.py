@@ -16,7 +16,7 @@ from django.contrib.auth import authenticate
 from app_home.configuration import load_configuration_cache
 from app_home.configuration import get_configuration
 
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from .models import SireneGroup
 from .models import SirenePermission

@@ -17,7 +17,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.core.mail import EmailMessage
 
 from app_home.configuration import get_configuration
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 # ----------------------------------------------------------------------
 def sirene_send_mail(subject, text_content, sender, dests, html_content=None, aaa=None):

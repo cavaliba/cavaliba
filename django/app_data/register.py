@@ -7,49 +7,6 @@ from django.utils.translation import gettext as _
 APP_NAME = "data"
 
 
-# # (keyname, displayname, description, default)
-# PERMISSIONS = [
-
-
-#      ("p_data_access", "Access UI", "", False),
-#      ("p_data_class_ro", "Access RO on classes", "", False),
-#      ("p_data_class_rw", "Access RWD on classes", "", False),
-#      ("p_data_schema_ro", "Schema RO", "", False),
-#      ("p_data_schema_rw", "Schema RWD", "", False),
-#      ("p_data_instance_ro", "Global RO on instances", "", False),
-#      ("p_data_instance_rw", "Global RWD on instances", "", False),
-#      ("p_data_import", "Use file or YAML import tool", "", False),
-#      ("p_data_admin", "Other sensitive actions on data app", "", False),
-
-# ]
-
-# # only gives permissions ; role_data_CLASSNAME_XX pour each class
-# ROLES_BUILTIN = {
-#     'role_data_ro': [
-#         "p_data_access",
-#         "p_data_class_ro",
-#         "p_data_schema_ro",
-#         "p_data_instance_ro",
-
-#     ],
-#     # class: create/update/delete/onoff
-#     'role_data_rw': [
-#         "p_data_access", 
-#         "p_data_class_rw",
-#         "p_data_schema_rw",
-#         "p_data_instance_rw",
-#     ],
-#     # class: import/export
-#     'role_data_admin': [
-#         "p_data_access", 
-#         "p_data_class_rw",
-#         "p_data_schema_rw",
-#         "p_data_instance_rw",
-#         "p_data_import",
-#         "p_data_admin",
-#     ],
-# }
-
 
 
 BUILTIN_DATA = '''
@@ -133,176 +90,10 @@ _role:role_data_rw:
       - p_instance_ro
 
 
+
 # schemas
 # -------
 
-
-_schema:app:
-
-    _displayname: Applications
-    _is_enabled: yes
-    _icon: fa-window-maximize
-    _order: 50
-    _page: MeteoSI
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
-    _role_import: role_data_admin
-    _role_export: role_data_admin
-    description:
-        #_action: create_or_update          
-        displayname: Description
-        order: 100
-        dataformat: string
-        dataformat_ext: ""
-        cardinal_min: 0
-        cardinal_max: 1
-        default : ""
-    sirene_group:
-        displayname: Sirene User Groups to notify
-        order: 120
-        dataformat: sirene_group
-        cardinal_max: 0
-
-
-
-_schema:site:
-    #_action: create_or_update
-    _displayname: Etablissements
-    _is_enabled: yes
-    _order: 60
-    _page: MeteoSI        
-    _icon: fa-hospital-o
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
-    _role_import: role_data_admin
-    _role_export: role_data_admin
-    description:
-        _action: create_or_update          
-        displayname: Cliniques, Sieges, CSP
-        order: 100
-        dataformat: string
-        dataformat_ext: ""
-        cardinal_min: 0
-        cardinal_max: 1
-        default : ""
-    address:
-        displayname: Address
-        page: Address
-        order: 110
-        dataformat: string                    
-    city:
-        displayname: City
-        page: Address
-        order: 111
-        dataformat: string
-    zip:
-        displayname: Zipcode
-        page: Address
-        order: 113
-        dataformat: string
-    sirene_group:
-        displayname: Sirene User Groups to notify
-        page: Sirene
-        order: 500
-        dataformat: sirene_group
-        cardinal_max: 0
-    sirene_app:      
-        displayname: Sirene App subscriptions
-        page: Sirene
-        order: 510           
-        dataformat: sirene_data
-        dataformat_ext: app
-        cardinal_max: 0
-
-
-
-_schema:sitegroup:
-
-    _displayname: Groups of Sites
-    _is_enabled: yes
-    _icon: fa-university
-    _order: 70
-    _page: MeteoSI        
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
-    _role_import: role_data_admin
-    _role_export: role_data_admin
-    description:
-        #_action: create_or_update          
-        displayname: Description
-        order: 100
-        dataformat: string
-        dataformat_ext: ""
-        cardinal_min: 0
-        cardinal_max: 1
-        default : ""
-    members:
-        displayname: Sites (members)
-        page: Org
-        order: 120           
-        dataformat: sirene_data
-        dataformat_ext: site
-        cardinal_max: 0
-    subgroups:
-        displayname: Subgroups
-        page: Org
-        order: 130
-        dataformat: sirene_data
-        dataformat_ext: sitegroup
-        cardinal_max: 0
-    sirene_group:
-        displayname: Sirene User Groups to notify
-        page: Sirene
-        order: 500
-        dataformat: sirene_group
-        cardinal_max: 0
-
-_schema:customer:
-
-    _displayname: Clients
-    _is_enabled: yes
-    _icon: fa-credit-card
-    _order: 290
-    _page: Data
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
-    _role_import: role_data_admin
-    _role_export: role_data_admin
-    description:
-        #_action: create_or_update          
-        displayname: Description
-        order: 100
-        dataformat: string
-        dataformat_ext: ""
-        cardinal_min: 0
-        cardinal_max: 1
-        default : ""
-    sirene_group:
-        displayname: Sirene User Groups to notify
-        order: 150
-        dataformat: sirene_group
-        cardinal_max: 0
-        
 
 _schema:data_enumerate:
     #_action: init
@@ -346,13 +137,13 @@ _schema:data_pipeline:
     _icon: fa-gears
     _order: 500
     _page: Internal
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
     _role_import: role_data_admin
     _role_export: role_data_admin
     description:
@@ -379,13 +170,13 @@ _schema:data_view:
     _icon: fa-table
     _order: 810
     _page: Internal
-    _role_show: role_data_admin
-    _role_access: role_data_admin
-    _role_read: role_data_admin
-    _role_create: role_data_admin
-    _role_update: role_data_admin
-    _role_delete: role_data_admin
-    _role_onoff: role_data_admin
+    _role_show: role_data_ro
+    _role_access: role_data_ro
+    _role_read: role_data_ro
+    _role_create: role_data_rw
+    _role_update: role_data_rw
+    _role_delete: role_data_rw
+    _role_onoff: role_data_rw
     _role_import: role_data_admin
     _role_export: role_data_admin
     description:
@@ -409,6 +200,19 @@ _schema:data_view:
         order: 120
         dataformat: text
         dataformat_ext: yaml
+
+        
+data_view:default_dataview:
+  classname: data_view
+  displayname: Default View
+  is_enabled: true
+  description: Default dataview for DataView itself
+  content: |
+    columns:
+      - keyname
+      - displayname
+      - classname
+      - last_update
 
 
 '''

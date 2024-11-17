@@ -1,4 +1,4 @@
-# Cavaliba / Field type sirene_user
+# Cavaliba / Field type USER
 
 from .field import Field
 
@@ -10,9 +10,9 @@ from app_user.models import SireneUser
 from app_user.user import user_get_by_login
 
 # -------------
-# SIRENE GROUP
+# USER
 # -------------
-class FieldSireneUser(Field):
+class FieldUser(Field):
 
     def __init__(self, fieldname, fieldschema, alljson):
         super().__init__(fieldname, fieldschema, alljson)

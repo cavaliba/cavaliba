@@ -17,16 +17,9 @@ from .models import DashboardApp
 
 import app_home.register as app_home
 import app_data.register as app_data
-import app_log.register as app_log
 import app_user.register as app_user
 import app_sirene.register as app_sirene
 
-
-# from app_home.register import BUILTIN_DATA
-# from app_log.register import BUILTIN_DATA
-# from app_user.register import BUILTIN_DATA
-# from app_sirene.register import BUILTIN_DATA
-# from app_data.register import BUILTIN_DATA
 
 from app_data.data import load_data
 from app_sirene.load import load_sirene
@@ -127,7 +120,6 @@ def load_builtin(force_action="init", verbose=True):
             app_user.BUILTIN_DATA,
             app_home.BUILTIN_DATA,
             app_data.BUILTIN_DATA,
-            app_log.BUILTIN_DATA,
             app_sirene.BUILTIN_DATA,
         ]
 

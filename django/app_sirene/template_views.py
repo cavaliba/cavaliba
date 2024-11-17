@@ -18,7 +18,7 @@ from .common import get_bootstrap_colors2
 
 from app_user.aaa import start_view
 from app_user.aaa import get_aaa
-from app_log.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
+from app_home.log import log, DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 from app_data.models import DataClass
 from app_data.models import DataInstance
