@@ -1,0 +1,419 @@
+[
+{
+  "model": "app_user.sireneuser",
+  "pk": 3,
+  "fields": {
+    "login": "ppa",
+    "firstname": "Phil",
+    "lastname": "PPA",
+    "displayname": "Phil PPA",
+    "email": "ppa@cavaliba.com",
+    "mobile": "0600000000",
+    "description": "PPA test user",
+    "external_id": "NN00001",
+    "is_enabled": true,
+    "last_login": null,
+    "want_notifications": true,
+    "want_24": true,
+    "want_sms": true,
+    "want_email": true,
+    "secondary_email": null,
+    "secondary_mobile": null
+  }
+},
+{
+  "model": "app_user.sireneuser",
+  "pk": 4,
+  "fields": {
+    "login": "ppa2",
+    "firstname": "Phil2",
+    "lastname": "PPA22",
+    "displayname": "Phil PPA2",
+    "email": "ppa2@cavaliba.com",
+    "mobile": "0600000002",
+    "description": "PPA2 test user",
+    "external_id": "NN00002",
+    "is_enabled": true,
+    "last_login": null,
+    "want_notifications": true,
+    "want_24": true,
+    "want_sms": true,
+    "want_email": true,
+    "secondary_email": "",
+    "secondary_mobile": ""
+  }
+},
+{
+  "model": "app_user.sireneuser",
+  "pk": 9,
+  "fields": {
+    "login": "ppa3",
+    "firstname": "ai",
+    "lastname": "zi",
+    "displayname": "ei",
+    "email": "ai@a.com",
+    "mobile": "ti",
+    "description": "yi",
+    "external_id": null,
+    "is_enabled": false,
+    "last_login": null,
+    "want_notifications": false,
+    "want_24": false,
+    "want_sms": false,
+    "want_email": false,
+    "secondary_email": "ai@a.com",
+    "secondary_mobile": "ii"
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 2,
+  "fields": {
+    "keyname": "group01",
+    "displayname": "Group 01",
+    "description": "test group 01",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [
+      3,
+      4
+    ],
+    "subgroups": [
+      2,
+      5,
+      4
+    ],
+    "roles": [
+      1
+    ]
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 4,
+  "fields": {
+    "keyname": "group03",
+    "displayname": "test03",
+    "description": "gggg",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [],
+    "subgroups": [],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 5,
+  "fields": {
+    "keyname": "group02",
+    "displayname": "Group 02",
+    "description": "tete",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [
+      4
+    ],
+    "subgroups": [
+      4
+    ],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 6,
+  "fields": {
+    "keyname": "group04",
+    "displayname": "test04_yaml",
+    "description": "yaml",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [
+      3
+    ],
+    "subgroups": [
+      4
+    ],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 7,
+  "fields": {
+    "keyname": "group05",
+    "displayname": "test04_json",
+    "description": "json",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [
+      3
+    ],
+    "subgroups": [
+      4
+    ],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 8,
+  "fields": {
+    "keyname": "group06",
+    "displayname": "test04_csv",
+    "description": "csv",
+    "is_enabled": true,
+    "is_security": false,
+    "users": [
+      3
+    ],
+    "subgroups": [
+      4
+    ],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenegroup",
+  "pk": 9,
+  "fields": {
+    "keyname": "secu_g1_user",
+    "displayname": "Security Group 1 for app user",
+    "description": "Security Tests",
+    "is_enabled": true,
+    "is_security": true,
+    "users": [
+      3
+    ],
+    "subgroups": [],
+    "roles": []
+  }
+},
+{
+  "model": "app_user.sirenerole",
+  "pk": 1,
+  "fields": {
+    "keyname": "role_user_role1",
+    "appname": "app_user",
+    "displayname": "Role AppUser role1",
+    "description": "test",
+    "is_enabled": true,
+    "is_default": true,
+    "permissions": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "app_user.sirenerole",
+  "pk": 2,
+  "fields": {
+    "keyname": "role_admin",
+    "appname": "app_user",
+    "displayname": "role_admin",
+    "description": "builtin",
+    "is_enabled": true,
+    "is_default": false,
+    "permissions": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 1,
+  "fields": {
+    "keyname": "p_home_test_permission",
+    "appname": "app_home",
+    "displayname": "Perm Home Test",
+    "description": "Test Permission for App HOME",
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 3,
+  "fields": {
+    "keyname": "p_user_main_r",
+    "appname": "app_user",
+    "displayname": "app_user: view main page",
+    "description": "UI access to app main page",
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 4,
+  "fields": {
+    "keyname": "p_user_user_c",
+    "appname": "app_user",
+    "displayname": "app_user: user created",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 5,
+  "fields": {
+    "keyname": "p_user_user_r",
+    "appname": "app_user",
+    "displayname": "app_user: user read",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 6,
+  "fields": {
+    "keyname": "p_user_user_u",
+    "appname": "app_user",
+    "displayname": "app_user: user update",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 7,
+  "fields": {
+    "keyname": "p_user_user_d",
+    "appname": "app_user",
+    "displayname": "app_user: user delete",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 8,
+  "fields": {
+    "keyname": "p_user_pref",
+    "appname": "app_user",
+    "displayname": "app_user: user preferences",
+    "description": "Edit self preferences",
+    "default": true
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 9,
+  "fields": {
+    "keyname": "p_user_user_export",
+    "appname": "app_user",
+    "displayname": "app_user: user export all",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 10,
+  "fields": {
+    "keyname": "p_user_user_import",
+    "appname": "app_user",
+    "displayname": "app_user: user import all",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 11,
+  "fields": {
+    "keyname": "p_user_group_c",
+    "appname": "app_user",
+    "displayname": "app_user: group created",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 12,
+  "fields": {
+    "keyname": "p_user_group_r",
+    "appname": "app_user",
+    "displayname": "app_user: group read",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 13,
+  "fields": {
+    "keyname": "p_user_group_u",
+    "appname": "app_user",
+    "displayname": "app_user: group update",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 14,
+  "fields": {
+    "keyname": "p_user_group_d",
+    "appname": "app_user",
+    "displayname": "app_user: group delete",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 15,
+  "fields": {
+    "keyname": "p_user_group_export",
+    "appname": "app_user",
+    "displayname": "app_user: group export all",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 16,
+  "fields": {
+    "keyname": "p_user_group_import",
+    "appname": "app_user",
+    "displayname": "app_user: group import all",
+    "description": null,
+    "default": false
+  }
+},
+{
+  "model": "app_user.sirenepermission",
+  "pk": 17,
+  "fields": {
+    "keyname": "p_user_group_security",
+    "appname": "app_user",
+    "displayname": "app_user: edit security groups",
+    "description": null,
+    "default": false
+  }
+}
+]

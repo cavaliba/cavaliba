@@ -1,0 +1,116 @@
+{% load static %}
+{% load i18n %}
+
+
+<!-- MESSAGES  -->
+
+  <li class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+      <i class="fa fa-fw fa-list" aria-hidden="true"></i>&nbsp; {% translate 'Messages' %}
+    </a>
+
+    <ul class="dropdown-menu">
+
+    <li>
+      <a class="dropdown-item" href="/?public=yes">
+      <i class="fa fa-fw fa-globe"></i>&nbsp; - &nbsp;
+      {% translate 'Public view' %}
+      </a>
+    </li>
+
+    {% if 'p_sirene_access' in aaa.perms %}
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:private' %}">
+      <i class="fa fa-fw fa-vcard"></i>&nbsp; - &nbsp;
+      {% translate 'Private view' %}    </a>
+    </li>
+    {% endif %}
+
+
+    {% if 'p_sirene_history' in aaa.perms %}
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:history' %}">
+      <i class="fa fa-fw fa-book"></i>&nbsp; - &nbsp;
+      {% translate 'History' %}
+    </a>
+    </li>
+    {% endif %}
+
+
+  </ul>
+</li>
+
+<!-- NEW MESSAGE  -->
+{% if 'p_sirene_new' in aaa.perms %}
+
+
+  <li class="nav-item dropdown">
+
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-fw fa-pencil" aria-hidden="true"></i>&nbsp; {% translate 'New' %}
+    </a>
+
+    <ul class="dropdown-menu">
+
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:template_selector' %}">
+      <i class="fa fa-fw fa-bullhorn" aria-hidden="true"></i>&nbsp; - &nbsp;
+      {% translate 'Predefined template' %}
+    </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:message_editor' %}">
+      <i class="fa fa-fw fa-pencil" aria-hidden="true"></i>&nbsp; - &nbsp;
+      {% translate 'Empty template' %}
+    </a>
+    </li>
+         
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:publicpage_selector' %}">
+      <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp; - &nbsp;
+      {% translate 'Public page only' %}
+    </a>
+    </li>
+
+
+
+    <!-- Flushall -->      
+    {% if 'p_sirene_flushall' in aaa.perms %}
+    <li><hr class="dropdown-divider"></li>
+
+    <li class="nav-item px-1">
+    <form class="form-inline" action="{% url 'app_sirene:flushall' %}" method="post">{% csrf_token %}
+      <div>
+    <input class="btn btn-outline-danger mx-2" type="submit" value="{% translate 'Archive all' %}" name="save">
+    </form>
+  </div>
+    </li>
+    {% endif %}
+
+
+   <li><hr class="dropdown-divider"></li>
+
+    <li>
+      <a class="dropdown-item" href="{% url 'app_sirene:sms_send' %}">
+      <i class="fa fa-fw fa-mobile" aria-hidden="true"></i>&nbsp; - &nbsp;
+      {% translate 'Send a SMS' %}
+    </a>
+    </li>
+
+    </ul> 
+
+  </li>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+

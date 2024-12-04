@@ -1,0 +1,23 @@
+ 
+ <!-- info custom-->
+
+<div class="jumbotron bg-{{ page.bgcolor|default:'success' }} {{ page.fgcolor|default:'text-white' }} ">
+
+  <h3>{{ page.title }}</h3>
+  <hr class="my-4">
+  <span style="white-space: pre-wrap;">{{ page.body | safe}}</span>
+  
+  {% if page.created_at %}
+  <hr class="my-4">
+  <em>
+  <div>Mise à jour : {{ page.created_at |date:'Y-m-d H:i:s' }}</div>
+  </em>
+  {% endif %}
+
+{% if aaa.is_trusted_ip or aaa.is_visitor or aaa.is_authenticated %}
+	<hr>
+	<a class="btn btn-outline-light mr-3" href="{% url 'anonymous' %}" role="button">
+	<i class="fa fa-plus" aria-hidden="true"></i> Détails</a>
+	{% endif %}
+
+</div>

@@ -1,0 +1,40 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+{% for page in paginated %}
+<hr>
+<h5>{{ page.0 }}</h5>
+
+<div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6">
+    
+    {% for app in page.1 %}
+
+        <div class="col py-1">
+
+            {% if app.is_allowed %}<div class="card shadow">
+            {% else %}<div class="card shadow-lg text-bg-secondary">{% endif %}
+
+                <p class="text-center mb-1 pt-2"> <i class="fa {{ app.icon }} fa-2x"></i></p>
+              
+                {% if app.is_allowed %} 
+                <small class="card-title text-center">{{ app.displayname }}</small>
+                <A href="{{ app.url }}" class="stretched-link"></A>
+                {% else %}<div class="card-title text-center"><em>{{ app.displayname }}</em></div>
+                {% endif %}
+            
+            </div>
+          </div>
+    {% endfor %}
+</div>
+
+{% endfor %}
+
+{% endblock %}

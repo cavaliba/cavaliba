@@ -1,0 +1,46 @@
+{% extends "app_sirene/anonymous_base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+<a class="btn btn-outline-dark" onclick="history.back()" role="button">
+   <i class="fa fa-backward" aria-hidden="true"></i>&nbsp; {% translate 'Back' %} </a>
+<hr>
+
+
+<h3><i class="fa fa-search fa-2x" aria-hidden="true"></i> &nbsp; {{ page.title }}</h3>
+<hr>
+
+
+{% if page.body %}
+
+<h4><span class="badge text-bg-{{ page.bgcolor }}">{{ page.category }} - {% translate page.severity %}</span></h4>
+<p><b>{% translate 'Initial message on' %} {{ page.created_at }} ({{ page.created_by }})</b></p>
+
+<div class="border border-secondary rounded" style='background-color:#fff'>
+<div class="mx-3 my-3">
+{{ page.body | safe}}
+</div>
+</div>
+{% endif %}
+
+
+{% for upd in page.updates.all %}
+<br>
+<p><b>{% translate 'Updated on ' %} {{ upd.created_at }} ({{ upd.created_by }})</b></p>
+<div class="border border-secondary rounded" style='background-color:#eee'>
+   <div class="mx-3 my-3">
+   {{ upd.content|safe}}
+   </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+# =====================================
+# oauth2_proxy config auth_request mode
+# user => nginx  => app
+#           => oaut2_proxy (IDP client) <=> IDP
+# (user) => IDP (Keycloak) 
+# =====================================
+
+# remember : in auth_request oa2p is hidden from user and can be accessed only from nginx
+
+# init
+#  0.  oa2P >> IDP to get OIDC "config" (.well-known ...)
+
+#sign-in
+#  1.  user   > nginx    : get app
+#  2.  nginx  > oa2p     : auth_request to /oauth2/auth ; no cookie,  user known ?
+#  3.  oa2p   > nginx    : 401 no
+#  4.  nginx  > user     : 401 ? redirect user to (nginx:)/oauth2/sign-in 
+#  5.  user   > nginx    : get /oauth2/sign-in
+#  6.  nginx  > oa2P     : proxypass to oa2p
+#  7.  oa2p   > nginx    : send user to IDP oidc_issuer_url
+#  8.  nginx  > user     ; go to IDP oidc_issuer_url
+#  9.  user   > IDP      ; log me in
+#       (user authenticate to IDP)
+# 10.  IDP    > user     ; redirect to nginx + /oauth2/callback URL
+# 11.  user   > nginx    ; get to /oauth2/callback URL after sign-in
+# 12.  nginx  > oa2p     ; proxy pass, oa2p register user session
+# 13.  oa2p   > redis    ; create session
+# 14.  oa2p   > nginx    ; gives token & cookie data for user
+# 15.  nginx  > user     ; set cookie, set headers from tokens, redirect to app / initial url
+#
+#app access after sign-in
+# 16.  user   > nginx    ; get app + send cookie
+# 17.  nginx  > oa2p     ; auth_request to /oauth2/auth : send cookie data
+# 18.  oa2p   > redis    ; get session, check session 
+# 19.  oa2p   > nginx    ; OK (202 ?) + token / session data
+# 20.  nginx  > app      ; proxypass to app with headers from token / session data
+
+
+
+# ------------------------
+# oauth2_proxy server
+# ------------------------
+# if run in Docker, just has to be reachable by Nginx
+http_address="0.0.0.0:4180"
+
+# oauth2_proxy is the client for the IDP /Keycloak Client config
+client_id="oauth2proxy"
+client_secret="xxxxxxxxxxxxxxxxxx"
+
+# single IDP => remove first screen "oauth2 proxy" ; no need to chose an IDP
+skip_provider_button="true"
+
+#tls_cert_file="/oauth2_proxy/ssl/domain.crt"
+#tls_key_file="/oauth2_proxy/ssl/domain.rsa"
+
+# IDP end-points if needed
+#login_url="http://localhost:8080/realms/myrealm/protocol/openid-connect/auth"
+#redeem_url="http://localhost:8080/realms/myrealm/protocol/openid-connect/token"
+#profile_url="http://localhost:8080/realms/myrealm/protocol/openid-connect/userinfo"
+#validate_url="http://localhost:8080/realms/myrealm/protocol/openid-connect/userinfo"
+
+# log
+auth_logging = true
+standard_logging = true
+request_logging = true
+show_debug_on_error = true
+#logging_filename = "/var/log/oauth2-proxy.log"
+
+# ------------------------
+# IDP : keycloak provider
+# ------------------------
+#provider="keycloak"
+#provider="oidc"
+provider="keycloak-oidc"
+
+provider_display_name="My Keycloak"
+
+# direct  access to IDP and Realm 
+# oidc_issuer_url="http://localhost:8080/realms/myrealm"
+
+# in docker, no localhost !
+oidc_issuer_url="http://192.168.0.11:8080/realms/myrealm"
+
+
+# -------------------------------
+# Session
+# -------------------------------
+
+session_store_type = "redis"
+
+# standard VM or external redis
+#redis_connection_url = "redis://127.0.0.1"
+#redis_connection_url = "redis://myshared_redis"
+
+# docker-compose, internal access only
+redis_connection_url = "redis://redis"
+
+
+cookie_secret="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+cookie_expire="0h45m0s"
+cookie_httponly=false
+cookie_secure=false
+cookie_refresh=true
+cookie_samesite="lax"
+#cookie_samesite="none"
+
+cookie_csrf_expire="7m"
+#cookie_csrf_per_request=true
+
+cookie_domains=["192.168.0.11","localhost"] # Required so cookie can be read on all subdomains.
+whitelist_domains=["192.168.0.11","localhost"] # Required to allow redirection back to original requested target.
+
+
+email_domains=["*"]
+#email_domains="*"
+
+# -------------------------------
+# attributes back to app
+# claims / assertions
+# -------------------------------
+
+# add headers
+set_xauthrequest=true
+set_authorization_header=true
+
+#pass_authorization_header=true
+#pass_access_token=true
+
+# ??
+#proxy_prefix="/oauth2"
+
+
+
+
+# -----------------------------------------------
+# redirect_url : get back to oa2p after auth
+# -----------------------------------------------
+
+# oa2p fullproxy mode - back to oa2p directly (exposed)
+#redirect_url="http://localhost:4180/oauth2/callback"
+
+# nginx/oa2p authrequest mode - back to oa2P throuh application (oa2p not exposed)
+# must not be an "internal" URL in nginx config
+redirect_url="http://192.168.0.11:8000/oauth2/callback"
+# redirect_url="/oauth2/callback"
+
+
+#keycloak_group=<first_allowed_user_group>
+#keycloak_group=<second_allowed_user_group>
+
+# -------------------------------
+# App
+# -------------------------------
+# in oa2p proxy mode, proxy to upstream (app) URL
+#upstreams="http://localhost:8000"
+# in authrequest mode , not needed
+
+# Some URLs patterns not to be authenticated to IDP
+# H.S. ?
+#skip_auth_routes=["method=/admin/*"]
+#skip_auth_routes=["method!=/admin/*"]
+
+
+# -------------------------------
+# Archives / OLD
+# -------------------------------
+
+# invalid confif key !!!
+#allowed_role="djangorole"
+#audience="oauth2proxy"
+
+# mode oaut2 fullproxy
+# skip some URLs from auth
+# skip-auth-route="regexp ..."
+
+
+# --ssl-insecure-skip-verify	bool	skip validation of certificates presented when using HTTPS providers	false
+# --ssl-upstream-insecure-skip-verify
+
+# in this case oauth2-proxy is going to visit
+# http://keycloak.localtest.me:9080/auth/realms/master/.well-known/openid-configuration for configuration
+#oidc_issuer_url="http://localhost:8080/auth/realms/master"
+#oidc_issuer_url="http://localhost:8080/realms/myrealm/protocol/openid-connect/auth"
+
+
+#    --provider=keycloak-oidc
+#    --client-id=<your client's id>
+#    --client-secret=<your client's secret>
+#    --redirect-url=https://myapp.com/oauth2/callback
+#    --oidc-issuer-url=https://<keycloak host>/auth/realms/<your realm>
+#    --allowed-role=<realm role name> // Optional, required realm role
+#    --allowed-role=<client id>:<client role name> // Optional, required client role
+
+
+# reverse_proxy
+# docker run --rm --name oauth2proxy -p 4180:4180 oauth2-proxy --provider=keycloak-oidc --oidc-issuer-url=http://172.17.0.1:8080/realms/test --email-domain=* --upstream=http://172.17.0.1:49156/ --reverse-proxy --http-address=0.0.0.0:4180 --client-id=dev-localhost --client-secret=xxxxxxxxxxxx --cookie-secret=xxxxxxxxxxxxxxxx --redirect-url=http://localhost:4180/oauth2/callback --skip-jwt-bearer-tokens --insecure-oidc-allow-unverified-email
+
+# ## OAuth2 Proxy Config File
+#code_challenge_method="S256"
+#ssl_insecure_skip_verify=true
+# set-xauthrequest=true
+#pass_authorization_header=true
+#ssl_upstream_insecure_skip_verify=true
+#redirect_url="$REDIRECT_URL"
+#oidc_issuer_url="$OIDC_ISSUER_URL"
+#upstreams=[
+    #"file:///var/www/static/#/"
+#]
+#whitelist_domains=[
+    #"*.myapp.com:*",
+    #"*.myapp.mobi:*"
+#]
+#request_logging=true
+#email_domains= "*"
+#insecure_oidc_allow_unverified_email=true
+
+#cookie_domain=.apphn.domain.com
+#whitelist_domain=.apphn.domain.com
+#cookie_domain=["*"]
+#whitelist_domain=["*"]
+
