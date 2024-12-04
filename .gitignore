@@ -59,9 +59,6 @@ gunicorn.conf.py
 
 # NGINX
 htpasswd
-
-docker-compose.yml
-nginx.conf
 .env
 
 
