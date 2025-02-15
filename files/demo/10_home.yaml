@@ -1,0 +1,209 @@
+---
+
+
+- classname: _home
+  keyname: home
+  #_action: ...
+  displayname: Home Dashboard
+  description: Main App
+  icon: fa-home
+  url: /home/private/
+  dashboard_section: Services
+  sidebar_section: Services
+  order: 10
+  permission: p_home_access
+
+# ---
+- classname: _home
+  keyname: sirene
+  displayname: Sirene
+  description: Sirene
+  icon: fa-sun-o
+  url: /sirene/private/
+  dashboard_section: Services
+  sidebar_section: Services
+  order: 20
+  permission: p_sirene_access
+
+
+- classname: _home
+  keyname: sms
+  displayname: SMS Sarbacane
+  description: Send SMS
+  icon: fa-paper-plane
+  url: /sirene/private/sms/send/
+  dashboard_section: Services
+  sidebar_section: Services
+  order: 30
+  permission: p_sirene_access
+
+# --- IAM
+
+- classname: _home
+  keyname: user
+  displayname: Users
+  description: Users
+  icon: fa-user-plus
+  url: /user/private/users/
+  order: 100
+  dashboard_section: IAM
+  sidebar_section: IAM
+  permission: p_user_access
+
+- classname: _home
+  keyname: group
+  displayname: Groups
+  description: User Groups 
+  icon: fa-users
+  url: /user/private/groups/
+  order: 110
+  dashboard_section: IAM
+  sidebar_section: IAM
+  permission: p_group_view
+
+- classname: _home
+  keyname: role
+  displayname: Roles
+  description: Roles and security
+  icon: fa-user-secret
+  url: /user/private/roles/
+  order: 120
+  dashboard_section: IAM
+  sidebar_section: IAM
+  permission: p_role_read
+
+# ---- Data 
+
+- classname: _home
+  keyname: data_app
+  displayname: Applications
+  description: Applications
+  icon: fa-firefox
+  url: /data/private/c/app/list/
+  dashboard_section: Data Management
+  sidebar_section: Data Management
+  order: 200
+  permission: p_data_access
+
+
+- classname: _home
+  keyname: data_site
+  displayname: Sites
+  description: Sites
+  icon: fa-hospital-o
+  url: /data/private/c/site/list/
+  dashboard_section: Data Management
+  sidebar_section: Data Management
+  order: 210
+  permission: p_data_access
+
+- classname: _home
+  keyname: data_sitegroup
+  displayname: Regions
+  description: Regions and groups of Sites
+  url: /data/private/c/sitegroup/list/
+  dashboard_section: Data Management
+  sidebar_section: Data Management
+  icon: fa-university
+  order: 220
+  permission: p_data_access
+
+
+- classname: _home
+  keyname: data
+  displayname: "[+] other ..."
+  description: Other
+  icon: fa-database
+  url: /data/private/
+  dashboard_section: Data Management
+  sidebar_section: Data Management
+  order: 299
+  permission: p_data_access
+
+
+
+# -- Admin
+
+- classname: _home
+  keyname: conf
+  displayname: Configuration
+  description: Configuration Management
+  icon: fa-wrench
+  url: /home/private/conf/
+  order: 300
+  dashboard_section: Admin
+  sidebar_section: Admin
+  permission: p_conf_access
+
+- classname: _home
+  keyname: log
+  displayname: Logs
+  description: Log Journal / Audit trail
+  icon: fa-list
+  url: /home/private/log/
+  dashboard_section: Admin
+  sidebar_section: Admin
+  order: 310
+  permission: p_log_access
+
+- classname: _home
+  keyname: sms_stat
+  displayname: SMS Stats
+  description: SMS Stats
+  icon: fa-list
+  url: /sirene/private/sms/stat/
+  dashboard_section: Admin
+  sidebar_section: Admin
+  order: 320
+  permission: p_sirene_sms_stat
+
+- classname: _home
+  keyname: sms_journal
+  displayname: SMS Journal
+  description: SMS Journal
+  icon: fa-list
+  url: /sirene/private/sms/journal/
+  dashboard_section: Admin
+  sidebar_section: Admin
+  order: 330
+  permission: p_sirene_sms_journal
+
+- classname: _home
+  keyname: import
+  displayname: Import
+  description: Import tool
+  icon: fa-plus
+  url: /data/private/import/
+  dashboard_section: Admin
+  sidebar_section: Admin
+  order: 340
+  permission: p_data_import
+
+- classname: _home
+  keyname: export
+  displayname: Export
+  description: Export tool
+  icon: fa-minus
+  url: /data/private/export/
+  dashboard_section: Admin
+  sidebar_section: Admin
+  order: 350
+  permission: p_data_export
+
+
+
+# Doc
+- classname: _home
+  keyname: cavaliba
+  displayname: Doc Cavaliba
+  description: Doc Cavaliba
+  icon: fa-book
+  url: https://cavaliba.com/docs/
+  dashboard_section: Other
+  sidebar_section: Other
+  order: 500
+  permission: p_data_access
+
+
+
+

@@ -1,0 +1,19 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+{% block content %}
+
+<H5>ENV vars</H5>
+<hr>
+<PRE>
+{{ env }}
+</PRE>
+
+
+
+{% endblock %}

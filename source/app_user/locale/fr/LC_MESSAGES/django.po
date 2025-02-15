@@ -1,0 +1,737 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-05 19:35+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app_user/forms.py:22
+msgid "Login/ID(*)"
+msgstr "Login/ID(*)"
+
+#: app_user/forms.py:23
+msgid "Unique, login or contact name"
+msgstr "Login/nom du contact(*)"
+
+#: app_user/forms.py:28 app_user/forms.py:150 app_user/models.py:25
+#: app_user/templates/app_user/user_detail.html:54
+msgid "Firstname"
+msgstr "Prénom"
+
+#: app_user/forms.py:33 app_user/forms.py:154 app_user/models.py:26
+#: app_user/templates/app_user/user_detail.html:57
+msgid "Lastname"
+msgstr "Nom"
+
+#: app_user/forms.py:38 app_user/forms.py:158 app_user/forms.py:246
+#: app_user/forms.py:330 app_user/models.py:27 app_user/models.py:70
+#: app_user/models.py:110 app_user/templates/app_user/group_list.html:43
+#: app_user/templates/app_user/role_list.html:36
+#: app_user/templates/app_user/user_list.html:116
+msgid "Display name"
+msgstr "Nom affiché"
+
+#: app_user/forms.py:43 app_user/templates/app_user/_navbar_app.html:20
+#: app_user/templates/app_user/group_detail.html:78
+#: app_user/templates/app_user/group_list.html:11
+#: app_user/templates/app_user/role_detail.html:76
+#: app_user/templates/app_user/user_detail.html:81
+msgid "Groups"
+msgstr "Groupes"
+
+#: app_user/forms.py:44
+msgid "Select groups for this user."
+msgstr "Sélectionner les groupes pour cet utilisateur"
+
+#: app_user/forms.py:50 app_user/models.py:23
+#: app_user/templates/app_user/user_detail.html:60
+#: app_user/templates/app_user/user_list.html:118
+msgid "Email"
+msgstr "Email"
+
+#: app_user/forms.py:55 app_user/models.py:24
+#: app_user/templates/app_user/user_list.html:119
+msgid "Mobile"
+msgstr "Mobile"
+
+#: app_user/forms.py:56
+msgid "Mobile number for SMS"
+msgstr "Numéro de mobile pour les SMS"
+
+#: app_user/forms.py:69 app_user/forms.py:251 app_user/forms.py:335
+#: app_user/models.py:29 app_user/models.py:71
+#: app_user/templates/app_user/group_list.html:44
+#: app_user/templates/app_user/role_list.html:37
+#: app_user/templates/app_user/user_detail.html:63
+msgid "Description"
+msgstr "Description"
+
+#: app_user/forms.py:74
+msgid "Notifications"
+msgstr "Notifications"
+
+#: app_user/forms.py:75
+msgid "Select to receive notifications"
+msgstr "Cocher pour recevoir des notifications"
+
+#: app_user/forms.py:80
+msgid "Notifications 24/7"
+msgstr "Notifications 24/7"
+
+#: app_user/forms.py:81 app_user/forms.py:179
+msgid "Select to receive notifications outside of business hours"
+msgstr "Cocher pour recevoir des notifications hors heures ouvrées"
+
+#: app_user/forms.py:86
+msgid "Notifications by Email"
+msgstr "Notifications par Email"
+
+#: app_user/forms.py:87 app_user/forms.py:184
+msgid "Select to receive notifications by email"
+msgstr "Cocher pour recevoir les notifications par Email"
+
+#: app_user/forms.py:92
+msgid "Notifications by SMS"
+msgstr "Notifications par SMS"
+
+#: app_user/forms.py:93 app_user/forms.py:189
+msgid "Select to receive notifications by SMS"
+msgstr "Cocher pour recevoir les notifications par SMS"
+
+#: app_user/forms.py:99 app_user/models.py:38
+msgid "Secondary Email"
+msgstr "Email secondaire"
+
+#: app_user/forms.py:100
+msgid "Will be used instead of main email address"
+msgstr "Sera utilisé à la place de l'adresse Email principale"
+
+#: app_user/forms.py:105
+msgid "Secondary Mobile SMS number"
+msgstr "Numéro de mobile secondaire"
+
+#: app_user/forms.py:106
+msgid "Will be used instead of main SMS number"
+msgstr "Sera utilisé à la place du numméro de mobile principale"
+
+#: app_user/forms.py:137
+msgid "Primary email address"
+msgstr "Adresse Email principale"
+
+#: app_user/forms.py:138
+msgid "This email receives notifications if no secondary email is provided"
+msgstr "Cette adresse reçoit les email si aucun email secondaire est fourni"
+
+#: app_user/forms.py:144
+msgid "Mobile phone number"
+msgstr "Numéro de mobile"
+
+#: app_user/forms.py:145
+msgid ""
+"This mobile receives SMS notifications if no secondary number is provided"
+msgstr "Ce numéro reçoit les SMS si aucun numéro secondaire est fourni"
+
+#: app_user/forms.py:159
+msgid "Use a Firstname Lastname format or similar"
+msgstr "Utiliser un format Prénom Nom ou équivalent"
+
+#: app_user/forms.py:173
+msgid "Enable Notifications"
+msgstr "Activer les notifications"
+
+#: app_user/forms.py:174
+msgid "Select to be included in notifications"
+msgstr "Cocher pour recevoir les notifications"
+
+#: app_user/forms.py:178
+msgid "Enable 24/7 notifications"
+msgstr "Activer les notifications en 24/24"
+
+#: app_user/forms.py:183
+msgid "Enable email notifications"
+msgstr "Activer les notifications Email"
+
+#: app_user/forms.py:188
+msgid "Enable SMS notifications"
+msgstr "Activer les notifications SMS"
+
+#: app_user/forms.py:194
+msgid "Secondary Email address"
+msgstr "Adresse Email secondaire"
+
+#: app_user/forms.py:195
+msgid "If provdided, will be used instead of primary address"
+msgstr "Si fournie, sera utilisée à la place de l'adresse principale"
+
+#: app_user/forms.py:200
+msgid "Secondary mobile phone number"
+msgstr "Numéro de mobile secondaire"
+
+#: app_user/forms.py:201
+msgid "If provdided, will be used instead of primary mobile"
+msgstr "Si fourni, sera utilisé à la place du numéro principal"
+
+#: app_user/forms.py:228 app_user/forms.py:308 app_user/models.py:30
+#: app_user/models.py:72
+msgid "Enabled"
+msgstr "Actif"
+
+#: app_user/forms.py:233 app_user/forms.py:313
+#: app_user/templates/app_user/group_detail.html:50
+#: app_user/templates/app_user/role_detail.html:49
+msgid "Built-in"
+msgstr "Built-in"
+
+#: app_user/forms.py:240 app_user/forms.py:324 app_user/models.py:69
+#: app_user/templates/app_user/group_detail.html:39
+#: app_user/templates/app_user/group_list.html:42
+#: app_user/templates/app_user/role_detail.html:38
+#: app_user/templates/app_user/role_list.html:35
+msgid "Keyname(*)"
+msgstr "Identifiant(*)"
+
+#: app_user/forms.py:241 app_user/forms.py:325
+msgid "unique, no special chars"
+msgstr "Unique, pas de caractères spéciaux"
+
+#: app_user/forms.py:273 app_user/forms.py:349
+#: app_user/templates/app_user/group_list.html:46
+#: app_user/templates/app_user/role_list.html:39
+msgid "Subgroups"
+msgstr "Sous-groupes"
+
+#: app_user/forms.py:274
+msgid "Select sub-groups members of this group."
+msgstr "Sélectionner les sous-groupes inclus dans ce groupe"
+
+#: app_user/forms.py:319
+msgid "Security/Role"
+msgstr "Sécurité/Rôle"
+
+#: app_user/forms.py:350
+msgid "Select groups with this role."
+msgstr "Sélectionner les groupes avec ce rôle."
+
+#: app_user/forms.py:357 app_user/templates/app_user/role_detail.html:93
+#: app_user/templates/app_user/role_list.html:40
+#: app_user/templates/app_user/user_detail.html:123
+msgid "Permissions"
+msgstr "Permissions"
+
+#: app_user/forms.py:358
+msgid "Permissions for this role"
+msgstr "Permissions pour ce rôle"
+
+#: app_user/group_views.py:82 app_user/group_views.py:83
+#: app_user/group_views.py:172 app_user/group_views.py:173
+#: app_user/group_views.py:206 app_user/group_views.py:207
+#: app_user/group_views.py:212 app_user/group_views.py:213
+#: app_user/group_views.py:218 app_user/group_views.py:219
+#: app_user/role_views.py:97 app_user/role_views.py:98
+#: app_user/role_views.py:144 app_user/role_views.py:145
+#: app_user/role_views.py:224 app_user/role_views.py:225
+#: app_user/role_views.py:231 app_user/role_views.py:232
+#: app_user/role_views.py:237 app_user/role_views.py:238
+#: app_user/user_views.py:140 app_user/user_views.py:141
+#: app_user/user_views.py:264 app_user/user_views.py:265
+#: app_user/user_views.py:311 app_user/user_views.py:312
+#: app_user/user_views.py:318 app_user/user_views.py:319
+#: app_user/user_views.py:325 app_user/user_views.py:326
+msgid "Not allowed"
+msgstr "Non autorisé"
+
+#: app_user/group_views.py:89 app_user/role_views.py:105
+#: app_user/user_views.py:151
+msgid "Export too large for interactive export."
+msgstr "Export trop gros pour réalisation en ligne"
+
+#: app_user/group_views.py:132 app_user/group_views.py:133
+msgid "Group not found"
+msgstr "Groupe non trouvé"
+
+#: app_user/group_views.py:142
+msgid "Group deleted "
+msgstr "Groupe effacé"
+
+#: app_user/group_views.py:146 app_user/group_views.py:147
+msgid "Failed to delete group"
+msgstr "Echec de suppression du groupe"
+
+#: app_user/group_views.py:243
+msgid "Group saved"
+msgstr "Groupe enregistré"
+
+#: app_user/group_views.py:247 app_user/group_views.py:248
+msgid "Failed to save group"
+msgstr "Echec d'enregistrement du groupe"
+
+#: app_user/group_views.py:254 app_user/group_views.py:255
+msgid "Invalid group form"
+msgstr "Formulaire invalide"
+
+#: app_user/models.py:20
+msgid "Login/Identifier(*)"
+msgstr "Login/ID(*)"
+
+#: app_user/models.py:21 app_user/templates/app_user/user_detail.html:47
+#: app_user/templates/app_user/user_list.html:117
+msgid "External ID"
+msgstr "ID Externe"
+
+#: app_user/models.py:31 app_user/templates/app_user/user_edit.html:60
+msgid "Last Login"
+msgstr "Date de dernier login"
+
+#: app_user/models.py:34
+msgid "Want Notifications"
+msgstr "Notifications"
+
+#: app_user/models.py:35
+msgid "Want 24/24"
+msgstr "Notifications 24/24"
+
+#: app_user/models.py:36
+msgid "Want SMS"
+msgstr "Notifications SMS"
+
+#: app_user/models.py:37
+msgid "Want Email"
+msgstr "Notifications Email"
+
+#: app_user/models.py:39
+msgid "Secondary Mobile"
+msgstr "Email secondaire"
+
+#: app_user/models.py:41 app_user/models.py:80
+#: app_user/templates/app_user/user_detail.html:70
+msgid "Last update"
+msgstr "Dernière mise à jour"
+
+#: app_user/models.py:73 app_user/templates/app_user/role_detail.html:36
+#: app_user/templates/app_user/role_edit.html:11
+msgid "Role"
+msgstr "Rôle"
+
+#: app_user/models.py:74
+msgid "Built-in group"
+msgstr "Built-in"
+
+#: app_user/models.py:108
+msgid "Permission(*)"
+msgstr "Permission(*)"
+
+#: app_user/models.py:109
+msgid "Sirene App"
+msgstr "Application"
+
+#: app_user/models.py:112
+msgid "Built-in permission"
+msgstr "Permissions internes"
+
+#: app_user/models.py:113
+msgid "Allowed by default"
+msgstr "Autorisé par défaut"
+
+#: app_user/models.py:135
+msgid "Username"
+msgstr "Login(*)"
+
+#: app_user/models.py:136
+msgid "Visitor IP"
+msgstr "IP Visiteur"
+
+#: app_user/role_views.py:180 app_user/role_views.py:181
+msgid "Role not found"
+msgstr "Role non trouvé"
+
+#: app_user/role_views.py:186 app_user/role_views.py:187
+msgid "Not a role"
+msgstr "Role invalide"
+
+#: app_user/role_views.py:195
+msgid "Role deleted"
+msgstr "Role supprimé"
+
+#: app_user/role_views.py:199 app_user/role_views.py:200
+msgid "Failed to delete role"
+msgstr "Echec de suppression du role"
+
+#: app_user/role_views.py:262
+msgid "Role saved"
+msgstr "Role enregistré"
+
+#: app_user/role_views.py:266 app_user/role_views.py:267
+msgid "Failed to save role"
+msgstr "Echec d'enregistrement du role"
+
+#: app_user/role_views.py:272 app_user/role_views.py:273
+msgid "Invalid role form"
+msgstr "Formulaire de role invalide"
+
+#: app_user/templates/app_user/_navbar_app.html:6
+msgid "Identities"
+msgstr "Identités"
+
+#: app_user/templates/app_user/_navbar_app.html:13
+#: app_user/templates/app_user/group_detail.html:61
+#: app_user/templates/app_user/group_edit.html:43
+#: app_user/templates/app_user/group_list.html:45
+#: app_user/templates/app_user/role_detail.html:60
+#: app_user/templates/app_user/role_edit.html:34
+#: app_user/templates/app_user/role_list.html:38
+#: app_user/templates/app_user/user_list.html:11
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: app_user/templates/app_user/_navbar_app.html:28
+#: app_user/templates/app_user/role_list.html:10
+#: app_user/templates/app_user/user_detail.html:102
+msgid "Roles"
+msgstr "Rôles"
+
+#: app_user/templates/app_user/debug.html:12
+#: app_user/templates/app_user/debug.html:20
+#: app_user/templates/app_user/debug.html:35
+msgid "Confidential, do not share"
+msgstr "Ne pas diffuser"
+
+#: app_user/templates/app_user/group_detail.html:11
+msgid "Group details"
+msgstr "Groupes - détail"
+
+#: app_user/templates/app_user/group_detail.html:18
+#: app_user/templates/app_user/group_edit.html:23
+#: app_user/templates/app_user/group_list.html:19
+#: app_user/templates/app_user/pref_edit.html:23
+#: app_user/templates/app_user/role_detail.html:18
+#: app_user/templates/app_user/role_edit.html:23
+#: app_user/templates/app_user/role_list.html:18
+#: app_user/templates/app_user/user_detail.html:18
+#: app_user/templates/app_user/user_edit.html:25
+#: app_user/templates/app_user/user_list.html:20
+#: app_user/templates/app_user/user_pref_edit.html:20
+msgid "Back"
+msgstr "Retour"
+
+#: app_user/templates/app_user/group_detail.html:22
+#: app_user/templates/app_user/role_detail.html:22
+#: app_user/templates/app_user/user_detail.html:22
+msgid "Edit"
+msgstr "Editer"
+
+#: app_user/templates/app_user/group_detail.html:28
+#: app_user/templates/app_user/group_detail.html:111
+#: app_user/templates/app_user/group_edit.html:32
+#: app_user/templates/app_user/group_edit.html:79
+#: app_user/templates/app_user/role_detail.html:28
+#: app_user/templates/app_user/role_detail.html:124
+#: app_user/templates/app_user/role_edit.html:70
+#: app_user/templates/app_user/user_detail.html:28
+#: app_user/templates/app_user/user_detail.html:154
+#: app_user/templates/app_user/user_edit.html:47
+#: app_user/templates/app_user/user_edit.html:86
+msgid "Delete"
+msgstr "Supprimer"
+
+#: app_user/templates/app_user/group_detail.html:37
+#: app_user/templates/app_user/group_edit.html:11
+msgid "Group"
+msgstr "Groupe"
+
+#: app_user/templates/app_user/group_detail.html:42
+#: app_user/templates/app_user/role_detail.html:41
+#: app_user/templates/app_user/user_detail.html:50
+msgid "Display Name"
+msgstr "Nom long"
+
+#: app_user/templates/app_user/group_detail.html:45
+#: app_user/templates/app_user/role_detail.html:44
+#: app_user/templates/app_user/user_detail.html:38
+msgid "Is Enabled"
+msgstr "Actif"
+
+#: app_user/templates/app_user/group_detail.html:101
+#: app_user/templates/app_user/group_edit.html:69
+#: app_user/templates/app_user/role_detail.html:114
+#: app_user/templates/app_user/role_edit.html:60
+#: app_user/templates/app_user/user_detail.html:144
+#: app_user/templates/app_user/user_edit.html:76
+msgid "Confirm delete ?"
+msgstr "Confirmer la suppression ?"
+
+#: app_user/templates/app_user/group_detail.html:112
+#: app_user/templates/app_user/group_edit.html:80
+#: app_user/templates/app_user/role_detail.html:125
+#: app_user/templates/app_user/role_edit.html:71
+#: app_user/templates/app_user/user_detail.html:155
+#: app_user/templates/app_user/user_edit.html:87
+#: app_user/templates/app_user/user_edit.html:113
+#: app_user/templates/app_user/user_edit.html:140
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app_user/templates/app_user/group_edit.html:12
+msgid "New Group"
+msgstr "Nouveau groupe"
+
+#: app_user/templates/app_user/group_edit.html:26
+#: app_user/templates/app_user/pref_edit.html:25
+#: app_user/templates/app_user/role_edit.html:25
+#: app_user/templates/app_user/user_edit.html:28
+#: app_user/templates/app_user/user_pref_edit.html:22
+msgid "Save"
+msgstr "Enregistrer"
+
+#: app_user/templates/app_user/group_edit.html:53
+#: app_user/templates/app_user/group_edit.html:119
+#: app_user/templates/app_user/role_edit.html:44
+#: app_user/templates/app_user/role_edit.html:110
+msgid "Select users"
+msgstr "Sélectionner des utilisateurs"
+
+#: app_user/templates/app_user/group_list.html:12
+msgid "groups"
+msgstr "Groupes"
+
+#: app_user/templates/app_user/group_list.html:23
+#: app_user/templates/app_user/role_list.html:21
+#: app_user/templates/app_user/user_list.html:24
+msgid "New"
+msgstr "Nouveau"
+
+#: app_user/templates/app_user/group_list.html:30
+#: app_user/templates/app_user/role_list.html:24
+#: app_user/templates/app_user/user_list.html:30
+msgid "Export"
+msgstr "Exporter"
+
+#: app_user/templates/app_user/group_list.html:32
+#: app_user/templates/app_user/user_list.html:32
+msgid "Export to CSV"
+msgstr "Exporter en CSV"
+
+#: app_user/templates/app_user/group_list.html:33
+#: app_user/templates/app_user/role_list.html:26
+#: app_user/templates/app_user/user_list.html:33
+msgid "Export to JSON"
+msgstr "Exporter en JSON"
+
+#: app_user/templates/app_user/group_list.html:34
+#: app_user/templates/app_user/role_list.html:27
+#: app_user/templates/app_user/user_list.html:34
+msgid "Export to YAML"
+msgstr "Exporter en YAML"
+
+#: app_user/templates/app_user/pref_edit.html:13
+#: app_user/templates/app_user/user_pref_edit.html:10
+msgid "Preferences for"
+msgstr "Préférences de"
+
+#: app_user/templates/app_user/private.html:12
+msgid "People, Groups and Roles"
+msgstr "Utilisateurs, Groupes et Rôles"
+
+#: app_user/templates/app_user/role_detail.html:11
+msgid "Role details"
+msgstr "Roles - détail"
+
+#: app_user/templates/app_user/role_edit.html:12
+msgid "New Role"
+msgstr "Nouveau Rôle"
+
+#: app_user/templates/app_user/role_list.html:11
+msgid "roles"
+msgstr "Rôles"
+
+#: app_user/templates/app_user/user_detail.html:11
+msgid "Details"
+msgstr "Détails"
+
+#: app_user/templates/app_user/user_detail.html:36
+msgid "User"
+msgstr "Utilisateur"
+
+#: app_user/templates/app_user/user_detail.html:44
+#: app_user/templates/app_user/user_list.html:115
+msgid "Login(*)"
+msgstr "Login(*)"
+
+#: app_user/templates/app_user/user_detail.html:67
+#: app_user/templates/app_user/user_list.html:120
+msgid "Last login"
+msgstr "Date de dernier Login"
+
+#: app_user/templates/app_user/user_edit.html:13
+msgid "New User"
+msgstr "Nouvel utilisateur"
+
+#: app_user/templates/app_user/user_edit.html:35
+msgid "Test email"
+msgstr "Tester l'email"
+
+#: app_user/templates/app_user/user_edit.html:41
+msgid "Test SMS"
+msgstr "Tester le SMS"
+
+#: app_user/templates/app_user/user_edit.html:59
+msgid "User ID"
+msgstr "ID Utilisateur"
+
+#: app_user/templates/app_user/user_edit.html:102
+msgid "Send test EMAIL ?"
+msgstr "Envoyer un Email de test ?"
+
+#: app_user/templates/app_user/user_edit.html:112
+#: app_user/templates/app_user/user_edit.html:139
+msgid "Send"
+msgstr "Envoyer"
+
+#: app_user/templates/app_user/user_edit.html:129
+msgid "Send test SMS ?"
+msgstr "Envoyer un SMS de test ?"
+
+#: app_user/templates/app_user/user_list.html:12
+msgid "users"
+msgstr "utilisateurs"
+
+#: app_user/templates/app_user/user_list.html:48
+msgid "Filter"
+msgstr "Filtrer"
+
+#: app_user/templates/app_user/user_list.html:56
+msgid "Page"
+msgstr "Page"
+
+#: app_user/templates/app_user/user_list.html:95
+msgid "per page"
+msgstr "par page"
+
+#: app_user/user_views.py:235
+msgid "User deleted"
+msgstr "Utilisateur supprimé"
+
+#: app_user/user_views.py:238
+msgid "Failed to delete user"
+msgstr "Echec de suppression d'utilisateur"
+
+#: app_user/user_views.py:345
+msgid "User saved : "
+msgstr "Utilisateur enregistré : "
+
+#: app_user/user_views.py:348
+msgid "Failed to save user"
+msgstr "Echec d'enregistrement d'utilisateur"
+
+#: app_user/user_views.py:354
+msgid "Invalid User form"
+msgstr "Formulaire utilisateur Invalide"
+
+#: app_user/user_views.py:464
+msgid "Failed to edit preferences"
+msgstr "Préférences invalides"
+
+#: app_user/user_views.py:468
+msgid "Preferences updated"
+msgstr "Préférences mises à jour"
+
+#: app_user/user_views.py:472
+msgid "Invalid preferences"
+msgstr "Préférences invalides"
+
+#: app_user/user_views.py:628
+msgid "Test Email sent"
+msgstr "Email de test envoyé"
+
+#: app_user/user_views.py:648
+msgid "Insufficient SMS Quota"
+msgstr "Quota SMS insuffisant"
+
+#: app_user/user_views.py:662
+msgid "Invalid SMS number"
+msgstr "Numéro SMS invalide"
+
+#: app_user/user_views.py:668
+msgid "Test SMS sent"
+msgstr "SMS de test envoyé"
+
+#~ msgid "File too big"
+#~ msgstr "Fichier trop gros"
+
+#~ msgid "Import failed - unknown file type"
+#~ msgstr "Import échoué - format de fichier inconnu"
+
+#~ msgid "Import OK"
+#~ msgstr "Import réussi"
+
+#~ msgid "Import failed"
+#~ msgstr "Import échoué"
+
+#~ msgid "Keyname"
+#~ msgstr "Nom court(*)"
+
+#~ msgid "Key value"
+#~ msgstr "Valeur de clé"
+
+#~ msgid "is_enabled"
+#~ msgstr "Actif"
+
+#~ msgid "is_readonly"
+#~ msgstr "Lecture seule"
+
+#~ msgid "Filter Time ranges"
+#~ msgstr "Filtre horaire"
+
+#~ msgid "Filter IP ranges"
+#~ msgstr "Filtre IP"
+
+#~ msgid "Security ACL"
+#~ msgstr "ACL Sécurité"
+
+#~ msgid "Last success"
+#~ msgstr "Dernière réussite"
+
+#~ msgid "Last error"
+#~ msgstr "Dernier échec"
+
+#~ msgid "success count"
+#~ msgstr "Réussites"
+
+#~ msgid "Error count"
+#~ msgstr "Echecs"
+
+#~ msgid "Import"
+#~ msgstr "Importer"
+
+#~ msgid "Import a Groups file"
+#~ msgstr "Importer un fichier de Groupes"
+
+#~ msgid "Import a Roles file"
+#~ msgstr "Importer un fichier de Roles"
+
+#~ msgid "Import a Users file"
+#~ msgstr "Importer un fichier d'Utilisateurs"
+
+#~ msgid "Import failed - file too big"
+#~ msgstr "Import échoué - fichier trop gros"
+
+#~ msgid "Import failed - unknown file"
+#~ msgstr "Import échoué - format de fichier inconnu"
+
+#~ msgid "Imported  : "
+#~ msgstr "Importé : "
+
+#~ msgid "Failed to import"
+#~ msgstr "Import échoué"

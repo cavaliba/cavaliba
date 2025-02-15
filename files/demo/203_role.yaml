@@ -1,0 +1,44 @@
+---
+
+# =====================================================================
+# Roles
+# =====================================================================
+
+
+- classname: _role
+  keyname: role_schema_admin
+  displayname: Built-in DATA Admin (base)
+  subgroups:
+      - admin_cavaliba
+
+- classname: _role
+  keyname: role_data_admin
+  displayname: Built-in DATA Admin (base)
+  subgroups:
+      - admin_cavaliba
+
+- classname: _role
+  keyname: role_data_read
+  displayname: Built-in DATA read
+  subgroups:
+      - admin_cavaliba
+
+- classname: _role
+  keyname: role_data_create
+  displayname: Built-in DATA create
+  subgroups:
+      - admin_cavaliba
+
+- classname: _role
+  keyname: role_data_update
+  displayname: Built-in DATA update
+  subgroups:
+      - admin_cavaliba
+
+- classname: _role
+  keyname: role_data_delete
+  displayname: Built-in DATA delete
+  subgroups:
+      - admin_cavaliba
+
+

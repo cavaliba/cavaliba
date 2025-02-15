@@ -1,0 +1,138 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<h3>{{ role.displayname|default:role.keyname }}</h3>
+<small class="text-muted">{% translate "Role details" %}</small>
+<hr>{% endblock %}
+
+{% block content %}
+
+<!-- TOOLS  -->
+<a class="btn btn-outline-dark" href="{% url 'app_user:role_list' %}" role="button">
+<i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate "Back" %} </a>
+
+{% if 'p_role_update' in aaa.perms %}
+  <a class="btn btn-success" href="{% url 'app_user:role_edit' role.id %}" role="button">
+  {% translate 'Edit' %}</a>
+{% endif %}
+
+{% if 'p_role_delete' in aaa.perms %}
+  {% if not role.is_builtin %}
+  <a type="button" class="btn btn-danger float-right" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+  {% translate "Delete" %}</a>
+  {% endif %}
+{% endif %}
+
+<hr>
+
+<table class="table table-hover table-bordered table-sm">
+
+  <tr class="table-success"><td colspan="2"><strong>{% translate 'Role' %}</strong></td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Keyname(*)' %}</td>
+  <td>{{ role.keyname }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Display Name' %}</td>
+  <td>{{ role.displayname }}</td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Is Enabled' %}</td>
+  <td>{% if role.is_enabled %}<input type="checkbox" checked disabled/>
+      {% else %}<input type="checkbox" disabled/>{% endif %}
+  </td></tr>
+
+  <tr><td class="table-light" width="20%">{% translate 'Built-in' %}</td>
+  <td>{% if role.is_builtin %}<input type="checkbox" checked disabled/>
+      {% else %}<input type="checkbox" disabled/>{% endif %}
+  </td></tr>
+
+</table>
+
+<hr>    
+
+<!-- USERS -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-primary"><td colspan="4"><strong>{% translate 'Users' %}</strong></td></tr>
+<tr>
+<td class="table-light">
+    <div class="d-flex flex-wrap"> 
+    {% for z in role.users.all %}
+    <a class="btn btn-primary btn-sm mx-1 my-1" href="{% url 'app_user:user_detail' z.login %}" role="button">
+    {{ z.login }}</a>{% endfor %}     
+    {% for z in users_indirect %}
+    <a class="btn btn-outline-primary btn-sm mx-1 my-1" href="{% url 'app_user:user_detail' z.login %}" role="button">
+    {{ z.login }}</a>{% endfor %}     
+    </div>  
+</td></tr>
+</table>
+
+<!-- SUBGROUPS -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-success"><td colspan="4"><strong>{% translate 'Groups' %}</strong></td></tr>
+<tr>
+<td class="table-light">
+    <div class="d-flex flex-wrap"> 
+    {% for z in role.subgroups.all %}
+    <a class="btn btn-success btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z.keyname %}" role="button">
+    {{ z.keyname }}</a>{% endfor %}   
+    {% for z in subgroups_indirect %}
+    <a class="btn btn-outline-success btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z.keyname %}" role="button">
+    {{ z.keyname }}</a>{% endfor %}   
+    </div>   
+</td></tr>
+</table>
+
+
+<!-- PERMISSIONS -->
+<table class="table table-hover table-bordered table-sm">
+<tr class="table-warning"><td colspan="4"><strong>{% translate 'Permissions' %}</strong></td></tr>
+<tr>
+{% for perm in role.permissions.all %}
+<td class="table-light" width="20%">{{ perm.keyname }}</td>
+<td>{{ perm.appname|default:'' }}</td>
+<td>{{ perm.displayname|default:'' }}</td>
+<td>{{ perm.description|default:'' }}</td>
+</tr>{%  endfor %}
+</table>
+
+
+
+
+<!-- DELETE CONFIRM Modal -->
+    {% if role %}
+
+    <div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+
+    <div class="modal-header">
+    <h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Confirm delete ?" %}</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+        
+    <div class="modal-body">
+    <p>Role: {{ role.keyname|default:'n/a' }}</p>
+    </div>
+
+    <div class="modal-footer">
+    <form action="{% url 'app_user:role_delete' role.id %}" method="post">{% csrf_token %}
+    <button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+    <a role="button" class="btn btn-outline-dark" data-dismiss="modal">{% translate "Cancel" %}</a>
+    </form>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    {% endif %}
+
+
+{% endblock %}
+
+
+

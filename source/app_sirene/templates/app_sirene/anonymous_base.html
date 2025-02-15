@@ -1,0 +1,104 @@
+{% load static %}
+{% load i18n %}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="{% static 'v1/bootstrap4.min.css' %}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'v1/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'v1/jquery.dataTables.css' %}">
+    <link rel="stylesheet" href="{% static 'app_sirene/style.css' %}"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static 'v2/bootstrap533.min.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'v2/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'app_sirene/style.css' %}">
+<title>{{ GLOBAL_APPNAME|default:"Cavaliba" }}</title>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="background-color: #ff0000;">  
+
+<a class="navbar-brand" href="{% url 'app_sirene:index' %}">
+&nbsp; <b>{{ GLOBAL_APPNAME|default:"Cavaliba" }}</b>
+</a>
+
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+<li class="nav-item" >
+  <a class="nav-link" href="/?public=yes">
+  <i class="fa fa-lg fa-globe" aria-hidden="true"></i>&nbsp;{% translate 'Public view' %} &nbsp;
+  </a>
+</li>
+<li class="nav-item" >
+<a class="nav-link mr-3" href="{% url 'app_sirene:private' %}" role="button">
+  Connexion</a>
+</li>
+</ul>
+</nav>
+
+{% block content %}{% endblock %}
+
+
+<br>
+<br>
+<hr>
+<p class="text-center"><b><a href="http://www.cavaliba.com">(c) www.cavaliba.com</a></b></p>
+
+</div>
+
+
+<script src="{% static 'v2/jquery.slim.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/bootstrap533.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/htmx.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/jquery.dataTables.js' %}" crossorigin="anonymous"></script>
+
+
+<!-- <script src="{% static 'v1/jquery.slim.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v1/bootstrap4.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v1/htmx.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v1/jquery.dataTables.js' %}" crossorigin="anonymous"></script> -->
+
+<script>
+  $(document).ready( function () {
+    $('#table_managed').DataTable({
+      "pageLength": 50,
+      order: [[0, 'desc']],
+      "lengthMenu": [ [10, 50, 100, 500, -1], [10, 50, 100, 500, "Tous"] ],
+      language: {
+        processing:     "Traitement en cours...",
+        search:         "Rechercher&nbsp;:",
+        lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
+        info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+        infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        infoPostFix:    "",
+        loadingRecords: "Chargement en cours...",
+        zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        emptyTable:     "Aucune donnée disponible dans le tableau",
+        paginate: {
+            first:      "Premier",
+            previous:   "Pr&eacute;c&eacute;dent",
+            next:       "Suivant",
+            last:       "Dernier"
+        },
+        aria: {
+            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        }
+    }
+
+    })
+   });
+</script>
+
+
+</body>
+</html>

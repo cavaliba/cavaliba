@@ -1,0 +1,39 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'SMS Send' %}</H2>
+<hr>{% endblock %}
+
+
+
+{% block content %}
+
+
+<form method="post">{% csrf_token %}
+
+<a class="btn btn-outline-dark" onclick="history.back()" role="button">
+ <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate 'Cancel' %} </a>&nbsp;
+ 
+<input class="btn btn-outline-danger" type="submit" value="{% translate 'Send' %}" name="save">
+
+<hr>
+
+<table class="table">
+  {{ form.as_table }}
+</table>
+
+</form>
+
+
+<p class="text-danger">{{ sms_warning }}</p>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,20 @@
+---
+
+# =====================================================================
+# Groups
+# =====================================================================
+
+
+# -------------------------------------
+# admin meteo si
+# -------------------------------------
+
+- classname: _group
+  keyname: admin_cavaliba
+  displayname: Cavaliba all admin
+  description: Demo Group for tests
+  # subgroups: 
+  #   - group01
+  #   - group02
+  users: 
+      - joe

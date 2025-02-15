@@ -1,0 +1,40 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Field SIRENE_DATA -  bigset={{ item.bigset }} - is_multi={{ item.is_multi }} -->
+
+{% if item.is_multi %}
+<div class="mb-3 row">
+<label class="col-form-label col-sm-2">{{ item.displayname }}</label>
+
+<div class="form-check col-sm-10">
+<select class="form-check col-sm-10" name="{{ item.fieldname }}" id="id_{{item.fieldname}}" multiple>
+    {% for instance in item.value %}
+    {% if instance.selected %}<option value="{{ instance.key }}" selected>{{ instance.display }}</option>
+    {% else %}<option value="{{ instance.key }}">{{ instance.display }}</option>{% endif %}
+    {% endfor %}
+</select>
+  {% if item.description %}<div class="form-text">{{item.dataformat }}: {{ item.description }}</div>{% endif %}
+</div>
+</div>
+
+{% else %}
+
+<div class="mb-3 row">
+<label class="col-form-label col-sm-2">{{ item.displayname }}</label>
+
+<div class="form-check col-sm-10">
+<select class="form-check col-sm-10" name="{{ item.fieldname }}" id="id_{{item.fieldname}}">
+    <option value="">---------------------------------</option>
+    {% for instance in item.value %}
+    {% if instance.selected %}<option value="{{ instance.key }}" selected>{{ instance.display }}</option>
+    {% else %}<option value="{{ instance.key }}">{{ instance.display }}</option>{% endif %}
+    {% endfor %}
+</select>
+  {% if item.description %}<div class="form-text">{{item.dataformat }}: {{ item.description }}</div>{% endif %}
+</div>
+</div>
+
+{% endif %}
+
+

@@ -1,0 +1,21 @@
+---
+
+# ------------------------------------------------
+# Meteo SI - Templates communs (hors applicatifs)
+# ------------------------------------------------
+
+
+- classname: _sirene_template
+  keyname: 00_normal
+  title: Back to norma
+  severity: ok
+  category: info
+  description: Back to normal
+  publicpage: public_ok
+  has_privatepage: true
+  body: |
+    <p>Hello</p>
+    <p>End of <b>notifications</b>.</p>
+    <p>IT Staff</p>
+  has_email: true
+  has_sms: false

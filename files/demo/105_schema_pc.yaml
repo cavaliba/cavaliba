@@ -1,0 +1,185 @@
+# ================================
+# Schema - PC Laptops/ Dekstops
+# ================================
+
+
+
+# ------------------------
+
+- classname: _enumerate
+  keyname: pc_status
+  is_enabled: True
+  displayname: "PC Status"
+  description: "PC Status"
+  content: |
+    - value: "new"
+      value_num: 1
+      value_long: "new"
+      widget: "green_circle"
+      description: "New  / Undefined"
+    - value: "stock"
+      value_num: 2
+      description: "Stock"
+    - value: "production"
+      value_num: 3
+      description: "In production"
+    - value: "maintenance"
+      value_num: 4
+      description: "RMA/Repair"
+    - value: "Removed"
+      value_num: 5
+      description: "Removed"
+
+
+# ------------------------
+- classname: _dataview
+  keyname: pc_default
+  displayname: PC Default View
+  is_enabled: true
+  description: Default View
+  target_class: pc
+  content: |
+    columns:
+        - Name:
+            from: keyname
+        - org_site_name
+        - region_name
+        - status
+        - assigned_login
+        - purchase_date
+        - os_install_date
+        - waranty_end_date
+
+
+# ------------------------
+- classname: _dataview
+  keyname: pc_technical
+  displayname: PC - Technical
+  is_enabled: true
+  description: Tech characteristics
+  target_class: pc
+  content: |
+    columns:
+        - "#Serial":
+            from: serial
+        - Name:
+            from: displayname
+        - model
+        - cpu
+        - ram
+        - disk
+        - os_version
+
+# ------------------------
+
+- classname: _schema
+  keyname: pc
+  displayname: PC Laptops and Desktops
+  is_enabled: yes
+  icon: fa-laptop
+  order: 200
+  page: Data
+  handle_method: md5
+
+  serial:
+        displayname: Serial Number
+        page: General
+        order: 100
+        dataformat: string
+               
+  name:
+        displayname: FQDN
+        page: General
+        order: 102
+        dataformat: string
+
+  status:
+        displayname: Status
+        page: General
+        order: 108
+        dataformat: enumerate
+        dataformat_ext: pc_status
+
+  org_site:
+        displayname: Site
+        page: Site
+        order: 150
+        dataformat: schema
+        dataformat_ext: site
+        cardinal_max: 0
+        cardinal_max: 1
+
+  org_site_name:
+        displayname: Site name
+        page: Site
+        order: 154
+        dataformat: external
+        dataformat_ext: org_site displayname string 0 1
+
+  region_name:
+        displayname: Region
+        page: Localisation
+        order: 156
+        dataformat: external
+        dataformat_ext: org_site region_name string 0 1
+
+
+  assigned_login:
+        displayname: User
+        page: Localisation
+        order: 158
+        dataformat: string
+
+# Technical
+
+  model:
+        displayname: Model (Vendor)
+        page: Technical
+        order: 308
+        dataformat: string
+
+  cpu:
+        displayname: CPU
+        page: Technical
+        order: 310
+        dataformat: string
+
+  ram:
+        displayname: RAM (MB)
+        page: Technical
+        order: 312
+        dataformat: string
+
+  disk:
+        displayname: Disk (GB)
+        page: Technical
+        order: 314
+        dataformat: string
+
+  os_version:
+        displayname: OS (version)
+        page: Technical
+        order: 320
+        dataformat: string
+    
+
+# History
+
+  purchase_date:
+        displayname: Purchase
+        page: History
+        order: 606
+        dataformat: date
+
+  waranty_end_date:
+        displayname: Waranty End
+        page: History
+        order: 508
+        dataformat: date
+
+  os_install_date:
+        displayname: OS Install
+        page: History
+        order: 606
+        dataformat: date
+

@@ -1,0 +1,9 @@
+---
+# ---------------------------------------------------------------
+# DataInstance - customer
+# ---------------------------------------------------------------
+
+- classname: customer
+  keyname: acme_inc
+  displayname: Acme INC
+  sirene_group: admin_cavaliba

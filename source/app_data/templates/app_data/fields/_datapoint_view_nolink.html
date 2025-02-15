@@ -1,0 +1,36 @@
+{% load static %}
+{% load i18n %}
+
+{% if item.dataformat == "string" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "boolean" %}  
+<div class="d-flex justify-content-center">
+{% if item.value %}<i class="fa fa-check" aria-hidden="true"></i>{% endif %}
+</div>
+
+{% elif item.dataformat == "int" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "float" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "group" %}  
+    <div class="d-flex flex-wrap">{% for z in item.value %}{{ z }}{% endfor %}</div>   
+
+{% elif item.dataformat == "user" %}
+    <div class="d-flex flex-wrap"> 
+    {% for z in item.value %} {{ z.key }} ({{ z.display }}) {% endfor %}     
+    </div>  
+
+{% elif item.dataformat == "schema" %}  
+    <div class="d-flex flex-wrap"> {% for z in item.value %} {{ z.display }} {% endfor %} </div>          
+
+{% elif item.dataformat == "enumerate" %}  
+    <div class="d-flex flex-wrap justify-content-center"> 
+        {% if item.value %}{{ item.value|safe }}{% endif %}
+    </div>   
+
+{% elif item.dataformat == "external" %}  
+    <div class="d-flex flex-wrap"> 
+        {{ item.value|default:'' }}
+    </div>  
+
+{% else %} {{ item.value|default:'' }}  {% endif %}

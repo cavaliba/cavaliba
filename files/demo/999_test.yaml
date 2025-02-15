@@ -1,0 +1,171 @@
+
+
+# -----------------------------------------------------
+# test00000
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00000
+  displayname: test00000
+  mystring: data for test00000
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00001
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00001
+  displayname: test00001
+  mystring: data for test00001
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00002
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00002
+  displayname: test00002
+  mystring: data for test00002
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00003
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00003
+  displayname: test00003
+  mystring: data for test00003
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00004
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00004
+  displayname: test00004
+  mystring: data for test00004
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00005
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00005
+  displayname: test00005
+  mystring: data for test00005
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00006
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00006
+  displayname: test00006
+  mystring: data for test00006
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00007
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00007
+  displayname: test00007
+  mystring: data for test00007
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00008
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00008
+  displayname: test00008
+  mystring: data for test00008
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+
+
+# -----------------------------------------------------
+# test00009
+# ----------------------------------------------------
+
+- classname: test
+  keyname: test00009
+  displayname: test00009
+  mystring: data for test00009
+  myint: 11
+  myfloat: 27.19
+  myboolean: true
+  mydate: "2024-11-01"
+  myipv4: "10.1.2.3"
+  my_enumerate_abc: "A"
+  my_enumerate_ok_ko: "OK"
+

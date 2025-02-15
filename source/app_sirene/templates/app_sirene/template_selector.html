@@ -1,0 +1,68 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Select template' %}</H2>
+<hr>{% endblock %}
+
+
+{% block content %}
+
+
+<table id="table_managed" class="table table-striped table-hover small">
+<thead class="thead-dark"><tr>
+
+<th>{% translate 'Name' %}</th>
+<th>{% translate 'Category' %}</th>
+<th class="text-center">{% translate 'Severity' %}</th>
+<th>{% translate 'Title' %}</th>
+<th>{% translate 'Usage' %}</th>
+
+</tr>
+</thead>
+
+{% for page in pages %}
+<tr>
+
+<td class="py-1 px-1 mx-0">  <a href="{% url 'app_sirene:message_editor' template_id=page.id %}" >
+  {{ page.name }}
+  </a></td>
+
+
+<td class="py-1 px-1"><a href="{% url 'app_sirene:message_editor' template_id=page.id %}" >
+  {{ page.category | default_if_none:'' }}
+  </a></td>
+
+<td class="py-1 text-center h6">
+  <a href="{% url 'app_sirene:message_editor' template_id=page.id %}" >
+  <span class="badge text-bg-{{ page.bgcolor }} w-100">{% translate page.severity %}</span>
+  </a></td>
+
+
+<td class="py-1 px-1">
+  <a href="{% url 'app_sirene:message_editor' template_id=page.id %}" >
+{{ page.title }}
+</a></td>
+
+<td class="py-1 px-1">
+  <a href="{% url 'app_sirene:message_editor' template_id=page.id %}" >
+{{ page.description }}
+</a></td>
+</tr>
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}
+
+
+
+
+

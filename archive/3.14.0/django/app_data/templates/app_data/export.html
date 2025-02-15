@@ -1,0 +1,27 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Export tool' %}</H2>
+<hr>{% endblock %}
+
+{% block content %}
+
+<H5>Soon...</H5>
+
+
+{% if 'p_data_export' in aaa.perms  %}
+<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+{% translate "Export" %}</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="?o=json">{% translate "Export to JSON" %}</a>
+    <a class="dropdown-item" href="?o=yaml">{% translate "Export to YAML" %}</a>
+</div>
+{% endif %}
+
+{% endblock %}

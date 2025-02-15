@@ -1,0 +1,123 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+
+{% block title %}
+
+<h2>
+    <i class="fa fa-eye"></i>
+    &nbsp; {{ classobj.displayname }} / {{ instance.displayname|default:instance.keyname }}
+</h2>
+<small class="text-muted">{{ instance.handle }} </small>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+<form method="post" class="inline">{% csrf_token %}
+
+<a class="btn btn-outline-dark" href="{% url 'app_data:instance_list' classobj.keyname %}" role="button">
+    <i class="fa fa-backward" aria-hidden="true"></i>&nbsp; {% translate 'Back' %}</a>
+
+{% if 'p_data_update' in aaa.perms %}
+<a class="btn btn-outline-danger" 
+        href="{% url 'app_data:instance_edit' classobj.keyname instance.handle|default:instance.keyname %}" role="button">
+    <i class="fa fa-lg fa-pencil" aria-hidden="true"></i> &nbsp; {% translate 'Edit' %}</a>
+
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+{% translate "Delete" %}
+</button>
+{% endif %}
+</form>
+
+
+<hr>
+
+
+<table class="table table-hover table-bordered table-sm">
+
+        <tr class="table-success"><td colspan="2">
+            <strong>{{ classobj.displayname }} / {{ instance.keyname }}</strong></td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Keyname(*)' %}</td>
+        <td>{{ instance.keyname }}</td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Handle' %}</td>
+            <td>{{ instance.handle }}</td></tr>
+    
+        <tr><td class="table-light" width="20%">{% translate 'Display Name' %}</td>
+        <td>{{ instance.displayname }}</td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Is Enabled' %}</td>
+        <td>{% if instance.is_enabled %}<i class="fa fa-check" aria-hidden="true"></i>{% endif %}
+        </td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Read Permission' %}</td>
+            <td>{{ instance.p_read|default_if_none:'' }}</td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Update Permission' %}</td>
+            <td>{{ instance.p_update|default_if_none:'' }}</td></tr>
+
+        <tr><td class="table-light" width="20%">{% translate 'Delete Permission' %}</td>
+            <td>{{ instance.p_delete|default_if_none:'' }}</td></tr>
+
+</table>
+
+
+<hr>
+
+{% for page,pageitems in instance.PAGES.items %}
+<table class="table table-hover table-bordered table-sm">
+    <tr class="table-primary">
+        <td colspan="2">
+            <strong>{{page}}</strong>
+        </td>
+    </tr>
+    {%  for order,orderitems in pageitems.items %}{% for item in orderitems %}<tr>
+    <td class="table-light" width="20%">
+        {{ item.displayname }} 
+    </td>
+    <td>
+        {% include 'app_data/fields/_datapoint_view_detail.html' %}
+    </td>
+    </tr>{% endfor %}{% endfor %}
+</table>
+{%  endfor %}
+
+
+
+
+
+<!-- DELETE CONFIRM Modal -->
+<div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Confirm delete ?" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+<div class="modal-body">
+<p>{{ classobj.keyname }} :  {{ instance.keyname }} ?</p>
+</div>
+
+<div class="modal-footer">
+<form action="{% url 'app_data:instance_delete' classobj.keyname instance.handle %}" method="post">{% csrf_token %}
+<button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+<a role="button" class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate "Cancel" %}</a>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+---
+
+- classname: _sirene_category
+  keyname: incident
+  longname: Incident
+  description: Incidents (pannes)
+
+- classname: _sirene_category
+  keyname: maintenance
+  longname: Maintenance
+  description: Maintenance planifiée
+
+- classname: _sirene_category
+  keyname: info
+  longname: Information
+  description: Information
+
+- classname: _sirene_category
+  keyname: test
+  longname: Test
+  description: Test
+
+- classname: _sirene_category
+  keyname: crisis
+  longname: Crisis
+  description: Crisis
+
+- classname: _sirene_category
+  keyname: security
+  longname: Security
+  description: Security (Incident, Alert)
+
+- classname: _sirene_category
+  keyname: na
+  longname: Not available
+  description: Not available
+

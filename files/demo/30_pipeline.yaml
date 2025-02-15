@@ -1,0 +1,24 @@
+
+
+# pipeline import user.csv 
+
+- classname: _pipeline
+  keyname: user_import_csv
+  displayname: user_import_csv
+  is_enabled: true
+  description: Pipeline import user.csv (|)
+  content: |
+      csv_delimiter: '|'
+      classname: _user
+      keyfield: login
+      tasks: 
+          - field_lower: email
+          - field_lower: login
+          - field_upper: external_id
+          # - field_lower: 'displayname'
+          # - field_add: test
+          # - field_copy: ['firstname','firstname2']
+          # - field_rename: ['lastname','LastName']
+          # - field_delete: 'external_id'
+          # - field_lower: 'displayname'
+          # - field_upper: email    

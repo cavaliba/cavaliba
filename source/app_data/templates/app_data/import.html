@@ -1,0 +1,67 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Import Tool' %}</H2>
+<hr>{% endblock %}
+
+{% block content %}
+
+
+<form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+
+<div class="form-group">
+<button type="submit" name="submit" value="verify" class="btn btn-secondary">{% translate 'Check' %}</button>
+<button type="submit" name="submit" value="import" class="btn btn-danger">{% translate 'Import' %}</button>
+
+<!-- <small class="form-text text-muted">{% translate 'Use Check button for YAML syntax check before import' %}</small> -->
+</div>
+
+
+<hr>
+<h5>
+  {% translate 'Choose a Pipeline (optional)' %}:
+</h5>
+<select class="form-select" aria-label="Default select example" name="pipeline">
+  <option selected>-----------</option>
+  {% for pipeline in pipelines %}<option value="{{ pipeline.keyname }}">{{ pipeline.displayname }}</option>
+  {% endfor %}
+</select>
+<br>
+<hr>
+
+<H5>
+  {% translate 'Choose a File ...' %}:
+</H5>
+
+<div class="input-group mb-3">
+<input type="file" class="form-control" name="file"  aria-describedby="id_file_helptext" id="id_file">
+<span class="btn btn-outline-secondary" id="id_clear">X</span>
+</div>
+<script>
+    document.getElementById("id_clear").addEventListener("click", clearInput);
+    function clearInput(){
+        document.getElementById("id_file").value = "";
+    }
+</script>
+<br>
+<hr>
+
+<h5>
+  {% translate '... or paste YAML content below' %}: 
+</h5>
+<pre>
+  <textarea class="form-control" name="rawdata" rows="16">{{ rawdata }}</textarea>
+</pre>
+
+
+</form>
+
+  
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% load static %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static 'v2/bootstrap533.min.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'v2/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'app_sirene/style.css' %}">
+
+<title>{{ GLOBAL_APPNAME|default:"Cavaliba" }}</title>
+</head>
+
+<body>
+
+<main role="main" class="container">
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"><IMG src="/logo/logo.png" width="90"></IMG></a>
+  <div class="h1">{{ GLOBAL_APPNAME|default:"Cavaliba" }}</div>
+  <div>
+  <a class="btn btn-outline-dark mr-3" href="{% url 'app_sirene:private' %}" role="button">
+  Connexion</a>
+  </div>
+</nav>
+
+
+<hr>
+
+{% block content %}
+{% for page in pages %}
+
+{% if page.severity == "ok" %}
+  {% include 'app_sirene/_pub_ok.html' %}
+{% elif page.severity == "critical" %}
+  {% include 'app_sirene/_pub_critical.html' %}
+{% elif page.severity == "major" %}
+  {% include 'app_sirene/_pub_major.html' %}
+{% elif page.severity == "minor" %}
+  {% include 'app_sirene/_pub_minor.html' %}
+{% elif page.severity == "info" %}
+  {% include 'app_sirene/_pub_info.html' %}
+{% elif page.severity == "other" %}
+  {% include 'app_sirene/_pub_other.html' %}
+{% else %}
+  {% include 'app_sirene/_pub_other.html' %}
+{% endif %}
+
+{% endfor %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include 'app_sirene/_footer.html' %}
+{% endblock %}
+
+
+</main>
+
+<script src="{% static 'v2/jquery.slim.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/bootstrap533.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/htmx.min.js' %}" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+# customer
+
+- classname: _schema
+  keyname: customer
+  handle_method: keyname
+  displayname: Customer
+  is_enabled: yes
+  icon: fa-credit-card
+  order: 290
+  page: Data
+  description:
+    #_action: create_or_update          
+    displayname: Description
+    order: 100
+    dataformat: string
+    dataformat_ext: ""
+    cardinal_min: 0
+    cardinal_max: 1
+    default : ""
+  sirene_group:
+    displayname: Notify groups
+    order: 150
+    dataformat: group
+    cardinal_max: 0

@@ -1,0 +1,148 @@
+# cavaliba.com
+
+# enumerate
+
+- classname: _enumerate
+  keyname: enum_ABC
+  # ACTION
+  is_enabled: True
+  displayname: "Echelle ABC"
+  description: "Echelle ABC neutre"
+  content: |
+    - value: "A"
+      value_long: "A"
+      widget: "green_circle"
+      value_num: 1
+      description: "A"
+
+    - value: "B"
+      value_long: "B"
+      value_num: 2
+      widget: "orange_circle"
+
+    - value: "C"
+      value_long: "C"
+      value_num: 3
+      widget: "red_circle"
+
+
+- classname: _enumerate
+  keyname: maturity_ABCDE
+  # ACTION
+  is_enabled: True
+  displayname: "Maturity ABCDE"
+  description: "Maturity scale ABCDE"
+  content: |
+    - value: "A"
+      value_long: "A - OK"
+      #is_enabled: True
+      widget: "green_circle"
+      value_num: 1
+      description: "Use if very good"
+
+    - value: "B"
+      value_long: "B - Good"
+      widget: "yellow_circle"
+      value_num: 2
+
+    - value: "C"
+      value_long: "C - Average"
+      widget: "orange_circle"
+      value_num: 3
+
+    - value: "D"
+      value_long: "D - Bad"
+      widget: "red_circle"
+      value_num: 4
+
+    - value: "E"
+      value_long: "E - Alert"
+      widget: "black_circle"
+      value_num: 5
+
+    - value: "n/a"
+      value_long: "n/a"
+      widget: "white_circle"
+
+    - value: "?"
+      value_long: "? - check"
+      description: "Old, unknow, check"
+      widget: "blue_circle"
+
+
+
+
+- classname: _enumerate
+  keyname: enum_OK_KO
+  # ACTION
+  is_enabled: True
+  displayname: "Scale OK/KO"
+  description: "Scale OK/KO"
+  content: |
+    - value: "OK"
+      value_long: "OK"
+      widget: "green_circle"
+      value_num: 1
+      description: "OK"
+
+    - value: "KO"
+      value_long: "KO"
+      widget: "red_circle"
+      value_num: 2
+
+
+- classname: _enumerate
+  keyname: enum_OK_KO_NA
+  # ACTION
+  is_enabled: True
+  displayname: "Scale OK/KO/NA"
+  description: "Scale OK/KO/NA"
+  content: |
+    - value: "OK"
+      value_long: "OK"
+      widget: "green_circle"
+      description: "OK"
+      value_num: 1
+
+    - value: "KO"
+      value_long: "KO"
+      widget: "red_circle"
+      value_num: 2
+
+    - value: "n/a"
+      value_long: "n/a"
+      widget: "white_circle"
+
+    - value: "?"
+      value_long: "?"
+
+
+# OS Versions
+
+- classname: _enumerate
+  keyname: enum_os
+  # ACTION
+  is_enabled: True
+  displayname: "OS Values"
+  description: "Enumeration of OS"
+  content: |
+    - value: "Debian 11"
+      long: string Debian 11
+      num: int 1
+      family: string Linux
+      widget: green_circle
+      price: float 9.50
+      supported: boolean yes
+    - value: "Win 10"
+      long: string Windows 10
+      num: int 2
+      family: string Windows
+      widget: red_circle
+      price: float 99.95
+      supported: boolean no
+    - value: "Other"
+      long: string Other/Check
+      num: int 3
+      family: string Other
+      widget: black_circle
+      supported: boolean no

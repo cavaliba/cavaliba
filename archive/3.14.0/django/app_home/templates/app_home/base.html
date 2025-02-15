@@ -1,0 +1,317 @@
+{% load static %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="{% static 'v2/bootstrap533.min.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'v2/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" /> --> 
+<link rel="stylesheet" href="{% static 'v2/jquery.dataTables.css' %}">
+<link rel="stylesheet" href="{% static 'v2/select2.min.css' %}">
+<link rel="stylesheet" href="{% static 'app_home/style.css' %}">
+<title>{{ GLOBAL_APPNAME|default:"Cavaliba"}}</title>
+<!-- <style>
+#id_test_scope {
+    color: #26b72b;
+    width: 100%;
+  }
+</style> -->
+</head>
+
+
+
+<body>
+  <div class="wrapper">
+
+    <aside id="sidebar" class="js-sidebar"> <!-- SIDEBAR -->
+        <div class="h-100">
+
+              <div class="sidebar-logo">      
+                  <a href="{% url 'app_home:private' %}">
+                    {% if LOGO_SIZE > 0 %}<IMG src="/logo/logo.png" width="{{ LOGO_SIZE }}"></IMG>
+                    {% else %}<i class="fa fa-lg fa-home fa-1x"></i>
+                    {% endif %}
+                    {{ GLOBAL_APPNAME|default:"Cavaliba" }}
+                  </a>
+              </div>
+              <ul class="sidebar-nav">
+                {% block navbar_app %}
+                {% endblock %}
+               </ul>
+
+        </div>
+    </aside>
+
+
+    <!-- {% if 'p_doc_link' in aaa.perms %}
+    <li class="nav-item px-1">
+      <a class="nav-link" href="{% url 'app_sirene:doc' %}">
+      <i class="fa fa-lg fa-book" aria-hidden="true"></i>&nbsp;Doc &nbsp;</a></li>
+    {% endif %}
+     -->
+
+
+
+<!-- MAIN  -->
+
+      <div class="main">
+
+<!-- NAVBAR -->
+          <nav class="navbar navbar-expand px-3 border-bottom">
+              <button class="btn" id="sidebar-toggle" type="button">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="navbar-collapse navbar">
+                  <ul class="navbar-nav">
+                      <li class="nav-item dropdown">
+                          <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0 dropdown-toggle">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;
+                            {{ aaa.username }} {% if aaa.is_admin %} (admin) {% endif %}
+                          </a>
+                          
+                          <div class="dropdown-menu dropdown-menu-end">
+          
+                              {% if 'p_user_pref' in aaa.perms %}
+                              <a href="{% url 'app_user:user_pref'  %}" class="dropdown-item">
+                                <i class="fa fa-pencil fa-fw"></i>&nbsp; - &nbsp;{% translate 'Preferences' %}
+                              </a>
+                              {% endif %}
+
+                              {% if 'p_user_debug' in aaa.perms %}
+                              <a href="{% url 'app_user:debug' %}" class="dropdown-item">
+                                <i class="fa fa-question fa-fw"></i>&nbsp; - &nbsp;
+                                {% translate 'Debug' %}
+                              </a>
+                              {% endif %}
+
+                              {% if aaa.is_admin %}
+                              <a href="/private/admin/" class="dropdown-item">
+                                <i class="fa fa-cog fa-fw"></i>&nbsp; - &nbsp;
+                                {% translate 'DB Admin' %}
+                              </a>
+                              {% endif %}
+
+
+                              <!-- LOGOUT -->
+                              <a href="{% url 'app_user:logout' %}" class="dropdown-item">
+                              <i class="fa fa-power-off fa-fw" aria-hidden="true"></i>&nbsp; - &nbsp;
+                              {% translate 'Logout' %} {{ aaa.username }} {% if aaa.is_admin %} (admin){% endif %}
+                              </a>
+
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+
+<!-- Content -->
+
+          <main class="content px-3 py-2">
+
+                <div class="container-fluid">
+
+                  <!-- Messages Flash -->
+                    {% if messages %}{% for message in messages %}
+                    <div class="alert {{ message.tags }}  alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}{% endif %}
+                  
+                  
+                  {% block title %}{% endblock %}
+                  
+                  {% block content %}{% endblock %}
+                  
+                </div>
+          </main>
+
+<!-- Footer -->
+          <hr>
+          <footer class="footer">
+              <div class="container-fluid">
+                  <div class="row text-muted">
+                      <div class="col-6 text-start">
+                          <p class="mb-0">
+                              <a href="http://www.cavaliba.com/"" class="text-muted">
+                                  <strong>(C) cavaliba.com - version {{ CAVALIBA_VERSION }} </strong>
+                              </a>
+                          </p>
+                      </div>
+                      <div class="col-6 text-end">
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <a href="#" class="text-muted">Contact</a>
+                              </li>
+                              <li class="list-inline-item">
+                                  <a href="#" class="text-muted">About Us</a>
+                              </li>
+                              <li class="list-inline-item">
+                                  <a href="#" class="text-muted">Terms</a>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+
+      </div>  <!-- main -->
+  </div> <!-- WRAPPER -->
+
+<!-- SCRIPTS -->
+
+<script src="{% static 'v2/jquery.371.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/bootstrap533.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/htmx.min.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/jquery.dataTables.js' %}" crossorigin="anonymous"></script>
+<script src="{% static 'v2/select2.min.js' %}"></script>
+<script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+<script src="{% static 'django_tinymce/init_tinymce.js' %}"></script>
+<script src="{% static 'v2/sidebar.js' %}"></script>
+
+
+<script>
+  $(document).ready( function () {
+    $('#table_managed').DataTable({
+      "pageLength": 500,
+      "autoWidth": false,
+      order: [[0, 'asc']],
+      "lengthMenu": [ [50, 500, 5000, -1], [50, 500, 5000, "Tous"] ],
+      language: {
+        processing:     "Traitement en cours...",
+        search:         "Rechercher&nbsp;:",
+        lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
+        info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+        infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        infoPostFix:    "",
+        loadingRecords: "Chargement en cours...",
+        zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        emptyTable:     "Aucune donnée disponible dans le tableau",
+        paginate: {
+            first:      "Premier",
+            previous:   "Pr&eacute;c&eacute;dent",
+            next:       "Suivant",
+            last:       "Dernier"
+        },
+        aria: {
+            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        }
+    }
+
+    })
+   });
+</script>
+<script>
+  $(document).ready( function () {
+    $('#table_managed_rev').DataTable({
+      "pageLength": 50,
+      "autoWidth": false,
+      order: [[0, 'desc']],
+      "lengthMenu": [ [50, 500, 5000, -1], [50, 500, 5000, "Tous"] ],
+      language: {
+        processing:     "Traitement en cours...",
+        search:         "Rechercher&nbsp;:",
+        lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
+        info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+        infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        infoPostFix:    "",
+        loadingRecords: "Chargement en cours...",
+        zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        emptyTable:     "Aucune donnée disponible dans le tableau",
+        paginate: {
+            first:      "Premier",
+            previous:   "Pr&eacute;c&eacute;dent",
+            next:       "Suivant",
+            last:       "Dernier"
+        },
+        aria: {
+            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        }
+    }
+
+    })
+   });
+</script>
+<script>
+
+  $(document).ready( function () {
+    $('#table_managed_sort').DataTable({
+      "paging": false,
+      "autoWidth": true,
+      "searching": false,
+      order: [[0, 'asc']],
+      language: {
+        processing:     "Traitement en cours...",
+        search:         "Filter&nbsp;:",
+        lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
+        info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+        infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        infoPostFix:    "",
+        loadingRecords: "Chargement en cours...",
+        zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        emptyTable:     "Aucune donnée disponible dans le tableau",
+        paginate: {
+            first:      "Premier",
+            previous:   "Pr&eacute;c&eacute;dent",
+            next:       "Suivant",
+            last:       "Dernier"
+        },
+        aria: {
+            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        }
+    }
+
+    })
+   });
+</script>
+
+<script>
+  $(document).ready( function () {
+    $('#table_managed_search').DataTable({
+      "paging": false,
+      "autoWidth": true,
+      "searching": true,
+      order: [[0, 'asc']],
+      language: {
+        processing:     "Traitement en cours...",
+        search:         "Filter&nbsp;:",
+        lengthMenu:    "Afficher _MENU_ &eacute;l&eacute;ments",
+        info:           "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        infoEmpty:      "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+        infoFiltered:   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        infoPostFix:    "",
+        loadingRecords: "Chargement en cours...",
+        zeroRecords:    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        emptyTable:     "Aucune donnée disponible dans le tableau",
+        paginate: {
+            first:      "Premier",
+            previous:   "Pr&eacute;c&eacute;dent",
+            next:       "Suivant",
+            last:       "Dernier"
+        },
+        aria: {
+            sortAscending:  ": activer pour trier la colonne par ordre croissant",
+            sortDescending: ": activer pour trier la colonne par ordre décroissant"
+        }
+    }
+
+    })
+   });
+
+</script>
+
+{% block script %}{% endblock %}
+
+
+</body>
+</html>
+

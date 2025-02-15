@@ -1,0 +1,57 @@
+---
+
+# schema: sitegroup
+
+
+- classname: _schema
+  keyname: sitegroup
+  handle_method: keyname
+  displayname: Regions
+  is_enabled: yes
+  icon: fa-university
+  order: 70
+  page: Sirene        
+
+  description:
+        #_action: create
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+    
+  members:
+        displayname: Members (Sites)
+        page: Structure
+        order: 120           
+        dataformat: schema
+        dataformat_ext: site
+        cardinal_max: 0
+
+  subgroups:
+        displayname: Members (Subgroups of sites) 
+        page: Structure
+        order: 130
+        dataformat: schema
+        dataformat_ext: sitegroup
+        cardinal_max: 0
+
+  sirene_group:
+        displayname: Notify users
+        page: Sirene
+        order: 200
+        dataformat: group
+        cardinal_max: 0
+
+  orga_manager:      
+        displayname: Region Manager
+        dataformat: user
+        description: Region Manager
+        order: 300
+        page: Organisation
+        cardinal_min: 0
+        cardinal_max: 1
+
+        

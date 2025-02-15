@@ -1,0 +1,32 @@
+---
+
+# =====================================================================
+# Users
+# =====================================================================
+
+
+
+- classname: _user
+  login: joe
+  email: joe@test.com
+  displayname: Joe
+  #mobile:
+
+- classname: _user
+  login: Helmut
+  email: helmut@test.com
+  displayname: Helmut
+  #mobile:
+
+- classname: _user
+  login: Oliver
+  email: oliver@test.com
+  displayname: Oliver
+  #mobile:
+
+- classname: _user
+  login: Claire
+  email: claire@test.com
+  displayname: Claire
+  #mobile:
+

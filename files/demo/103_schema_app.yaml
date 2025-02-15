@@ -1,0 +1,32 @@
+# app
+
+- classname: _schema
+  keyname: app
+  handle_method: keyname
+  displayname: IT systems
+  is_enabled: yes
+  icon: fa-window-maximize
+  order: 50
+  page: Sirene
+
+  description:
+        #_action: create
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+  
+  sirene_group:
+        displayname: Notify users
+        order: 120
+        dataformat: group
+        cardinal_max: 0
+  
+  url:
+        displayname: App URL
+        page: Acces
+        order: 200
+        dataformat: string

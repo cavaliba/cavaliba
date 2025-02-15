@@ -1,0 +1,19 @@
+
+
+# -----------------------------------------------------
+
+- classname: _group
+  keyname: g_app_mail
+  displayname: Notify for Mail
+  description: Notify for mails
+  users: 
+     - hjoe
+  subgroups: 
+     - admin_cavaliba
+
+- classname: app
+  keyname: mail
+  displayname: Mail systems
+  description: Mail systems
+  sirene_group:
+    - g_app_mail

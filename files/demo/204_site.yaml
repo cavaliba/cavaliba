@@ -1,0 +1,37 @@
+---
+
+# =====================================================================
+# DATA - sites
+# =====================================================================
+
+- classname: _group
+  keyname: site1_notify
+  displayname: Sirene Notification for Site 1
+  description: Site 1
+  users: 
+    - joe
+    - helmut
+
+- classname: site
+  keyname: site1
+  displayname: Site1
+  description: Site1
+  sirene_group:
+    - site1_notify
+
+
+
+- classname: _group
+  keyname: site2_notify
+  displayname: Sirene Notification for Site 2
+  description: Site 2
+  users: 
+    - Bill
+    - Gina
+
+- classname: site
+  keyname: site2
+  displayname: Site2
+  description: Site2
+  sirene_group:
+    - site2_notify

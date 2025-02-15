@@ -1,0 +1,69 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>{% translate 'Public pages' %}</H2>
+<hr>{% endblock %}
+
+{% block content %}
+
+
+{% if 'p_sirene_public_cud' in aaa.perms %}
+<a class="btn btn-outline-success" href="{% url 'app_sirene:publicpage_edit' %}" role="button">
+	<i class="fa fa-lg fa-plus" aria-hidden="true"></i> &nbsp; {% translate 'New' %} </a>
+<hr>
+{% endif %}
+
+
+
+
+<table id="table_unmanaged" class="table table-striped table-hover small">
+<thead class="thead-dark"><tr>
+<th>{% translate 'Name' %} </th>
+<th class="text-center">{% translate 'Severity' %} </th>
+<th>{% translate 'Title' %} </th>
+<th class="text-center">{% translate 'Enabled' %} </th>
+<th class="text-center">{% translate 'Default' %} </th>
+</tr>
+</thead>
+
+
+{% for item in publicpages %}
+<tr>
+
+<td class="py-1 px-2 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_sirene:publicpage_edit' item.id %}">
+	{{ item.name }}
+	</a>
+</td>
+
+<td class="py-1 text-center h6">
+<span class="badge text-bg-{{ item.bgcolor }} w-100">{% translate item.severity %}</span>
+</td>
+
+<td class="py-1 px-2 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_sirene:publicpage_edit' item.id %}">
+	{{ item.title }}
+	</a>
+</td>
+
+<td class="py-1 text-center">{{ item.is_enabled  | yesno:"X,," }}</td>
+<td class="py-1 text-center">{{ item.is_default  | yesno:"X,," }}</td>
+
+</tr>{% endfor %}
+</table>
+
+
+{% endblock %}
+
+
+
+
+
+
+

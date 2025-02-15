@@ -1,0 +1,37 @@
+# schema: printing
+
+
+# ------------------------
+
+- classname: _schema
+  keyname: printing
+  handle_method: md5
+  displayname: Printers
+  is_enabled: yes
+  icon: fa-print
+  order: 250
+  page: Data
+
+  serial:
+        displayname: Serial
+        page: General
+        order: 100
+        dataformat: string
+               
+  name:
+        displayname: FQDN
+        page: General
+        order: 102
+        dataformat: string
+    
+  description:
+        #_action: create
+        displayname: Description
+        page: General
+        order: 104
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+

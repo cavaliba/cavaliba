@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+
+
+{% if item.dataformat == "string" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "boolean" %} 
+<div class="d-flex">
+    {% if item.value %}<i class="fa fa-check" aria-hidden="true"></i>{% endif %}
+</div>
+
+    
+{% elif item.dataformat == "int" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "float" %}  {{ item.value|default:'' }}
+
+{% elif item.dataformat == "group" %}  
+    <div class="d-flex flex-wrap"> 
+    {% for z in item.value %}
+    <a class="btn btn-outline-primary btn-sm mx-1 my-1" href="{% url 'app_user:group_detail' z %}" role="button">
+    {{ z }}</a>{% endfor %}   
+    </div>   
+
+{% elif item.dataformat == "user" %}
+    <div class="d-flex flex-wrap"> 
+    {% for z in item.value %}
+    <a class="btn btn-outline-primary btn-sm mx-1 my-1" href="{% url 'app_user:user_detail' z.key %}" role="button">
+    {{ z.key }} ({{ z.display }})</a>{% endfor %}     
+    </div>  
+
+{% elif item.dataformat == "schema" %}  
+    <div class="d-flex flex-wrap"> 
+    {% for z in item.value %}
+    <a class="btn btn-outline-success btn-sm mx-1 my-1" href="{% url 'app_data:instance_detail' item.dataformat_ext z.handle|default:z.key %}" role="button">
+    {{ z.display }}</a>{% endfor %}
+    </div>          
+
+{% elif item.dataformat == "enumerate" %}  
+    <div class="d-flex flex-wrap">
+        {% if item.value %}{{ item.value|safe }}{% endif %}
+    </div>
+        
+
+{% elif item.dataformat == "external" %}  
+    <div class="d-flex flex-wrap"> 
+        <i>{{ item.value|default:'' }}</i>
+    </div>   
+
+{% else %} {{ item.value|default:'' }}  {% endif %}

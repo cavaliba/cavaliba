@@ -1,0 +1,20 @@
+---
+
+# ---------------------------------------------------------------
+# SITEGROUP
+# ---------------------------------------------------------------
+
+# --- Par Activité
+
+
+- classname: _group
+  keyname: all_sites
+
+- classname: sitegroup
+  keyname: all_sites
+  displayname: All Sites
+  members: 
+      - site1 
+      - site2
+  sirene_group:
+      - all_sites

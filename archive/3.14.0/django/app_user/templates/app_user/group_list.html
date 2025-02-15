@@ -1,0 +1,86 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_user/_navbar_app.html' %}
+{% endblock %}
+
+
+
+{% block title %}<H1>{% translate "Groups" %}</H1>
+<small class="text-muted">{{ count }} {% translate "groups" %}</small>
+<hr>{% endblock %}
+
+
+{% block content %}
+
+<a class="btn btn-outline-dark" onclick="history.back()" role="button">
+<i class="fa fa-backward" aria-hidden="true"></i>&nbsp; {% translate 'Back' %} </a>
+
+{% if 'p_group_create' in aaa.perms  %}
+<a class="btn btn-outline-success" href="{% url 'app_user:group_edit' %}" role="button">
+<i class="fa fa-lg fa-plus" aria-hidden="true"></i> &nbsp; {% translate "New" %}</a>
+{% endif %}
+
+
+
+{% if 'p_group_export' in aaa.perms  %}
+<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+{% translate "Export" %}</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="?o=csv">{% translate "Export to CSV" %}</a>
+    <a class="dropdown-item" href="?o=json">{% translate "Export to JSON" %}</a>
+    <a class="dropdown-item" href="?o=yaml">{% translate "Export to YAML" %}</a>
+</div>
+{% endif %}
+
+<hr>
+
+<table id="table_managed" class="table table-striped table-hover table-sm small">
+<thead class="thead-dark"><tr>
+<th class="text-left">{% translate 'Keyname(*)' %}</th>
+<th class="text-left">{% translate "Display name" %}</th>
+<th class="text-left">{% translate 'Description' %}</th>
+<th class="text-center">{% translate 'Users' %}</th>
+<th class="text-center">{% translate 'Subgroups' %}</th>
+
+</tr>
+</thead>
+
+{% for item in groups %}
+<tr>
+<td class="py-1 px-2 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_user:group_detail' item.keyname %}">
+	{% if item.is_enabled %}{{ item.keyname }}{% else %}<del>{{ item.keyname }}</del>{% endif %}
+	</a></td>
+
+<td class="py-1 px-1 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_user:group_detail' item.keyname %}">
+	{{ item.displayname|default:''}}
+	</a></td>
+
+<td class="py-1 px-1 mx-0">
+	<a class="text-decoration-none" href="{% url 'app_user:group_detail' item.keyname %}">
+	{{ item.description | default:'' }}</a></td>
+
+<td class="py-1 text-center">{{ item.users.count|default:'' }}</td>
+<td class="py-1 text-center">{{ item.subgroups.count|default:'' }}</td>
+
+</td>
+
+</tr>{% endfor %}
+</table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

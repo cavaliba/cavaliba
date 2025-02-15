@@ -1,0 +1,119 @@
+{% load static %}
+{% load i18n %}
+
+
+
+<li class="sidebar-header-active">
+  {{ SIRENE_APPNAME|default:"Sirene!"}}
+</li>
+
+<!-- Consult -->
+<li class="sidebar-header">
+  {% translate 'Messages' %}
+</li>
+
+
+{% if 'p_sirene_access' in aaa.perms %}
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:private' %}">
+  <i class="fa fa-fw fa-vcard"></i>&nbsp; - &nbsp;
+  {% translate 'Private view' %}    </a>
+</li>
+{% endif %}
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="/?public=yes">
+  <i class="fa fa-fw fa-globe"></i>&nbsp; - &nbsp;
+  {% translate 'Public view' %}
+  </a>
+</li>
+
+
+{% if 'p_sirene_history' in aaa.perms %}
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:history' %}">
+  <i class="fa fa-fw fa-book"></i>&nbsp; - &nbsp;
+  {% translate 'History' %}
+</a>
+</li>
+{% endif %}
+
+<!-- NEW -->
+<li class="sidebar-header">
+  {% translate 'New notification' %}
+</li>
+
+
+{% if 'p_sirene_new' in aaa.perms %}
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:template_selector' %}">
+  <i class="fa fa-fw fa-bullhorn" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'From Template' %}
+</a>
+</li>
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:message_editor' %}">
+  <i class="fa fa-fw fa-pencil" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Empty form' %}
+</a>
+</li>
+
+         
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:publicpage_selector' %}">
+  <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Public Page only' %}
+</a>
+</li>
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:sms_send' %}">
+  <i class="fa fa-fw fa-mobile" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Send a SMS' %}
+</a>
+</li>
+
+<!-- Config -->
+<li class="sidebar-header">
+  {% translate 'Configuration' %}
+</li>
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:template_list' %}">
+  <i class="fa fa-fw fa-mobile" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Manage Templates' %}
+</a>
+</li>
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:publicpage_list' %}">
+  <i class="fa fa-fw fa-globe" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Manage Public Pages' %}
+</a>
+</li>
+
+<li class="sidebar-item">
+  <a class="sidebar-link" href="{% url 'app_sirene:category_list' %}">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i>&nbsp; - &nbsp;
+  {% translate 'Manage Categories' %}
+</a>
+</li>
+
+<!-- Special -->
+<li class="sidebar-header">
+  {% translate 'Special' %}
+</li>
+
+<!-- Flushall -->      
+{% if 'p_sirene_flushall' in aaa.perms %}
+<li class="nav-item px-5">
+  <form class="form-inline" action="{% url 'app_sirene:flushall' %}" method="post">{% csrf_token %}
+    <input class="btn btn-outline-danger mx-2" type="submit" value="{% translate 'Archive all' %}" name="save">
+  </form>
+</li>
+{% endif %}
+
+
+
+{% endif %}

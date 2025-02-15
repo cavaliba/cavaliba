@@ -1,0 +1,96 @@
+
+# ==========================================
+# oauth2_proxy nginx/authrequest for OKTA
+# ==========================================
+
+# remember : in auth_request oa2p is hidden from user and can be accessed only from nginx
+
+
+# ------------------------
+# oauth2_proxy server
+# ------------------------
+# if run in Docker, just has to be reachable by Nginx
+http_address="0.0.0.0:4180"
+
+
+# single IDP => remove first screen "oauth2 proxy" ; no need to chose an IDP
+skip_provider_button="true"
+
+#tls_cert_file="/oauth2_proxy/ssl/domain.crt"
+#tls_key_file="/oauth2_proxy/ssl/domain.rsa"
+
+# log
+auth_logging = true
+standard_logging = true
+request_logging = true
+show_debug_on_error = true
+#logging_filename = "/var/log/oauth2-proxy.log"
+
+# ------------------------
+# IDP
+# ------------------------
+# moved to Docker-compose
+#provider="oidc"
+#provider_display_name="Okta"
+#oidc_issuer_url="https://xxxxxxxxxxxxx.okta.com"
+#client_id="xxxxxxxxxxxxxxxxxxxxx"
+#client_secret="xxxxxxxxxxxxxxxxxxxxxxxx"
+
+
+# -------------------------------
+# Session
+# -------------------------------
+
+session_store_type = "redis"
+
+# standard VM or external redis
+#redis_connection_url = "redis://127.0.0.1"
+#redis_connection_url = "redis://myshared_redis"
+
+# docker-compose, internal access only
+redis_connection_url = "redis://cavaliba_redis"
+
+
+#cookie_secret="xxxxxxxxxxxxxx" >> moved to docker
+#cookie_expire="0h45m0s" >> moved to docker
+
+cookie_httponly=false
+cookie_secure=false
+cookie_refresh=true
+cookie_samesite="lax"
+#cookie_samesite="none"
+
+cookie_csrf_expire="7m"
+#cookie_csrf_per_request=true
+
+#cookie_domains=["192.168.0.11","localhost","sirene.cavaliba.com"] # Required so cookie can be read on all subdomains.
+#whitelist_domains=["192.168.0.11","localhost","sirene.cavaliba.com"] # Required to allow redirection back to original requested target.
+
+cookie_domains=["sirene.cavaliba.com"] # Required so cookie can be read on all subdomains.
+whitelist_domains=["sirene.cavaliba.com"] # Required to allow redirection back to original requested target.
+
+
+email_domains=["*"]
+#email_domains="*"
+
+# -------------------------------
+# attributes back to app
+# claims / assertions
+# -------------------------------
+
+# add headers
+set_xauthrequest=true
+set_authorization_header=true
+pass_authorization_header=true
+pass_access_token=true
+
+
+# -----------------------------------------------
+# redirect_url : get back to oa2p after auth
+# -----------------------------------------------
+
+# nginx/oa2p authrequest mode - back to oa2P throuh application (oa2p not exposed)
+# must not be an "internal" URL in nginx config
+#redirect_url="http://192.168.0.11:8000/oauth2/callback"
+#redirect_url="https://sirene.cavaliba.com/oauth2/callback" 
+# to docker

@@ -1,0 +1,246 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_home/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<h2>
+  <i class="fa fa-pencil"></i>
+  &nbsp; {{ classobj.displayname }} / {{ formular.displayname }} ({{formular.keyname}})
+</h2>
+<small class="text-muted">{{ formular.handle }} </small>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="post"> {% csrf_token %}
+
+<a class="btn btn-outline-dark" href="{% url 'app_data:instance_list' classobj.keyname %}" role="button">
+    <i class="fa fa-backward" aria-hidden="true"></i>&nbsp; {{ classobj.keyname }}</a>
+
+{% if 'p_data_update' in aaa.perms %}
+<input class="btn btn-danger" type="submit" name="save" value="{% translate 'Save' %}">
+{% endif %}
+
+<hr>
+
+<!-- KEYNAME -->
+<div class="mb-3 row">
+  <label class="col-sm-2 col-form-label">{% translate 'Keyname(*)' %}</label>
+  <div class="form-check col-sm-10">
+   <input type="text" disabled class="form-control" name="keyname" value="{{ formular.keyname|default_if_none:''}}">
+    <div class="form-text">Unique for this class - any chars</div>
+  </div>
+</div>
+
+<!-- HANDLE -->
+<div class="mb-3 row">
+  <label class="col-sm-2 col-form-label">{% translate 'Handle' %}</label>
+  <div class="form-check col-sm-10">
+   <input type="text" disabled class="form-control" name="handle" value="{{ formular.handle|default_if_none:''}}">
+    <div class="form-text">Unique for this class, no special char, no whitespace, no accent</div>
+  </div>
+</div>
+
+<!-- DISPLAYNAME -->
+<div class="mb-3 row">
+<label class="col-form-label col-sm-2">{% translate 'Display Name' %}</label>
+<div class="form-check col-sm-10">
+<input type="text" class="form-control col-sm-10" name="displayname" value="{{ formular.displayname|default_if_none:''}}">
+</div>
+</div>
+
+<!-- IS ENABLED -->
+<div class="mb-3 row">
+<label class="col-form-label col-sm-2">{% translate 'Is Enabled' %}</label>
+<div class="col-sm-10 form-check">
+<input class="form-check mt-2" type="checkbox" name="is_enabled"
+  {% if formular.is_enabled %}checked{% endif %}> 
+</div>
+</div>
+
+<!-- Permissions -->
+{% if "p_permission_edit" in aaa.perms %}
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Read Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input type="text" class="form-control col-sm-10" name="p_read" value="{{ formular.p_read|default_if_none:''}}">
+  </div>
+  </div>
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Update Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input type="text" class="form-control col-sm-10" name="p_update" value="{{ formular.p_update|default_if_none:''}}">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Delete Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input type="text" class="form-control col-sm-10" name="p_delete" value="{{ formular.p_delete|default_if_none:''}}">
+  </div>
+</div>
+{% else %}
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Read Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input disabled type="text" class="form-control col-sm-10" name="p_read" value="{{ formular.p_read|default_if_none:''}}">
+  </div>
+  </div>
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Update Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input disabled type="text" class="form-control col-sm-10" name="p_update" value="{{ formular.p_update|default_if_none:''}}">
+  </div>
+</div>
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2"><b>{% translate 'Delete Permission' %}</b></label>
+  <div class="form-check col-sm-10">
+  <input disabled type="text" class="form-control col-sm-10" name="p_delete" value="{{ formular.p_delete|default_if_none:''}}">
+  </div>
+</div>
+{% endif %}
+
+
+<hr>
+
+{% for page,pageitems in formular.PAGES.items %} <h4>{{ page }}</h4><hr>
+{%  for order,orderitems in pageitems.items %}{% for item in orderitems %}
+  {% if item.dataformat == "string" %}       {% include 'app_data/fields/_string.html' %}
+{% elif item.dataformat == "int" %}          {% include 'app_data/fields/_int.html' %}
+{% elif item.dataformat == "boolean" %}      {% include 'app_data/fields/_boolean.html' %}
+{% elif item.dataformat == "schema" %}       {% include 'app_data/fields/_schema.html' %}
+{% elif item.dataformat == "group" %}        {% include 'app_data/fields/_group.html' %}
+{% elif item.dataformat == "ipv4" %}         {% include 'app_data/fields/_ipv4.html' %}
+{% elif item.dataformat == "float" %}        {% include 'app_data/fields/_float.html' %}
+{% elif item.dataformat == "date" %}         {% include 'app_data/fields/_date.html' %}
+{% elif item.dataformat == "user" %}         {% include 'app_data/fields/_user.html' %}
+{% elif item.dataformat == "text" %}         {% include 'app_data/fields/_text.html' %}
+{% elif item.dataformat == "enumerate" %}    {% include 'app_data/fields/_enumerate.html' %}
+{% elif item.dataformat == "external" %}  
+
+{% else %} {% if item.is_multi %}
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2">{{ item.displayname }}</label>
+  <div class="form-check col-sm-10">
+  Unsupported Multi-value
+  <div class="form-text">/!\UNKNOWN FORMAT {{item.dataformat }}</div>
+</div>
+</div>
+{% else %}
+<div class="mb-3 row">
+  <label class="col-form-label col-sm-2">{{ item.displayname }}</label>
+  <div class="form-check col-sm-10">
+  <input type="text" class="form-control col-sm-10" 
+       id="{{ item.fieldname }}" 
+       name="{{ item.fieldname }}" 
+       value="{{ item.value.0|default_if_none:''}}"
+       >
+  <div class="form-text">/!\ UNKNOWN FORMAT {{item.dataformat }}: {{ item.description }}</div>
+</div>
+</div>
+{% endif %}{% endif %}{%  endfor %} <!-- internal item loop -->{%  endfor %} <!-- order loop -->{%  endfor %} <!-- page loop -->
+</form>
+{% endblock %}
+
+
+
+{% block script %}<!-- select2 scripts -->
+{% for page,pageitems in formular.PAGES.items %}{%  for order,orderitems in pageitems.items %}{% for item in orderitems %}
+
+<!-- SCHEMA -->
+{% if item.dataformat == "schema" %} 
+    {% if item.bigset %}
+    <script type="text/javascript">
+    $('#id_{{ item.fieldname }}').select2({
+      width: '100%',
+      ajax: {
+        //url: "https://api.github.com/search/repositories",
+        url: "{% url 'app_data:ajax_instance' %}",
+        dataType: 'json',
+        delay: 250,
+        cache: true,
+        data: function (params) {
+          return {
+            q: params.term,
+            c: '{{ item.dataformat_ext }}'
+          };
+        }
+      },
+      placeholder: '{% translate "Select items" %}'
+      //minimumInputLength: 1
+    });
+    </script>
+
+    {% else %}
+    <script> 
+      $(document).ready(function() {
+        $('#id_{{ item.fieldname }}').select2({
+          width: '100%'
+      });
+    });
+    </script>
+    {% endif %}
+
+<!-- GROUP -->
+{% elif item.dataformat == "group" %}
+    <script> 
+      $(document).ready(function() {
+        $('#id_{{ item.fieldname }}').select2({
+          width: '100%'
+      });
+    });
+    </script>
+
+<!-- USER -->
+{% elif item.dataformat == "user" %}
+
+    {% if item.bigset %}
+    <script type="text/javascript">
+    $('#id_{{ item.fieldname }}').select2({
+      width: '100%',
+      ajax: {
+        //url: "https://api.github.com/search/repositories",
+        url: "{% url 'app_user:ajax_user' %}",
+        dataType: 'json',
+        delay: 250,
+        cache: true,
+        data: function (params) {
+          return {
+            q: params.term
+          };
+        }
+      },
+      placeholder: '{% translate "Select users" %}'
+      //minimumInputLength: 1
+    });
+    </script>
+
+    {% else %}
+    <script> 
+      $(document).ready(function() {
+        $('#id_{{ item.fieldname }}').select2({
+          width: '90%'
+      });
+    });
+    </script>
+    {% endif %}
+
+
+
+<!-- ENUMERATE -->
+{% elif item.dataformat == "enumerate" %}
+    <script> 
+      $(document).ready(function() {
+        $('#id_{{ item.fieldname }}').select2({
+          width: '100%'
+      });
+    });
+    </script>
+
+{% endif %}
+
+{% endfor %}{% endfor %}{% endfor %} {% endblock %}

@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+
+
+
+
+
+{% for section in sidebar %}
+<li class="sidebar-header">
+    {{ section.0 }}
+</li>
+
+        {% for entry in section.1 %}
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ entry.url }}">
+            <i class="fa {{ entry.icon }} fa-fw pe-2"></i>
+            {{ entry.displayname }}
+            </a>
+        </li>
+        {% endfor %}
+{% endfor %}
+

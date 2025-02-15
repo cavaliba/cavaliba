@@ -1,0 +1,259 @@
+# schema: test class
+
+- classname: _dataview
+  keyname: test_enumerate
+  displayname: test enumerate
+  is_enabled: true
+  description: Test Enumerate UI widgets
+  target_class: test
+  content: |
+    columns:
+    - keyname
+    - displayname
+    - str:
+        from: mystring
+    - ok_ko:
+        from: my_enumerate_ok_ko 
+    - okkona:
+        from: my_enumerate_ok_ko_na
+    - abc:
+        from: my_enumerate_abc
+    - abcN:
+        from: my_enumerate_abc_multi
+    - abcde:
+        from: my_enumerate_abcde
+    - abcdeN:
+        from: my_enumerate_abcde_multi
+    - newcol
+    - newcol2c:
+        from: my_enumerate_abc
+        add: 5
+    - invalid:
+        from: non_existent_col
+        add: 5
+    - inv2
+
+- classname: _dataview
+  keyname: test_welcome
+  target_class: test
+  displayname: Test Default View
+  is_enabled: true
+  description: Test Default View
+  content: |
+    columns:
+      - keyname
+      - displayname
+      - mystring
+      - my_enumerate_ok_ko
+
+- classname: _dataview
+  keyname: test_os
+  target_class: test
+  displayname: Test OS Enumerate Subfields
+  is_enabled: true
+  content: |
+    columns:
+      - keyname
+      - displayname
+      - os
+      - os__family
+      - os__long
+      - os__supported
+      - os__widget
+      - os__num
+      - os__price
+
+
+
+# ------------------------
+
+- classname: _schema
+  keyname: test
+  handle_method: keyname
+  displayname: TestClass
+  is_enabled: yes
+  order: 900
+  page: Test        
+  icon: fa-question
+
+  os:
+        displayname: OS
+        dataformat: enumerate
+        dataformat_ext: enum_os
+        order: 90
+        page: EnumExpand
+
+  mystring:
+        displayname: MyString
+        dataformat: string
+        description: description ...            
+        order: 100
+        page: Strings
+  myint:
+        displayname: MyInt
+        dataformat: int
+        order: 200
+        description: description ...            
+        page: Numbers
+  myfloat:
+        displayname: MyFloat
+        dataformat: float
+        description: description ...
+        order: 210
+        page: Numbers
+  myboolean:
+        displayname: MyBoolean
+        dataformat: boolean
+        description: Select if ok
+        order: 300
+        page: Booleans
+  mydate:
+        displayname: MyDate
+        description: format YYYY-MM-DD
+        dataformat: date
+        order: 400
+        page: Date
+  myipv4:
+        displayname: MyIPV4
+        dataformat: ipv4
+        description: A.B.C.D or A.B.C.D/mask
+        order: 410
+        page: IP
+
+# ---
+
+
+  my_user:      
+        displayname: My Sirene User
+        dataformat: user
+        description: Select a user
+        order: 420
+        page: AAA
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_user_multi:
+        displayname: My Sirene User Multi
+        dataformat: user
+        description:Select one or more users
+        order: 425
+        page: AAA
+        cardinal_min: 0
+        cardinal_max: 0
+
+  my_sirene_group:
+        displayname: MysireneGroup
+        dataformat: group
+        description: select a single user group object(s)
+        order: 430
+        page: AAA
+        cardinal_max: 0
+        cardinal_max: 1
+
+  my_sirene_group_multi:
+        displayname: MysireneGroupMulti
+        dataformat: group
+        description: select multiple user group object(s)
+        order: 450
+        page: AAA
+        cardinal_max: 0
+        cardinal_max: 0
+
+# ---
+
+  my_sirene_app:      
+        displayname: MySireneData(app) Single
+        dataformat: schema
+        dataformat_ext: app
+        description: Select an App object
+        order: 450
+        page: Objects
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_schema_self:      
+        displayname: Schema self Single
+        dataformat: schema
+        dataformat_ext: test
+        description: select a Test object
+        order: 455
+        page: Objects
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_sirene_site_multi:      
+        displayname: MySireneData(site) Multi
+        dataformat: schema
+        dataformat_ext: site
+        description: select sirene site instance object(s)
+        order: 460
+        page: Objects
+        cardinal_min: 0
+        cardinal_max: 0
+
+
+# ---
+
+
+
+  my_enumerate_ok_ko:      
+        displayname: MyEnumerate_OK_KO
+        dataformat: enumerate
+        dataformat_ext: enum_OK_KO
+        description: Choose a value
+        order: 505
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_enumerate_ok_ko_na:
+        displayname: MyEnumerate_OK_KO_NA
+        dataformat: enumerate
+        dataformat_ext: enum_OK_KO_NA
+        description: Choose a value
+        order: 510
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_enumerate_abc:      
+        displayname: MyEnumerate_ABC
+        dataformat: enumerate
+        dataformat_ext: enum_ABC
+        description: Choose an enum_ABC value
+        order: 520
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_enumerate_abc_multi:      
+        displayname: MyEnumerate_ABC_Multi
+        dataformat: enumerate
+        dataformat_ext: enum_ABC
+        description: Choose enum_ABC values
+        order: 525
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 0
+
+
+  my_enumerate_abcde:      
+        displayname: Maturity_ABCDE
+        dataformat: enumerate
+        dataformat_ext: maturity_ABCDE
+        description: Choose a maturity_ABCDE value
+        order: 530
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 1
+
+  my_enumerate_abcde_multi:      
+        displayname: Maturity_ABCDE_Multi
+        dataformat: enumerate
+        dataformat_ext: maturity_ABCDE
+        description: Choose maturity_ABCDE values
+        order: 535
+        page: Static-Enum
+        cardinal_min: 0
+        cardinal_max: 0
+      

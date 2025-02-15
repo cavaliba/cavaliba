@@ -1,0 +1,172 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}
+<H2>Documentation</H2>
+<hr>
+{% endblock %}
+
+
+{% block content %}
+<p>Sirene est un outil d'envoi de notifications &agrave; des utilisateurs&nbsp; lors de la survenue d'&eacute;v&eacute;nements de type incident, maintenance, crise, ..., sur des installations IT.</p>
+
+<h2>Canaux&nbsp; de notification</h2>
+<p>Chaque message (notification) peut &ecirc;tre diffus&eacute;e de plusieurs fa&ccedil;ons :</p>
+<ul>
+<li>Page publique : Internet, visible par tous. Page &agrave; choisir parmir les pages publiques pr&eacute;configur&eacute;es.</li>
+<li>Page priv&eacute;e: pour <strong>tous</strong> les utilisateurs authentifi&eacute;s</li>
+<li>Page priv&eacute;e personnelle: pour les utilisateurs authentifi&eacute;s et s&eacute;lectionn&eacute;s en destinataires lors de l'envoi</li>
+<li>Page priv&eacute;e anonyme (interne): pour les utilisateurs dont l'IP de connexion fait partie des IP de confiance (r&eacute;seau interne)</li>
+<li>Email : pour les destinataires s&eacute;lectionn&eacute;s lors de l'envoi (avec email configur&eacute; dans leur profil)</li>
+<li>SMS: pour les destinataires s&eacute;lectionn&eacute;s lors de l'envoi (avec SMS configur&eacute; dans leur profil)</li>
+</ul>
+
+
+<h2>Pages publiques</h2>
+<p>Les pages publiques (tout Internet) contiennent une information minimale, non sensible, invitant l'utilisateur &agrave; se connecter pour consulter les notifications d&eacute;taill&eacute;es.</p>
+<p>Elles sont pr&eacute;d&eacute;finies. Il est possible en cas de situation particuli&egrave;re de fabriquer et publier une nouvelle page publique.</p>
+
+
+<h2>Messages pr&eacute;d&eacute;finis</h2>
+<p>En majorit&eacute;, les messages &eacute;mis par les op&eacute;rateurs de l'outil utilisent des messages pr&eacute;par&eacute;s &agrave; l'avance choisis dans une liste. Un message pr&eacute;d&eacute;fini est constitu&eacute; de :</p>
+<ul>
+<li>Un titre : affich&eacute; dans les pages priv&eacute;es, et sert de contenu SMS / sujet d'EMAIL</li>
+<li>Un corps de texte: en HTML dans les emails et sur les pages priv&eacute;es</li>
+<li>Une s&eacute;v&eacute;rit&eacute;&nbsp; ou couleur : indicateur color&eacute; visuel noir/rouge/orange/bleu/vert/gris, etc.</li>
+<li>Une cat&eacute;gorie:&nbsp; permet de grouper les messages p.ex incident / annonce / maintenanc, etc.</li>
+<li>Un choix de page publique parmi les pages publiqes disponibles</li>
+<li>Le choix de placer le message dans les messages priv&eacute;s accessibles &agrave; tous les utilisateurs authentifi&eacute;s.</li>
+<li>Le choix d'&eacute;mettre un email pour les desinataires s&eacute;lectionn&eacute;s</li>
+<li>Le choix d'&eacute;mettre un SMS pour les destinataires s&eacute;lectionn&eacute;s</li>
+<li>Des destinataires d&eacute;finis &agrave; l'aide de :
+<ul>
+<li>utilisateurs indivisuels ou membres de groupes d'utilisateurs</li>
+<li>utilisateurs rattach&eacute;s &agrave; des sites ou &agrave; des groupes de sites</li>
+<li>utilisateurs rattach&eacute;s &agrave; des applications (gestionnaire, infog&eacute;rant, etc.)</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>R&egrave;gles de notifications</h2>
+<p>Chaque utilisateur ne re&ccedil;oit qu'une fois un email ou un SMS, m&ecirc;me s'il appartient &agrave; plusieurs groupes, sites.</p>
+<p>Un utilisateur peut configurer ses pr&eacute;f&eacute;rences pour recevoir ou pas les notifications individuelles,&nbsp; par email, par sms, configurer un email ou num&eacute;ro de mobile secondaire, choisir s'il veut des notifications en 24/7 ou en heures ouvr&eacute;es uniquement, etc.</p>
+<p>Un message destin&eacute;&nbsp; &agrave; un groupe d'utilisateur:</p>
+<ul>
+<li>sera distribu&eacute; &agrave; tous les utilisateurs du groupe d'utilisateur</li>
+<li>sera distribu&eacute; &eacute;galement &agrave; tous les utilisateurs des groupes inclus dans ce groupe (hi&eacute;rarchie des groupes)</li>
+</ul>
+<p>Un message destin&eacute;&nbsp; &agrave; un site ou &agrave; un groupe de site:</p>
+<ul>
+<li>sera distribu&eacute; &agrave; tous les utilisateurs configur&eacute;s comme rattach&eacute;s au site ou &agrave; l'un des sites du groupe de site</li>
+<li>distribution Email, SMS, ou affichage en page priv&eacute;e selon choix de l'&eacute;metteur</li>
+<li>Exemple : <em>le site XXX subit une panne r&eacute;seau</em></li>
+</ul>
+<p>Un message adress&eacute; &agrave; une application:</p>
+<ul>
+<li>sera distribu&eacute; au utilisateurs attach&eacute;s aux applications (les gestionnaires , mainteneurs)</li>
+<li>sera distribu&eacute; aux sites (utilisateurs des sites) ayant une configuration indiquant utiliser cette application (les utilisateurs)</li>
+<li>distribution Email, SMS, ou affichage en page priv&eacute;e selon choix de l'&eacute;metteur</li>
+<li>Exemple: <em>l'application XXX est en panne</em></li>
+</ul>
+<p>Un message ayant une page priv&eacute;e:</p>
+<ul>
+<li>sera visible par tous les utilisateurs authentifi&eacute;s</li>
+<li>sera visible par tous les utilisateurs se connectant avec une IP de confiance (param&eacute;trage de l'outil)</li>
+</ul>
+
+
+<h2>Configuration d'un Site</h2>
+<p>Un site (&eacute;tablissement, lieu physique, client) est d&eacute;crit par:</p>
+<ul>
+<li>un nom unique (cl&eacute; d'identification, court, sans caract&egrave;res sp&eacute;ciaux)</li>
+<li>un nom d'affichage</li>
+<li>une description</li>
+<li>des utilisateurs "rattach&eacute;s" &agrave; ce site (&agrave; pr&eacute;venir en cas de notification destin&eacute;e &agrave; ce site)</li>
+<li>des applications utilis&eacute;es par ce site ; les utilisateurs du site sont notifi&eacute;s lorsque ces applications le sont</li>
+</ul>
+
+
+<h2>Configuration d'une Application</h2>
+<p>Une application est d&eacute;crite par:</p>
+<ul>
+<li>un nom court unique</li>
+<li>un nom d'affichage</li>
+<li>une description</li>
+<li>un site d'h&eacute;bergement indicatif (aucun usage pour de la notification !)</li>
+<li>un ensemble d'utilisateurs ou groupes gestionnaires de cette application (&agrave; pr&eacute;venir en cas de notification destin&eacute;e &agrave; cette application);</li>
+</ul>
+<p>IMPORTANT : les utilisateurs d'une application devant &ecirc;tre notifi&eacute;s, ne sont pas rattach&eacute;s directement dans la configuration de l'application. Ils sont rattach&eacute;s &agrave; des sites. Les sites d&eacute;crivent les applications qu'ils utilisent.</p>
+
+
+<h2>Configuration d'un Groupe d'utilisateurs</h2>
+<ul>
+<li>les groupes d'utilisateurs peuvent contenir d'autres groupes d'utilisateurs</li>
+<li>il convient de cr&eacute;er des arborescences d'organisation et placer les utilisateurs uniquement dans les groupes d'extr&eacute;mit&eacute; de l'arborescence.</li>
+</ul>
+
+
+<h2>R&ocirc;les utilisateurs</h2>
+<p>Un utilisateur authentifi&eacute; peut avoir un ou plusieurs r&ocirc;les, lui autorisant un ensemble de gestes dans l'outil :</p>
+<ul>
+<li>contact: utilisateur n'ayant pas de login, mais pouvant recevoir des mails/sms ; exemple: partenaire, liste de diffusion</li>
+<li>visiteur : utilisateur authentifi&eacute;, mais sans d&eacute;claration ni existence dans l'application ; n'est pas assignable &agrave; des sites ou applications. Peut consulter les messages en pages priv&eacute;es. Ne recevra pas de SMS/Email.</li>
+<li>op&eacute;rateurs: &eacute;mettent des messages mais ne modifient pas la configuration de l'outil (structure, messages)</li>
+<li>administrateurs locaux: g&egrave;rent les applications, groupes et&nbsp; sites existants. Ajoutent des utilisateurs, les rattachent</li>
+<li>administrateurs globaux: cr&eacute;ent les structures, les messages pr&eacute;d&eacute;finis. Attribuent les r&ocirc;les.</li>
+<li>administrateur syst&egrave;me : g&egrave;rent le param&eacute;trage technique de l'application</li>
+</ul>
+<p>Les permissions fines associ&eacute;es &agrave; chaque r&ocirc;le sont param&eacute;trables et de nouveaux r&ocirc;les peuvent &ecirc;tre cr&eacute;&eacute;s pour des cas d'usages ou populations particuli&egrave;res.</p>
+
+
+<h2>Messages prédéfinis génériques</h2>
+
+Certains messages prédéfinis peuvent être rendus génériques pour s'appliquer à un/des sites, ou une/des applications choisie au moment de l'envoi. 
+
+L'opérateur devra alors nécessairement sélectionner à chaque envoir les sites ou applications concernées.
+
+Le motifs suivants sont disponibles dans le corps des messages;
+<ul>
+<li>$APPS$</li>
+<li>$SITES$</li>
+</ul>
+
+<p>Ils sont remplacés par la liste des applications (respectivement la liste des sites) sélectionnés par l'opérateur au moment de l'envoi.</p>
+
+
+
+<h2>D&eacute;lai d'envoi, volumes, quota</h2>
+<p>A l'envoi, les messages sont mis en file d'attente puis transmis aussi rapidement que possible. Un d&eacute;lai de quelques secondes ou plus peut se rencontrer.</p>
+<p>Pour des raisons de co&ucirc;ts, des quota de SMS sont impl&eacute;ment&eacute;s et configurables (quantit&eacute; / jour / op&eacute;rateur).</p>
+
+
+<h2>Scopes</h2>
+<p>Les scopes d&eacute;signent un "ensemble&nbsp; de destinataires" et sont utilis&eacute;s&nbsp; dans l'outil pour d&eacute;finir les cibles de notifications quelle que soit leur type (site, app, groupe, ...).</p>
+<p>Scopes disponibles:</p>
+<ul>
+<li>user:xxxx&nbsp; - utilisateur individuel&nbsp; (login ou contact)</li>
+<li>usergroup:xxxx&nbsp; -&nbsp; groupe d'utilisateur</li>
+<li>site:xxxx - un site particulier</li>
+<li>sitegroup:xxxx - un groupe de site</li>
+<li>app:xxxx - une application (les utilisateurs attach&eacute;s &agrave; cette application)</li>
+</ul>
+
+
+<h2>Plus d'informations</h2>
+
+<a class="btn btn-outline-dark" role="button" href="https://www.cavaliba.com/sirene/doc/">
+<i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Documentation externe (en anglais)</a>
+<p>&nbsp;</p>
+
+
+
+{% endblock %}
+
+
+
+

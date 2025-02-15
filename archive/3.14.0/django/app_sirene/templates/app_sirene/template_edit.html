@@ -1,0 +1,83 @@
+{% extends "app_home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block navbar_app %}
+{% include 'app_sirene/_navbar_app.html' %}
+{% endblock %}
+
+{% block title %}<H2><i class="fa fa-fw fa-pencil"></i>&nbsp;
+{% if form.title.value %}{{ form.title.value }}{% else %}
+{% translate 'Template editor' %}{% endif %}</H2>
+<hr>{% endblock %}
+
+
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+
+<!-- button(s)  at the top -->
+<a class="btn btn-outline-dark" href="{% url 'app_sirene:template_list' %}" role="button">
+    <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;{% translate 'Back' %} </a>
+
+{% if 'p_sirene_template_cud' in aaa.perms %}
+
+  <input class="btn btn-success" type="submit" value="{% translate 'Save' %}" name="save">
+  
+  {% if tid %}<button type="button" class="btn btn-danger float-right" 
+  data-bs-toggle="modal" data-bs-target="#confirmModal">
+  {% translate 'Delete' %}</button>{% endif %}
+
+{% endif %}
+
+<br><br>
+
+<table class="table">
+{{ form.as_table }}
+</table>
+
+</form>
+
+
+<!-- modals / confirm ? -->
+{% if tid %}
+<div class="modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="staticBackdropLabel">{% translate "Delete ?" %}</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+    
+      <div class="modal-body">
+        <p>{% translate 'Template' %}: {{ form.name.value|default:'n/a' }}</p>
+      </div>
+
+<div class="modal-footer">
+<form action="{% url 'app_sirene:template_delete' tid %}" method="post">{% csrf_token %}
+  <button role="button" class="btn btn-danger">{% translate "Delete" %}</button>
+  <a role="button" class="btn btn-outline-dark" data-bs-dismiss="modal">{% translate "Cancel" %}</a>
+  </form>
+</div>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+
+<!-- activate select2 on specified fields  -->
+{% block script %}
+<script>
+$(document).ready(function() { $('#id_notify_group').select2({ width: '100%' }); });
+$(document).ready(function() { $('#id_notify_sitegroup').select2({ width: '100%' }); });
+$(document).ready(function() { $('#id_notify_app').select2({ width: '100%' }); });
+$(document).ready(function() { $('#id_notify_site').select2({ width: '100%' }); });
+$(document).ready(function() { $('#id_notify_customer').select2({ width: '100%' }); });
+</script>
+{% endblock %}

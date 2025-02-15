@@ -1,0 +1,13 @@
+---
+
+
+- classname: _sirene_public
+  keyname: public_ok
+  is_default: yes
+  severity: ok
+  title: "All OK"
+  description: "All OK / Default"
+  message: |
+    <p>All OK.</p>
+    <p>Please connect to see more.</p>
+    <p>IT Staff</p>

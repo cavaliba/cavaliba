@@ -1,0 +1,738 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-05 19:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app_sirene/category_forms.py:11 app_sirene/models.py:44
+#: app_sirene/models.py:67 app_sirene/models.py:153
+#: app_sirene/template_forms.py:54
+#: app_sirene/templates/app_sirene/publicpage_list.html:30
+msgid "Enabled"
+msgstr "Actif"
+
+#: app_sirene/category_forms.py:20 app_sirene/models.py:63
+#: app_sirene/models.py:81 app_sirene/models.py:155 app_sirene/models.py:196
+#: app_sirene/template_forms.py:64
+#: app_sirene/templates/app_sirene/history.html:46
+#: app_sirene/templates/app_sirene/message_detail.html:65
+#: app_sirene/templates/app_sirene/message_detail.html:106
+#: app_sirene/templates/app_sirene/publicpage_list.html:29
+#: app_sirene/templates/app_sirene/publicpage_preview.html:31
+#: app_sirene/templates/app_sirene/publicpage_selector.html:20
+#: app_sirene/templates/app_sirene/template_list.html:29
+#: app_sirene/templates/app_sirene/template_selector.html:23
+msgid "Title"
+msgstr "Titre"
+
+#: app_sirene/category_forms.py:26 app_sirene/models.py:43
+#: app_sirene/models.py:157
+#: app_sirene/templates/app_sirene/category_list.html:28
+msgid "Description"
+msgstr "Description"
+
+#: app_sirene/category_views.py:61
+msgid "Category deleted"
+msgstr "Catégorie supprimée"
+
+#: app_sirene/category_views.py:64 app_sirene/category_views.py:104
+msgid "Failed"
+msgstr "Echoué"
+
+#: app_sirene/category_views.py:84 app_sirene/configuration_views.py:55
+#: app_sirene/message_views.py:198 app_sirene/message_views.py:252
+#: app_sirene/publicpage_views.py:69 app_sirene/publicpage_views.py:70
+#: app_sirene/publicpage_views.py:100 app_sirene/publicpage_views.py:101
+#: app_sirene/publicpage_views.py:122 app_sirene/template_views.py:126
+msgid "Not allowed"
+msgstr "Non autorisé"
+
+#: app_sirene/category_views.py:108
+msgid "Category saved"
+msgstr "Catégorie enregistrée"
+
+#: app_sirene/category_views.py:113 app_sirene/message_views.py:313
+#: app_sirene/message_views.py:443
+msgid "Invalid form"
+msgstr "Invalide"
+
+#: app_sirene/configuration_views.py:82
+msgid "OK"
+msgstr "OK"
+
+#: app_sirene/message_form.py:95 app_sirene/template_forms.py:114
+msgid "Notify Apps"
+msgstr "Applications à notifier"
+
+#: app_sirene/message_form.py:96 app_sirene/template_forms.py:115
+msgid "Select Apps to notify"
+msgstr "Sélectionner les applications à notifier"
+
+#: app_sirene/message_form.py:104 app_sirene/template_forms.py:122
+msgid "Notify Sites"
+msgstr "Sites à notifier"
+
+#: app_sirene/message_form.py:105 app_sirene/template_forms.py:123
+msgid "Select Sites to notify"
+msgstr "Sélectionner les sites à notifier"
+
+#: app_sirene/message_form.py:113 app_sirene/template_forms.py:130
+msgid "Notify SiteGroups"
+msgstr "Groupes de sites à notifier"
+
+#: app_sirene/message_form.py:114 app_sirene/template_forms.py:131
+msgid "Select Sitegroups to notify"
+msgstr "Sélectionner les groupes de sites à notifier"
+
+#: app_sirene/message_form.py:122 app_sirene/template_forms.py:138
+msgid "Notify Customers"
+msgstr "Clients à notifier"
+
+#: app_sirene/message_form.py:123 app_sirene/template_forms.py:139
+msgid "Select Customers to notify"
+msgstr "Sélectionner les clients à notifier"
+
+#: app_sirene/message_form.py:131 app_sirene/template_forms.py:146
+msgid "Notify User Groups"
+msgstr "Groupes d'utilisateurs à notifier"
+
+#: app_sirene/message_form.py:132 app_sirene/template_forms.py:147
+msgid "Select additional User Groups to notify"
+msgstr "Sélectionner des groupes d'utilisateurs complémentaires à notifier"
+
+#: app_sirene/message_views.py:192 app_sirene/message_views.py:239
+#: app_sirene/message_views.py:246 app_sirene/message_views.py:276
+msgid "Not found"
+msgstr "Non trouvé"
+
+#: app_sirene/message_views.py:232
+msgid "Invalid call"
+msgstr "Requête invalide"
+
+#: app_sirene/message_views.py:258
+msgid "Message removed"
+msgstr "Message archivé"
+
+#: app_sirene/message_views.py:304 app_sirene/message_views.py:433
+msgid "Partial / Error - check SMS quota"
+msgstr "Envoi partiel / vérifier le quota de SMS"
+
+#: app_sirene/message_views.py:344
+msgid "Invalid request"
+msgstr "Requête invalide"
+
+#: app_sirene/models.py:23
+msgid "n/a"
+msgstr "n/a"
+
+#: app_sirene/models.py:24
+msgid "critical"
+msgstr "critique"
+
+#: app_sirene/models.py:25
+msgid "major"
+msgstr "majeur"
+
+#: app_sirene/models.py:26
+msgid "minor"
+msgstr "mineur"
+
+#: app_sirene/models.py:27
+msgid "info"
+msgstr "info"
+
+#: app_sirene/models.py:28
+msgid "other"
+msgstr "autre"
+
+#: app_sirene/models.py:29
+msgid "ok"
+msgstr "ok"
+
+#: app_sirene/models.py:41 app_sirene/models.py:62 app_sirene/models.py:80
+#: app_sirene/models.py:150
+#: app_sirene/templates/app_sirene/category_list.html:26
+#: app_sirene/templates/app_sirene/publicpage_list.html:27
+#: app_sirene/templates/app_sirene/publicpage_preview.html:30
+#: app_sirene/templates/app_sirene/publicpage_selector.html:18
+#: app_sirene/templates/app_sirene/template_list.html:26
+#: app_sirene/templates/app_sirene/template_selector.html:20
+msgid "Name"
+msgstr "Nom"
+
+#: app_sirene/models.py:42
+msgid "Display name"
+msgstr "Nom complet"
+
+#: app_sirene/models.py:64
+msgid "Text"
+msgstr "Texte"
+
+#: app_sirene/models.py:65 app_sirene/models.py:83 app_sirene/models.py:152
+#: app_sirene/models.py:194 app_sirene/template_forms.py:76
+#: app_sirene/templates/app_sirene/history.html:44
+#: app_sirene/templates/app_sirene/publicpage_list.html:28
+#: app_sirene/templates/app_sirene/publicpage_preview.html:27
+#: app_sirene/templates/app_sirene/template_list.html:28
+#: app_sirene/templates/app_sirene/template_selector.html:22
+msgid "Severity"
+msgstr "Sévérité"
+
+#: app_sirene/models.py:66 app_sirene/models.py:84
+msgid "Default Public Page"
+msgstr "Page publique par défaut"
+
+#: app_sirene/models.py:85
+msgid "Is visible"
+msgstr "Visible"
+
+#: app_sirene/models.py:86 app_sirene/models.py:214 app_sirene/models.py:283
+msgid "Created at"
+msgstr "Date de création"
+
+#: app_sirene/models.py:87 app_sirene/models.py:218 app_sirene/models.py:284
+msgid "Created by"
+msgstr "Auteur"
+
+#: app_sirene/models.py:88 app_sirene/models.py:216
+msgid "Removed at"
+msgstr "Date de retrait"
+
+#: app_sirene/models.py:89 app_sirene/models.py:220
+msgid "Removed by"
+msgstr "Retiré par"
+
+#: app_sirene/models.py:156 app_sirene/models.py:197 app_sirene/models.py:263
+#: app_sirene/sms_forms.py:21
+msgid "Message"
+msgstr "Messages"
+
+#: app_sirene/models.py:161 app_sirene/template_forms.py:87
+#: app_sirene/templates/app_sirene/history.html:47
+#: app_sirene/templates/app_sirene/message_detail.html:72
+msgid "Public Page"
+msgstr "Page publique"
+
+#: app_sirene/models.py:162 app_sirene/models.py:202 app_sirene/models.py:203
+msgid "Private Page"
+msgstr "Page privée"
+
+#: app_sirene/models.py:163 app_sirene/models.py:204 app_sirene/models.py:266
+#: app_sirene/templates/app_sirene/message_detail.html:75
+#: app_sirene/templates/app_sirene/message_detail.html:76
+#: app_sirene/templates/app_sirene/template_list.html:32
+msgid "Email"
+msgstr "Email"
+
+#: app_sirene/models.py:164 app_sirene/models.py:205 app_sirene/models.py:267
+#: app_sirene/templates/app_sirene/message_detail.html:80
+#: app_sirene/templates/app_sirene/template_list.html:33
+msgid "SMS"
+msgstr "SMS"
+
+#: app_sirene/models.py:193 app_sirene/template_forms.py:69
+#: app_sirene/templates/app_sirene/category_edit.html:49
+#: app_sirene/templates/app_sirene/history.html:45
+#: app_sirene/templates/app_sirene/template_list.html:27
+#: app_sirene/templates/app_sirene/template_selector.html:21
+msgid "Category"
+msgstr "Catégorie"
+
+#: app_sirene/models.py:199
+msgid "Public page text"
+msgstr "Page publique"
+
+#: app_sirene/models.py:207
+msgid "Emails sent"
+msgstr "Emails envoyés"
+
+#: app_sirene/models.py:208 app_sirene/sms_views.py:73
+msgid "SMS sent"
+msgstr "SMS envoyés"
+
+#: app_sirene/models.py:210
+msgid "Visible"
+msgstr "Visible"
+
+#: app_sirene/models.py:212
+#: app_sirene/templates/app_sirene/message_detail.html:87
+#: app_sirene/templates/app_sirene/template_edit.html:55
+msgid "Template"
+msgstr "Template"
+
+#: app_sirene/models.py:215
+msgid "Updated at"
+msgstr "Date de mise à jour"
+
+#: app_sirene/models.py:219
+msgid "Updated by"
+msgstr "Mis à jour par"
+
+#: app_sirene/models.py:230
+msgid "Message (text)"
+msgstr "Editeur de message"
+
+#: app_sirene/models.py:233
+msgid "Users (text)"
+msgstr "Liste des utilisateurs"
+
+#: app_sirene/models.py:264
+msgid "created at"
+msgstr "Date de création"
+
+#: app_sirene/models.py:265
+msgid "created by"
+msgstr "Créé par"
+
+#: app_sirene/models.py:285
+msgid "Mobile"
+msgstr "Mobile"
+
+#: app_sirene/models.py:286
+msgid "Content"
+msgstr "Message"
+
+#: app_sirene/models.py:287
+msgid "Quota left"
+msgstr "Quota restant"
+
+#: app_sirene/publicpage_views.py:107
+msgid "Default pushed"
+msgstr "Page par défaut déployée"
+
+#: app_sirene/publicpage_views.py:108
+msgid "Public page reset to default"
+msgstr "Page publique réinitialisée"
+
+#: app_sirene/publicpage_views.py:115
+msgid "Public page published: "
+msgstr "Page publique publiée: "
+
+#: app_sirene/publicpage_views.py:117
+msgid "Push public page"
+msgstr "Publication de Page publique"
+
+#: app_sirene/publicpage_views.py:118
+msgid "Failed to publish public page"
+msgstr "Echec de publication de Page publique"
+
+#: app_sirene/publicpage_views.py:121
+msgid "Not a POST"
+msgstr "Requete HTTP invalide (POST attendu)"
+
+#: app_sirene/publicpage_views.py:170
+msgid "Public Page deleted :"
+msgstr "Page publique effacée :"
+
+#: app_sirene/publicpage_views.py:174
+msgid "Failed to delete public page"
+msgstr "Echec de suppression de  Page publique"
+
+#: app_sirene/publicpage_views.py:175
+msgid "Failed to delete publicpage"
+msgstr "Echece de suppression de Page publique"
+
+#: app_sirene/publicpage_views.py:213
+msgid "Failed to save public page"
+msgstr "Echec d'enregistrement de page publique"
+
+#: app_sirene/publicpage_views.py:217
+msgid "Public page saved"
+msgstr "Page publique enregistrée"
+
+#: app_sirene/publicpage_views.py:223
+msgid "Invalid"
+msgstr "Invalide"
+
+#: app_sirene/sms_forms.py:13
+msgid "Mobile number"
+msgstr "Numéro de mobile"
+
+#: app_sirene/sms_forms.py:14
+msgid "Provide a phone numer"
+msgstr "Fournir un numéro de mobile"
+
+#: app_sirene/sms_views.py:55
+msgid "Insufficient SMS Quota"
+msgstr "Quota de SMS insuffisant"
+
+#: app_sirene/sms_views.py:69
+msgid "Invalid SMS number"
+msgstr "Numéro de mobile invalide"
+
+#: app_sirene/template_forms.py:80
+#: app_sirene/templates/app_sirene/message_edit.html:32
+#: app_sirene/templates/app_sirene/template_selector.html:24
+msgid "Usage"
+msgstr "Consignes"
+
+#: app_sirene/template_forms.py:93
+#: app_sirene/templates/app_sirene/template_list.html:31
+msgid "Private page"
+msgstr "Page privée"
+
+#: app_sirene/template_forms.py:98
+msgid "Send emails"
+msgstr "Envoyer des emails"
+
+#: app_sirene/template_forms.py:104
+msgid "Send SMS"
+msgstr "Envoyer des SMS"
+
+#: app_sirene/template_views.py:102
+msgid "Template deleted"
+msgstr "Template supprimé"
+
+#: app_sirene/template_views.py:106
+msgid "Failed to delete template"
+msgstr "Echec de suppression de Template"
+
+#: app_sirene/template_views.py:199
+msgid "Template saved"
+msgstr "Template enregistré"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:12
+#: app_sirene/templates/app_sirene/message_list.html:11
+msgid "Messages"
+msgstr "Messages"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:20
+msgid "Private view"
+msgstr "Page privée"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:27
+#: app_sirene/templates/app_sirene/anonymous_base.html:37
+msgid "Public view"
+msgstr "Page publique"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:36
+#: app_sirene/templates/app_sirene/history.html:10
+msgid "History"
+msgstr "Archive"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:43
+msgid "New notification"
+msgstr "Nouvelle notification"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:51
+msgid "From Template"
+msgstr "Template"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:58
+msgid "Empty form"
+msgstr "Formulaire vide"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:66
+msgid "Public Page only"
+msgstr "Page publique"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:73
+msgid "Send a SMS"
+msgstr "Envoyer un SMS"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:79
+msgid "Configuration"
+msgstr "Configuration"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:85
+msgid "Manage Templates"
+msgstr "Templates"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:92
+msgid "Manage Public Pages"
+msgstr "Pages publiques"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:99
+msgid "Manage Categories"
+msgstr "Catégories"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:105
+msgid "Special"
+msgstr "Spécial"
+
+#: app_sirene/templates/app_sirene/_navbar_app.html:112
+msgid "Archive all"
+msgstr "Tout archiver"
+
+#: app_sirene/templates/app_sirene/_pub_critical.html:15
+#: app_sirene/templates/app_sirene/_pub_info.html:15
+#: app_sirene/templates/app_sirene/_pub_major.html:15
+#: app_sirene/templates/app_sirene/_pub_minor.html:15
+#: app_sirene/templates/app_sirene/_pub_ok.html:17
+#: app_sirene/templates/app_sirene/_pub_other.html:15
+#: app_sirene/templates/app_sirene/history.html:43
+#: app_sirene/templates/app_sirene/message_detail.html:66
+#: app_sirene/templates/app_sirene/message_detail.html:67
+#: app_sirene/templates/app_sirene/message_detail.html:107
+msgid "Created"
+msgstr "Création"
+
+#: app_sirene/templates/app_sirene/anonymous_detail.html:9
+#: app_sirene/templates/app_sirene/category_edit.html:17
+#: app_sirene/templates/app_sirene/message_edit.html:21
+#: app_sirene/templates/app_sirene/message_update.html:20
+#: app_sirene/templates/app_sirene/template_edit.html:22
+msgid "Back"
+msgstr "Retour"
+
+#: app_sirene/templates/app_sirene/anonymous_detail.html:20
+#: app_sirene/templates/app_sirene/message_detail.html:44
+msgid "Initial message on"
+msgstr "Message initial du"
+
+#: app_sirene/templates/app_sirene/anonymous_detail.html:32
+#: app_sirene/templates/app_sirene/message_detail.html:54
+msgid "Updated on "
+msgstr "Mise à jour du "
+
+#: app_sirene/templates/app_sirene/category_edit.html:10
+msgid "Category editor"
+msgstr "Editeur de catégorie"
+
+#: app_sirene/templates/app_sirene/category_edit.html:23
+#: app_sirene/templates/app_sirene/category_edit.html:54
+#: app_sirene/templates/app_sirene/publicpage_edit.html:22
+#: app_sirene/templates/app_sirene/publicpage_edit.html:56
+#: app_sirene/templates/app_sirene/template_edit.html:30
+#: app_sirene/templates/app_sirene/template_edit.html:60
+msgid "Delete"
+msgstr "Supprimer"
+
+#: app_sirene/templates/app_sirene/category_edit.html:44
+#: app_sirene/templates/app_sirene/publicpage_edit.html:46
+#: app_sirene/templates/app_sirene/template_edit.html:50
+msgid "Delete ?"
+msgstr "Supprimer ?"
+
+#: app_sirene/templates/app_sirene/category_edit.html:55
+#: app_sirene/templates/app_sirene/message_detail.html:115
+#: app_sirene/templates/app_sirene/publicpage_edit.html:57
+#: app_sirene/templates/app_sirene/sms_send.html:21
+#: app_sirene/templates/app_sirene/template_edit.html:61
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app_sirene/templates/app_sirene/category_list.html:10
+msgid "Categories"
+msgstr "Catégories"
+
+#: app_sirene/templates/app_sirene/category_list.html:18
+#: app_sirene/templates/app_sirene/publicpage_list.html:18
+#: app_sirene/templates/app_sirene/template_list.html:19
+msgid "New"
+msgstr "Nouveau"
+
+#: app_sirene/templates/app_sirene/category_list.html:27
+msgid "Display"
+msgstr "Nom long"
+
+#: app_sirene/templates/app_sirene/conf_export.html:10
+msgid "Configuration Export"
+msgstr "Export de Configuration"
+
+#: app_sirene/templates/app_sirene/editor.html:10
+msgid "Editor"
+msgstr "Editeur"
+
+#: app_sirene/templates/app_sirene/history.html:48
+msgid "Private"
+msgstr "Privé"
+
+#: app_sirene/templates/app_sirene/message_detail.html:11
+msgid "HISTORY"
+msgstr "ARCHIVE"
+
+#: app_sirene/templates/app_sirene/message_detail.html:22
+msgid "Post an Update"
+msgstr "Mettre à jour"
+
+#: app_sirene/templates/app_sirene/message_detail.html:29
+#: app_sirene/templates/app_sirene/message_detail.html:114
+msgid "To History"
+msgstr "Archiver"
+
+#: app_sirene/templates/app_sirene/message_detail.html:64
+msgid "Message ID"
+msgstr "Message ID"
+
+#: app_sirene/templates/app_sirene/message_detail.html:66
+#: app_sirene/templates/app_sirene/message_detail.html:68
+#: app_sirene/templates/app_sirene/message_detail.html:70
+msgid "date"
+msgstr "date"
+
+#: app_sirene/templates/app_sirene/message_detail.html:67
+#: app_sirene/templates/app_sirene/message_detail.html:69
+#: app_sirene/templates/app_sirene/message_detail.html:71
+msgid "author"
+msgstr "auteur"
+
+#: app_sirene/templates/app_sirene/message_detail.html:68
+#: app_sirene/templates/app_sirene/message_detail.html:69
+msgid "Updated"
+msgstr "Mise à jour"
+
+#: app_sirene/templates/app_sirene/message_detail.html:70
+#: app_sirene/templates/app_sirene/message_detail.html:71
+msgid "Removed"
+msgstr "Retiré"
+
+#: app_sirene/templates/app_sirene/message_detail.html:76
+#: app_sirene/templates/app_sirene/message_detail.html:82
+msgid "No"
+msgstr "Non"
+
+#: app_sirene/templates/app_sirene/message_detail.html:85
+msgid "To"
+msgstr "Destinataires"
+
+#: app_sirene/templates/app_sirene/message_detail.html:85
+msgid "email/sms"
+msgstr "email/sms"
+
+#: app_sirene/templates/app_sirene/message_detail.html:101
+msgid "Send to history ?"
+msgstr "Archiver ?"
+
+#: app_sirene/templates/app_sirene/message_edit.html:11
+msgid "New message"
+msgstr "Nouveau Message"
+
+#: app_sirene/templates/app_sirene/message_edit.html:23
+#: app_sirene/templates/app_sirene/sms_send.html:23
+msgid "Send"
+msgstr "Envoyer"
+
+#: app_sirene/templates/app_sirene/message_list.html:32
+msgid "Message privé"
+msgstr "Message privé"
+
+#: app_sirene/templates/app_sirene/message_list.html:63
+msgid "No message"
+msgstr "Aucun Message"
+
+#: app_sirene/templates/app_sirene/message_update.html:10
+msgid "Message Update"
+msgstr "Mise à jour"
+
+#: app_sirene/templates/app_sirene/message_update.html:23
+#: app_sirene/templates/app_sirene/publicpage_preview.html:18
+msgid "Publish"
+msgstr "Publier"
+
+#: app_sirene/templates/app_sirene/publicpage_edit.html:10
+msgid "Public pages editor"
+msgstr "Editeur de Page publique"
+
+#: app_sirene/templates/app_sirene/publicpage_edit.html:18
+#: app_sirene/templates/app_sirene/template_edit.html:26
+msgid "Save"
+msgstr "Enregistrer"
+
+#: app_sirene/templates/app_sirene/publicpage_edit.html:51
+#: app_sirene/templates/app_sirene/template_list.html:30
+msgid "Public page"
+msgstr "Page publique"
+
+#: app_sirene/templates/app_sirene/publicpage_list.html:10
+msgid "Public pages"
+msgstr "Pages publiques"
+
+#: app_sirene/templates/app_sirene/publicpage_list.html:31
+msgid "Default"
+msgstr "Par défaut"
+
+#: app_sirene/templates/app_sirene/publicpage_preview.html:10
+msgid "Public page preview"
+msgstr "Aperçu de Page Publique"
+
+#: app_sirene/templates/app_sirene/publicpage_selector.html:10
+msgid "Select a Public Page to display"
+msgstr "Choisir une Page Publique à publier"
+
+#: app_sirene/templates/app_sirene/publicpage_selector.html:19
+msgid "Severity/Color"
+msgstr "Sévérité/Couleur"
+
+#: app_sirene/templates/app_sirene/sms_journal.html:10
+msgid "SMS Journal"
+msgstr "Journal SMS"
+
+#: app_sirene/templates/app_sirene/sms_send.html:10
+msgid "SMS Send"
+msgstr "Envoyer un SMS"
+
+#: app_sirene/templates/app_sirene/sms_stat.html:10
+msgid "SMS Stats"
+msgstr "Statistiques SMS"
+
+#: app_sirene/templates/app_sirene/template_edit.html:11
+msgid "Template editor"
+msgstr "Editeur de template"
+
+#: app_sirene/templates/app_sirene/template_list.html:10
+msgid "Templates"
+msgstr "Templates"
+
+#: app_sirene/templates/app_sirene/template_selector.html:10
+msgid "Select template"
+msgstr "Choisir un template"
+
+#~ msgid "Predefined template"
+#~ msgstr "Template prédéfini"
+
+#~ msgid "Empty template"
+#~ msgstr "Template vide"
+
+#~ msgid "Manage"
+#~ msgstr "Gérer"
+
+#~ msgid "Clear all"
+#~ msgstr "Réinitialiser"
+
+#~ msgid "Manage Applications"
+#~ msgstr "Gérer les applications"
+
+#~ msgid "Manage Sites"
+#~ msgstr "Gérer les sites"
+
+#~ msgid "Manage Groups of Sites"
+#~ msgstr "Gérer les groupes de sites"
+
+#~ msgid "Manage Users"
+#~ msgstr "Gérer les utilisateurs"
+
+#~ msgid "Manage Groups"
+#~ msgstr "Gérer les Groupes"
+
+#~ msgid "Export Configuration"
+#~ msgstr "Exporter la configuration"
+
+#~ msgid "Import Configuration"
+#~ msgstr "Importer la configuration"
+
+#~ msgid "Logs"
+#~ msgstr "Journaux"
+
+#~ msgid "Remove"
+#~ msgstr "Cloturer"
+
+#~ msgid "Updates"
+#~ msgstr "Mises à jour"
+
+#~ msgid "Last update"
+#~ msgstr "Dernière mise à jour"

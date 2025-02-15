@@ -1,0 +1,234 @@
+
+# schema: site
+
+- classname: _dataview
+  keyname: site_default
+  target_class: site
+  displayname: Site default view
+  is_enabled: true
+  description: Site default view
+  content: |
+    columns:
+       - keyname
+       - displayname
+       - pole
+       - pole_name
+       - departement
+
+- classname: _dataview
+  keyname: site_postal
+  displayname: Address
+  is_enabled: true
+  description: Site Address
+  target_class: site
+  content: |
+    columns:
+       - keyname
+       - displayname
+       - Pole:
+           from: pole_name
+       - address
+       - city
+       - state
+       - zip
+       - country
+
+- classname: _dataview
+  keyname: site_infra
+  displayname: Site Infrastructures
+  is_enabled: true
+  description: Site Infrastructures
+  target_class: site
+  content: |
+     columns:
+        - keyname
+        - displayname
+        - Region:
+            from: region_name
+        - power
+        - cabling
+        - Network:
+            from: network
+        - IT:
+            from: it_systems
+
+
+- classname: _dataview
+  keyname: site_activity
+  displayname: Site Activities
+  is_enabled: true
+  description: Site Activities
+  target_class: site
+  content: |
+     columns:
+        - keyname
+        - Region:
+            from: region_name
+        - activity_store
+        - activity_factory
+        - activity_hq
+        - activity_other
+
+
+# ----------------------------------
+
+- classname: _schema
+  keyname: site
+  handle_method: keyname
+  #_action: create_or_update
+  displayname: Sites
+  is_enabled: yes
+  order: 60
+  page: Sirene   
+  icon: fa-hospital-o
+  description:
+        _action: create    
+        displayname: Description
+        order: 100
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+  site_id:
+        displayname: Site ID
+        order: 102
+        dataformat: string
+
+  region:
+        displayname: Region
+        page: Localisation
+        order: 105
+        dataformat: schema
+        dataformat_ext: sitegroup
+        cardinal_max: 1
+
+  region_name:
+        displayname: Region Name
+        page: Localisation
+        order: 107
+        dataformat: external
+        dataformat_ext: region displayname string 0 1
+
+
+  address:
+        displayname: Address
+        page: Localisation
+        order: 110
+        dataformat: string                    
+  city:
+        displayname: City
+        page: Address
+        order: 111
+        dataformat: string
+  state:
+        displayname: State
+        page: Address
+        order: 112
+        dataformat: string
+  zip:
+        displayname: Zip code
+        page: Address
+        order: 113
+        dataformat: string
+
+  country:
+        displayname: Country
+        page: Localisation
+        order: 105
+        dataformat: string
+        cardinal_max: 1
+
+  activity_store:
+        displayname: Store
+        page: Activity
+        order: 150
+        dataformat: boolean
+  activity_factory:
+        displayname: Factory
+        page: Activity
+        order: 151
+        dataformat: boolean
+  activity_hq:
+        displayname: Headquarter
+        page: Activity
+        order: 152
+        dataformat: boolean
+  activity_other:
+        displayname:  Other
+        page: Activity
+        order: 153
+        dataformat: boolean
+
+
+  sirene_group:
+        displayname: Notify users
+        page: Sirene
+        order: 500
+        dataformat: group
+        cardinal_max: 0
+    
+  sirene_app:      
+        displayname: Notify apps
+        page: Sirene
+        order: 510           
+        dataformat: schema
+        dataformat_ext: app
+        cardinal_max: 0
+
+  orga_manager:      
+        displayname: Site Manager
+        dataformat: user
+        description: Site Manager
+        order: 600
+        page: Organization
+        cardinal_min: 0
+        cardinal_max: 1
+
+  orga_hr:      
+        displayname: HR Staff
+        dataformat: user
+        description: HR staff
+        order: 601
+        page: Organization
+        cardinal_min: 0
+        cardinal_max: 0
+
+# infra
+
+  power:
+        displayname: Power
+        dataformat: enumerate
+        dataformat_ext: maturite_ABCDE
+        order: 701
+        page: Infrastructure
+        cardinal_min: 0
+        cardinal_max: 1
+
+  cabling:
+        displayname: Cabling
+        dataformat: enumerate
+        dataformat_ext: maturite_ABCDE
+        order: 702
+        page: Infrastructure
+        cardinal_min: 0
+        cardinal_max: 1
+
+  network:
+        displayname: Network
+        dataformat: enumerate
+        dataformat_ext: maturite_ABCDE
+        order: 703
+        page: Infrastructure
+        cardinal_min: 0
+        cardinal_max: 1
+
+  it_systems:
+        displayname: IT Systems
+        dataformat: enumerate
+        dataformat_ext: maturite_ABCDE
+        order: 704
+        page: Infrastructure
+        cardinal_min: 0
+        cardinal_max: 1
+

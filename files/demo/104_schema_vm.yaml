@@ -1,0 +1,111 @@
+# =======================
+# schema: servers & VMs
+# =======================
+
+        
+
+# ------------------------
+
+- classname: _dataview
+  keyname: server_security
+  displayname: IT VM Security
+  is_enabled: true
+  description: IT VM Security
+  target_class: vm
+  content: "columns:\r\n- backup\r\n- firewall\r\n"
+
+# ------------------------
+
+- classname: _schema
+  keyname: vm
+  displayname: VMs
+  handle_method: md5
+  is_enabled: yes
+  icon: fa-server
+  order: 220
+  page: Data
+    
+               
+  name:
+        displayname: FQDN
+        page: General
+        order: 102
+        dataformat: string
+    
+  description:
+        #_action: create
+        displayname: Description
+        page: General
+        order: 104
+        dataformat: string
+        dataformat_ext: ""
+        cardinal_min: 0
+        cardinal_max: 1
+        default : ""
+
+    # high/medium/low
+  criticity:
+        displayname: Criticity
+        page: General
+        order: 106
+        dataformat: string
+
+  # PROD / STAGING / TEST
+  env:
+        displayname: Environment
+        page: General
+        order: 106
+        dataformat: string
+
+  org_site:
+        displayname: Site
+        page: Hosting
+        order: 150
+        dataformat: schema
+        dataformat_ext: site
+        cardinal_max: 0
+        cardinal_max: 1
+
+  cpu:
+        displayname: CPU
+        page: Technical
+        order: 310
+        dataformat: string
+
+  ram:
+        displayname: RAM (MB)
+        page: Technical
+        order: 312
+        dataformat: string
+
+  disk:
+        displayname: Disk (GB)
+        page: Technical
+        order: 314
+        dataformat: string
+
+  os_version:
+        displayname: OS (version)
+        page: Technical
+        order: 320
+        dataformat: string
+    
+# Security
+
+  backup:
+        displayname: Backup
+        page: Security
+        order: 400
+        dataformat: boolean
+
+  firewall:
+        displayname: Firewall
+        page: Security
+        order: 402
+        dataformat: string
+
+  hardened:
+        displayname: Hardened
+        page: Security
+        order: 402
+        dataformat: string
